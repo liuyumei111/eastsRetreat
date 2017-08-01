@@ -1,0 +1,45 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+html,
+body {
+    font-family: "微软雅黑";
+}
+
+* {
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+i{
+    font-style: normal;
+}
+s, strike, del { text-decoration: line-through }/*定义这些元素默认为删除线显示*/

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../css/aui.2.0.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/aui-slide.css">
+</head>
+<body>
+
+<section class="my-index-box">
+    <!--头-->
+    <header class="aui-bar aui-bar-nav" id="aui-header">
+        <div class="aui-title">东东推</div>
+    </header>
+    <!--轮播图-->
+    <nav>
+    <div id="aui-slide3">
+        <div class="aui-slide-wrap" >
+            <div class="aui-slide-node bg-dark">
+                <img src="../images/banner1.1.png" />
+            </div>
+            <div class="aui-slide-node bg-dark">
+                <img src="../images/banner2.2.png" />
+            </div>
+            <div class="aui-slide-node bg-dark">
+                <img src="../images/banner3.3.png" />
+            </div>
+        </div>
+        <div class="aui-slide-page-wrap"><!--分页容器--></div>
+    </div>
+</nav>
+    <!--分享部分-->
+    <section class="my-share">
+        <ul>
+            <li class="my-share-li">
+                <div class="my-share-li-img">
+                    <img src="../images/weixin.png" alt="">
+                </div>
+                <span>微信群发</span>
+                <p>群发精选爆款单品</p>
+            </li>
+            <li class="my-share-li">
+                <div class="my-share-li-img">
+                    <img src="../images/pengyouquan.png" alt="">
+                </div>
+                <span>朋友圈群发</span>
+                <p>高收益一键群发</p>
+            </li>
+            <li class="my-share-li">
+                <div class="my-share-li-img">
+                    <img src="../images/jingxuan.png" alt="">
+                </div>
+                <span>单品精选</span>
+                <p>精选商品 今日必发</p>
+            </li>
+        </ul>
+    </section>
+    <!--平台公告-->
+    <section class="my-notice">
+        <p class="my-notice-text1"><b><img src="../images/notice.png" alt="">平台公告</b></p>
+        <ul>
+            <li class="my-notice-li aui-clearfix">
+                <div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div>
+            </li>
+            <li class="my-notice-li aui-clearfix">
+                <div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div>
+            </li>
+            <li class="my-notice-li aui-clearfix">
+                <div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div>
+            </li>
+            <li class="my-notice-li aui-clearfix">
+                <div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div>
+            </li>
+        </ul>
+
+    </section>
+</section>
+
+<footer class="aui-bar aui-bar-tab" id="footer">
+    <a href="javascript:;">
+        <div class="aui-bar-tab-item my-aui-active" tapmode>
+            <i class="aui-iconfont aui-icon-home"></i>
+            <div class="aui-bar-tab-label">首页</div>
+        </div>
+    </a>
+    <a href="extension.html">
+        <div class="aui-bar-tab-item" tapmode>
+            <i class="aui-iconfont aui-icon-calendar"></i>
+            <div class="aui-bar-tab-label">推广中心</div>
+        </div>
+    </a>
+    <a href="commodity.html">
+        <div class="aui-bar-tab-item" tapmode>
+            <i class="aui-iconfont aui-icon-cert"></i>
+            <div class="aui-bar-tab-label">商品中心</div>
+        </div>
+    </a>
+    <a href="my.html">
+        <div class="aui-bar-tab-item" tapmode>
+            <i class="aui-iconfont aui-icon-my"></i>
+            <div class="aui-bar-tab-label">我</div>
+        </div>
+    </a>
+</footer>
+<script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/api.2.0.js"></script>
+<script src="../js/aui-slide.js"></script>
+<script>
+    $(document).ready(function () {
+        //轮播图
+        var slide3 = new auiSlide({
+            container:document.getElementById("aui-slide3"),
+            // "width":300,
+            "height":184,
+            "speed":500,
+            "autoPlay": 5000, //自动播放
+            "loop":true,
+            "pageShow":true,
+            "pageStyle":'dot',
+            'dotPosition':'center'
+        });
+    });
+</script>
+</body>
+</html>
