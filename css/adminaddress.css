@@ -1,0 +1,88 @@
+header{
+	margin-bottom: 0.25rem;
+}
+header a.right{
+	display: block;
+	color: #e3c9c9;
+	float: right;
+	font-size: 0.6rem;
+	padding-right: 0.5rem;
+}
+.default-address{
+	width: 2.6rem;
+	height: 0.9rem;
+	background-color: #f23030;
+	padding: 0.1rem 0.25rem;
+	color: #fff;
+	font-size: 0.6rem;
+	border-radius: 0.15rem;
+	margin-left: 1.0rem;
+}
+.aui-list-item-inner{
+	margin: 0;
+}
+.order-address-detail{
+	color: #c1c1c1;
+	padding-left: 0.5rem;
+}
+.order-address-name>span:nth-child(1){
+	padding-left: 0.5rem;
+}
+.order-address.order-address1.aui-list-item{
+	position: relative;
+}
+.aui-list-item-inner.aui-swipe-handle {
+	overflow-x: hidden;
+	position: relative;
+	z-index: 1;
+	background-color: #ffffff;
+}
+.aui-swipe-btn {
+	position: absolute;
+	right: 0;
+	top:0;
+	z-index: 0;
+	height: 96%;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-flex: 1;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.aui-swipe-btn .aui-btn {
+	border-radius: 0;
+	height: 96%;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+
+}
+.donghua {
+	-webkit-transition-duration:300ms;
+	transition-duration:300ms;
+}
+.ab{
+	height: 4rem;
+}
+
+
+
+
+
+
+
+
+
+

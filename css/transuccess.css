@@ -1,0 +1,56 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+/* 分享 */
+.my-share{
+    width: 100%;
+    height: 10.0rem;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-top: 1.5rem;
+    display: none
+}
+.my-share>ul{
+    display: -webkit-flex;
+    display: flex;
+}
+.my-share-li{
+    height: 100%;
+    width: 33.33%;
+    text-align: center;
+}
+.my-share-li>span{
+    font-size: 0.8rem;
+    color: #333333;
+}
+.my-share-li>p{
+    font-size: 0.6rem;
+    color: #666666;
+}
+
+.my-share-li-img{
+    width: 3.2rem;
+    height: 3.2rem;
+    margin: 0 auto;
+    margin-bottom: 0.35rem;
+}
+.my-share-li-img>img{
+    width: 100%;
+    height: 100%;
+}
+.my-share-del1{
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto;
+    margin-top: 1.1rem;
+}
+.my-share-del1>img{
+    width: 100%;
+    height: 100%;
+}

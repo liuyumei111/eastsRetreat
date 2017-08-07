@@ -8,12 +8,387 @@
     <link rel="stylesheet" href="../css/aui.2.0.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/common1.css">
+    <link rel="stylesheet" href="../css/commodity.css">
 </head>
 <body>
-
+<!--搜索框-->
+<header>
+    <div class="aui-searchbar my-aui-searchbar" id="search">
+        <div class="aui-searchbar-input aui-border-radius" tapmode onclick="doSearch()">
+            <i class="aui-iconfont aui-icon-search"></i>
+            <form action="javascript:search();">
+                <input type="search" placeholder="请在此输入商品名称" id="search-input">
+            </form>
+        </div>
+        <div class="aui-searchbar-cancel" tapmod>取消搜索</div>
+    </div>
+</header>
+<section class="comm-box">
+    <div class="dis-select-box">
+        <select>
+            <option value="全部">全部(100)</option>
+            <option value="男装">女装(20)</option>
+            <option value="童装">童装(20)</option>
+            <option value="情侣装">情侣装(60)</option>
+        </select>
+        <select>
+            <option value="全部">默认排序</option>
+            <option value="价格由低到高">价格由低到高</option>
+            <option value="价格由高到低">价格由高到低</option>
+            <option value="销量由高到低">销量由高到低</option>
+        </select>
+        <div class="dis-screen-btn dis-screen-active">筛选</div>
+        <div class="dis-screen">
+            <div class="dis-screen-price">
+                <div class="dis-price-section">价格区间</div>
+                <div class="dis-screen-select">
+                    <div class="dis-low-price">最低价</div>
+                    <div class="dis-price-line"></div>
+                    <div class="dis-high-price">最高价</div>
+                </div>
+                <div class="dis-screen-select">
+                    <div class="dis-low-sales">最低销量</div>
+                    <div class="dis-price-line"></div>
+                    <div class="dis-high-sales">最销量</div>
+                </div>
+                <div class="aui-list-item-inner">
+                    <label><input class="aui-radio" checked type="radio" name="radio2"> 退货免运费</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dis-list-vessel" class="mar-bottom">
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:;" class="display-box">
+            <div class="dis-list-box">
+                <div class="dis-shop-img">
+                    <img src="../images/22.jpg" alt="">
+                </div>
+                <div class="dis-list-content">
+                    <div class="dis-shop-detail">
+                        <span>红包20.00元</span>
+                        <span>退货免运费</span>
+                        <span>我爱北京天安门我爱北京天安门</span>
+                    </div>
+                    <div class="dis-price">
+                        <span>优惠价:108:00</span>
+                        <span>销量：269</span>
+                    </div>
+                    <div class="dis-evaluate">
+                        <span>赚:30.61元</span>
+                        <span>佣金率：28.9%</span>
+                    </div>
+                    <div class="dis-sale">
+                        <span>立即推广</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
 
 <footer class="aui-bar aui-bar-tab" id="footer">
-    <a href="index.html">
+    <a href="extension.html">
         <div class="aui-bar-tab-item" tapmode>
             <i class="aui-iconfont aui-icon-home"></i>
             <div class="aui-bar-tab-label">首页</div>
@@ -38,5 +413,18 @@
         </div>
     </a>
 </footer>
+
+<script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/api.2.0.js"></script>
+<script src="../js/search.js"></script>
+<script>
+    $(document).ready(function () {
+        /*筛选按钮的切换*/
+        $('.dis-screen-btn').click(function () {
+            $('.dis-screen').toggle();
+        });
+
+    });
+</script>
 </body>
 </html>

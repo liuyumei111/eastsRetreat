@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>收货地址</title>
+    <link rel="stylesheet" href="../css/aui.2.0.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/common1.css">
+    <link rel="stylesheet" href="../css/adminaddress.css">
+</head>
+<body>
+<header class="aui-bar aui-bar-nav">
+    <a class="aui-pull-left aui-btn">
+        <span class="aui-iconfont aui-icon-left"></span>
+    </a>
+    <div class="aui-title">收货地址</div>
+    <a href="addaddress.html" class="right nojump">添加地址</a>
+</header>
+<nav>
+    <ul id="address-list-box">
+        <li class="order-address order-address1 aui-list-item">
+            <div class="aui-list-item-inner aui-swipe-handle ab">
+                <div class="order-address-name ">
+                    <span>我最美</span>
+                    <span>130****2365</span>
+                    <span class="default-address">默认地址</span>
+                </div>
+                <div class="order-address-detail">
+                    北京市朝阳区酒仙桥极地国际创新中心三层
+                </div>
+            </div>
+            <div class="aui-swipe-btn">
+                <div class="aui-btn aui-btn-danger">删除</div>
+            </div>
+        </li>
+    </ul>
+</nav>
+<script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/handlebars-v4.0.10.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/api.2.0.js"></script>
+<script src="../js/aui-list-swipe.js"></script>
+<script>
+    var swipe = new auiListSwipe(function(ret){
+        // console.log(ret)
+    });
+</script>
+
+</body>
+</html>

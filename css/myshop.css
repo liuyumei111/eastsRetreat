@@ -1,0 +1,335 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+header{
+    width: 100%;
+    height: 5.5rem;
+    background-color: rgb(253, 99, 21);
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1.0rem;
+    color: #1b1b1b;
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
+    position: relative;
+}
+nav{
+    font-size: 0.7rem;
+}
+.user-photo{
+    width: 3.0rem;
+    height: 3.0rem;
+    border-radius: 50%;
+}
+.member-info{
+    margin-left: 0.5rem;
+}
+.member-info>div:nth-child(1){
+    font-size: 0.65rem;
+    color: #fefdfd;
+}
+.member-info>div:nth-child(2){
+    font-size: 0.6rem;
+    color: #ffffff;
+}
+.member-info>div:nth-child(3){
+   width: 5.0rem;
+   height: 1.25rem;
+   background-color: #ffffff;
+   border-radius: 0.55rem;
+   text-align: center;
+   line-height: 1.25rem;
+   position: absolute;
+   top: 1.25rem;
+   right: -0.5rem;
+}
+.earn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3.0rem;
+    height: 1.0rem;
+    background-color: #f23030;
+    line-height: 1rem;
+    text-align: center;
+}
+.earn>span{
+    font-size: 0.6rem;
+    color: #fff;
+}
+.dis-del-sale{
+    display: flex;
+    display: -webkit-flex;
+    /*justify-content: space-around;*/
+    align-items: center;
+    width: 100%;
+
+}
+.dis-del{
+    width: 1.05rem;
+    height: 1.05rem;
+    background: url("../images/del.png")no-repeat;
+    background-size: cover;
+    margin-right:4.5rem;
+    margin-top: 0.2rem;
+}
+.myshop-share{
+    width: 100%;
+    height: 10.0rem;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+/* 分享 */
+.my-share{
+    width: 100%;
+    height: 10.0rem;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-top: 1.5rem;
+    display: none
+}
+.my-share>ul{
+    display: -webkit-flex;
+    display: flex;
+}
+.my-share-li{
+    height: 100%;
+    width: 33.33%;
+    text-align: center;
+}
+.my-share-li>span{
+    font-size: 0.8rem;
+    color: #333333;
+}
+.my-share-li>p{
+    font-size: 0.6rem;
+    color: #666666;
+}
+
+.my-share-li-img{
+    width: 3.2rem;
+    height: 3.2rem;
+    margin: 0 auto;
+    margin-bottom: 0.35rem;
+}
+.my-share-li-img>img{
+    width: 100%;
+    height: 100%;
+}
+.my-share-del1{
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto;
+    margin-top: 1.1rem;
+}
+.my-share-del1>img{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 删除商品层*/
+
+.myshop-del{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    top:0;
+    left: 0;
+    display: none
+}
+.myshop-del-item{
+    width: 15.0rem;
+    height: 8.5rem;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 0.25rem;
+}
+.item-text{
+    width: 100%;
+    height: 2.25rem;
+    text-align: center;
+    line-height: 2.25rem;
+    border-bottom: 0.1rem solid #e9e9e9;
+}
+.item-text>span{
+    color: #1b1b1b;
+    font-size: 0.7rem;
+}
+.item-detail{
+    width: 100%;
+    height: 4.0rem;
+    border-bottom: 0.1rem solid #e9e9e9;
+    padding: 0.5rem;
+}
+.item-detail-left{
+    width: 5.0rem;
+    height: 3.0rem;
+    float: left;
+
+}
+.item-detail-left>img{
+    width: 100%;
+    height: 100%;
+}
+
+.item-detail-right{
+    width: 8.5rem;
+    height: 100%;
+    float: right;
+}
+.item-detail-right>p{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    font-size: 0.65rem;
+}
+.item-detail-right>p>span{
+    width: 3.0rem;
+    height: 0.6rem;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 0.15rem;
+    font-size: 0.6rem;
+    margin-right: 0.5rem;
+     padding: 0 0.25rem;
+}
+.item-cal-del{
+    width: 100%;
+    height: 2.3rem;
+    display: flex;
+display: -webkit-flex;
+justify-content: space-around;
+align-items: center;
+}
+.item-cal-del>div:nth-child(1){
+    font-size: 0.65rem;
+    color: #1b1b1b;
+    border-right: 0.1rem solid #cccccc;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 80%
+
+}
+.item-cal-del>div:nth-child(2){
+    font-size: 0.65rem;
+     color: #1b1b1b;
+     display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 80%
+}
+.myshop-share{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    top:0;
+    left: 0;
+    display: none;
+}
+.myshop-share-item{
+    width: 16.75rem;
+    height: 17.0rem;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 0.25rem;
+    background-color: #fff；
+}
+.myshop-share-item-title{
+    width: 100%;
+    height: 2.2rem;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+.myshop-share-item-title>p{
+    font-size: 0.65rem;
+}
+.myshop-share-item-title>.zhang{
+    font-size: 0.8rem;
+    color: #1b1b1b;
+
+}
+.myshop-share-item-title>.close{
+    font-size: 0.65rem;
+    color: #f23030;
+}
+.myshop-share-item-img{
+    width: 16.75rem;
+    height: 7.55rem;
+}
+.myshop-share-item-img>img{
+    width: 100%;
+    height: 100%;
+}
+.myshop-share-item-code{
+    height: 7.25rem;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    /* padding-top: 10px; */
+    padding-left: 0.5rem
+    
+}
+.myshop-item-code{
+    width: 4.55rem;
+    height: 4.55rem;
+}
+.myshop-item-code>img{
+   /*  width: 4.55rem;
+    height: 4.55rem; */
+    width: 100%;
+    height: 100%;
+}
+
+.myshop-item-code-text>span{
+    color: #d3d3d3;
+    font-size: 0.65rem;
+}
+.myshop-share-item-deposit{
+    position: absolute;
+    left: 35%;
+    bottom: -2.5rem;
+    width: 4.66rem;
+    height: 3.6rem;
+}
+.myshop-share-item-deposit>img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+

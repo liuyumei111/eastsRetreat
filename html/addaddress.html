@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>添加收货地址</title>
+    <link rel="stylesheet" href="../css/aui.2.0.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/LArea.min.css">
+    <link rel="stylesheet" href="../css/addaddress.css">
+</head>
+<body>
+<header class="aui-bar aui-bar-nav">
+    <a class="aui-pull-left aui-btn">
+        <span class="aui-iconfont aui-icon-left"></span>
+    </a>
+    <div class="aui-title">添加收货地址</div>
+</header>
+<nav>
+    <ul class="add-list-box">
+        <li class="add-list">
+            <input id="nmdName" maxLength=7 type="text" placeholder="联系人">
+        </li>
+        <li class="add-list">
+            <input id="nmdPhone" type="number" maxLength=11 placeholder="联系电话">
+        </li>
+        <li class="add-list" >
+            <input id="arrAdress" type="text" placeholder="所在地区">
+        </li>
+        <li class="add-list">
+            <input id="nmdStreet" type="text" placeholder="输入街道">
+        </li>
+        <li class="add-list">
+            <input id="nmdDetailAddress" type="text" placeholder="请输入详细地址">
+        </li>
+        <li class="aui-list-item ">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">设为默认地址</div>
+                <div class="aui-list-item-right">
+                    <input id="defaultShouhuo" type="checkbox" class="aui-switch" checked>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<footer id="nmbSubmit">完成</footer>
+
+
+<script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/LAreaData1.js"></script>
+<script src="../js/LAreaData2.js"></script>
+<script src="../js/LArea.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/addAddress.js"></script>
+</body>
+</html>

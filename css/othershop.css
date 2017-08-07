@@ -1,0 +1,103 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+header{
+    width: 100%;
+    height: 5.5rem;
+    background-color: rgb(253, 99, 21);
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1.0rem;
+    color: #1b1b1b;
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
+    position: relative;
+}
+nav{
+    font-size: 0.7rem;
+}
+.user-photo{
+    width: 3.0rem;
+    height: 3.0rem;
+    border-radius: 50%;
+}
+.member-info{
+    margin-left: 0.5rem;
+}
+.member-info>div:nth-child(1){
+    font-size: 0.65rem;
+    color: #fefdfd;
+}
+.member-info>div:nth-child(2){
+    width: 6.0rem;
+    height: 1.25rem;
+    background-color: #ffffff;
+    border-radius: 0.55rem;
+    text-align: center;
+    line-height: 1.25rem;
+    position: absolute;
+    top: 1.25rem;
+    right: -0.5rem;
+}
+.dis-del-sale{
+    display: flex;
+    display: -webkit-flex;
+    /*justify-content: space-around;*/
+    align-items: center;
+    width: 100%;
+
+}
+/* 分享 */
+.my-share{
+    width: 100%;
+    height: 10.0rem;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-top: 1.5rem;
+    display: none
+}
+.my-share>ul{
+    display: -webkit-flex;
+    display: flex;
+}
+.my-share-li{
+    height: 100%;
+    width: 33.33%;
+    text-align: center;
+}
+.my-share-li>span{
+    font-size: 0.8rem;
+    color: #333333;
+}
+.my-share-li>p{
+    font-size: 0.6rem;
+    color: #666666;
+}
+
+.my-share-li-img{
+    width: 3.2rem;
+    height: 3.2rem;
+    margin: 0 auto;
+    margin-bottom: 0.35rem;
+}
+.my-share-li-img>img{
+    width: 100%;
+    height: 100%;
+}
+.my-share-del1{
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto;
+    margin-top: 1.1rem;
+}
+.my-share-del1>img{
+    width: 100%;
+    height: 100%;
+}

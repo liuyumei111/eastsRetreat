@@ -1,0 +1,175 @@
+
+.friends-box{
+	width: 100%;
+	height: 100%;
+
+}
+.friends-box-content>li{
+	border-top: 0.1rem solid #e9e9e9;
+}
+.friends-box-proposal{
+	width: 100%;
+	height: 2.15rem;
+	border-bottom: 0.1rem solid #e9e9e9;
+	display: flex;
+display: -webkit-flex;
+justify-content: flex-start;
+align-items: center;
+}
+.friends-timer{
+	width: 1.15rem;
+	height: 1.15rem;
+	background: url('../images/time.png')no-repeat;
+	background-size: cover;
+	margin:0 0.5rem 0 1.1rem;
+
+}
+.friends-box-proposal>span{
+	color: #1b1b1b;
+	font-size: 0.6rem;
+}
+.friends-box-detail{
+	width: 12.7rem;
+	height: 100%;
+	margin: 0 auto;
+	padding-top: 0.7rem;
+	position: relative;
+
+}
+.friends-detail-user{
+	font-size: 0.65rem;
+}
+.friends-detail-text1 ,.friends-detail-text2{
+	font-size: 0.6rem;
+
+}
+.friends-box-detail-ul>li{
+	width: 3.9rem;
+	height: 3.9rem;
+	margin-bottom: 0.5rem;
+}
+.friends-box-detail-ul>li>img{
+	width: 100%;
+	height: 100%;
+}
+.friends-box-detail-ul{
+	margin-top: 1rem;
+		display: flex;
+display: -webkit-flex;
+justify-content: space-around;
+/* justify-content: flex-start; */
+align-items: center;
+width: 100%;
+flex-wrap: wrap;
+}
+.friends-detail-bottom{
+	width: 100%;
+	height: 1.5rem;
+	background-color: #f23030;
+	border-radius: 0.25rem;
+	text-align: center;
+	line-height: 1.5rem;
+	font-size: 0.6rem;
+	color: #fff;
+	margin:0.25rem 0 0.75rem 0;
+}
+.friends-box-detail-tx{
+	position: absolute;
+	top: 16px;
+    left: -54px;
+	width: 2.15rem;
+	height: 2.15rem;
+}
+.friends-box-detail-tx>img{
+	width: 100%;
+	height: 100%;
+}
+/* 分享到朋友圈的层 */
+.friends-share{
+	width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.friends-share-item{
+	width: 16.75rem;
+    height: 9.95rem;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 0.25rem;
+}
+.friendsshare-item-title{
+    height: 2.25rem;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 0.1rem solid #e9e9e9;
+}
+.friendsshare-item-title>span{
+	font-size: 0.65rem;
+	color: #1b1b1b;
+}
+.friendsshare-item-title>span:nth-child(3){
+	color: #f23030;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 20%;
+}
+.friendsshare-item-title>span:nth-child(1){
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 20%;
+}
+.friendsshare-item-title>span:nth-child(2){
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 60%;
+}
+.friendsshare-item-con{
+	width: 100%;
+	height: 7.75rem;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.friendsshare-con-textarea{
+	height: 7.7rem;
+	width: 70%;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 0.6rem;
+	padding:0.5rem 0 0 0.5rem; 
+	overflow-y: scroll;
+	overflow-x: hidden;
+	text-indent: 1.0rem;
+}
+.friendsshare-con-img{
+	height: 3.75rem;
+	width: 22.5%;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.friendsshare-con-img>img{
+	width: 100%;
+	height: 100%;
+}

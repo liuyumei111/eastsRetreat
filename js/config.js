@@ -1,0 +1,69 @@
+/**
+ * Created by Administrator on 2017/7/27.
+ */
+
+(function (w) {
+    var apiHost=' http://192.168.199.154:8081';
+    
+    //配置项
+    w.C={};
+    //域名
+    C.host=apiHost+'/mall/mobile/';
+
+    //是否开启打印日志
+    C.debug=true;
+    //是否正在维护
+    C.isWeihu=false;
+    //手机验证正则
+    C.phoneReg = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    //邮箱验证正则
+    C.emailReg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    //安全码验证正则
+    C.selfNumberReg = /^[0-9a-zA-Z]{8,16}$/;
+    //发送验证码时间
+    C.putCodeTime=60;
+
+    C.token='201708031209898169cdb594d601fc4471a9c3bab8c7fe386b';
+    //接口
+    C.interface={
+
+        //折扣商城
+        discount:'product/index',
+        //商品详情
+        detail:'product/detail',
+
+        //意见反馈
+        opinion:'uc/feedback/add',
+        //商品类别
+        selectType:'index/categorys',
+        //显示所有的收货地址
+        allAddress:'uc/address/list',
+        //添加收货地址
+        addAddress:'uc/address/add',
+        //修改收货地址
+        insertAddress:'uc/address/edit',
+        //删除收货地址
+        deleteAddress:'uc/address/delete'
+        
+
+    };
+    //组合接口地址
+    for (k in C.interface){
+        C.interface[k]=C.host + C.interface[k];
+    }
+
+
+})(window);
+
+
+
+
+
+
+
+
+
+
+
+
+

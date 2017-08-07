@@ -8,18 +8,25 @@
     <link rel="stylesheet" href="../css/aui.2.0.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/common1.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/aui-slide.css">
 </head>
 <body>
-
-<section class="my-index-box">
-    <!--头-->
-    <header class="aui-bar aui-bar-nav" id="aui-header">
-        <div class="aui-title">东东推</div>
-    </header>
-    <!--轮播图-->
-    <nav>
+<!--搜索框-->
+<header>
+    <div class="aui-searchbar my-aui-searchbar" id="search">
+        <div class="aui-searchbar-input aui-border-radius" tapmode onclick="doSearch()">
+            <i class="aui-iconfont aui-icon-search"></i>
+            <form action="javascript:search();">
+                <input type="search" placeholder="请在此输入商品名称" id="search-input">
+            </form>
+        </div>
+        <div class="aui-searchbar-cancel" tapmod>取消搜索</div>
+    </div>
+</header>
+<!--轮播图-->
+<nav>
     <div id="aui-slide3">
         <div class="aui-slide-wrap" >
             <div class="aui-slide-node bg-dark">
@@ -35,52 +42,140 @@
         <div class="aui-slide-page-wrap"><!--分页容器--></div>
     </div>
 </nav>
-    <!--分享部分-->
-    <section class="my-share">
-        <ul>
-            <li class="my-share-li">
-                <div class="my-share-li-img">
-                    <img src="../images/weixin.png" alt="">
+<!--时间卡-->
+<div class="wrap" id="wrap">
+    <ul class="tabClick">
+        <li class="active">
+            <div>10:00</div>
+            <div>抢购中</div>
+        </li>
+        <li>
+            <div>14:00</div>
+            <div>即将开始</div>
+        </li>
+        <li>
+            <div>18:00</div>
+            <div>即将开始</div>
+        </li>
+        <li>
+            <div>22:00</div>
+            <div>即将开始</div>
+        </li>
+    </ul>
+    <div class="lineBorder">
+        <div class="lineDiv"><!--移动的div--></div>
+    </div>
+    <div class="tabCon">
+        <div class="tabBox">
+            <div id="tab1" class="tabList">
+                <div class="home-three">
+                    <a href="javascript:;" class="display-box">
+                        <div class="home-three-box">
+                            <img src="../images/11.jpg" alt="">
+                            <div class="home-three-price">
+                                <span>￥188</span>
+                                <span>￥998</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="display-box">
+                        <div class="home-three-box">
+                            <img src="../images/11.jpg" alt="">
+                            <div class="home-three-price">
+                                <span>￥188</span>
+                                <span>￥998</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="display-box">
+                        <div class="home-three-box">
+                            <img src="../images/11.jpg" alt="">
+                            <div class="home-three-price">
+                                <span >￥188</span>
+                                <span>￥998</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <span>微信群发</span>
-                <p>群发精选爆款单品</p>
-            </li>
-            <li class="my-share-li">
-                <div class="my-share-li-img">
-                    <img src="../images/pengyouquan.png" alt="">
-                </div>
-                <span>朋友圈群发</span>
-                <p>高收益一键群发</p>
-            </li>
-            <li class="my-share-li">
-                <div class="my-share-li-img">
-                    <img src="../images/jingxuan.png" alt="">
-                </div>
-                <span>单品精选</span>
-                <p>精选商品 今日必发</p>
-            </li>
-        </ul>
-    </section>
-    <!--平台公告-->
-    <section class="my-notice">
-        <p class="my-notice-text1"><b><img src="../images/notice.png" alt="">平台公告</b></p>
-        <ul>
-            <li class="my-notice-li aui-clearfix">
-                <div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div>
-            </li>
-            <li class="my-notice-li aui-clearfix">
-                <div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div>
-            </li>
-            <li class="my-notice-li aui-clearfix">
-                <div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div>
-            </li>
-            <li class="my-notice-li aui-clearfix">
-                <div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div>
-            </li>
-        </ul>
 
-    </section>
-</section>
+                <div class="home-shop-box">
+                    <img src="../images/banner1.png" alt="">
+                    <div class="home-shop-text">
+                        <span>红包20.00元</span>
+                        <span>【现货速发】不知道这是写的啥，反正以后这个文本是要替换掉的，就是随便填充下先。</span>
+                    </div>
+                    <div class="home-shop-text-price">
+                        <!--优惠列-->
+                        <div class="index-shop-benefit">
+                            <p>优惠价:1008:00</p>
+                            <span>赚:31.2</span>
+                        </div>
+                        <!--销量列-->
+                        <div class="index-shop-pin">
+                            <p>销量:269</p>
+                            <span>佣金率:31.2%</span>
+                        </div>
+                        <!--立即推广按钮-->
+                        <div class="index-shop-push"><span>立即推广</span></div>
+                    </div>
+                </div>
+
+                <div class="home-shop-box">
+                    <img src="../images/banner1.png" alt="">
+                    <div class="home-shop-text">
+                        <span>红包20.00元</span>
+                        <span>【现货速发】不知道这是写的啥，反正以后这个文本是要替换掉的，就是随便填充下先。</span>
+                    </div>
+                    <div class="home-shop-text-price">
+                        <!--优惠列-->
+                        <div class="index-shop-benefit">
+                            <p>优惠价:1008:00</p>
+                            <span>赚:31.2</span>
+                        </div>
+                        <!--销量列-->
+                        <div class="index-shop-pin">
+                            <p>销量:269</p>
+                            <span>佣金率:31.2%</span>
+                        </div>
+                        <!--立即推广按钮-->
+                        <div class="index-shop-push"><span>立即推广</span></div>
+                    </div>
+                </div>
+                <div class="home-shop-box">
+                    <img src="../images/banner1.png" alt="">
+                    <div class="home-shop-text">
+                        <span>红包20.00元</span>
+                        <span>【现货速发】不知道这是写的啥，反正以后这个文本是要替换掉的，就是随便填充下先。</span>
+                    </div>
+                    <div class="home-shop-text-price">
+                        <!--优惠列-->
+                        <div class="index-shop-benefit">
+                            <p>优惠价:1008:00</p>
+                            <span>赚:31.2</span>
+                        </div>
+                        <!--销量列-->
+                        <div class="index-shop-pin">
+                            <p>销量:269</p>
+                            <span>佣金率:31.2%</span>
+                        </div>
+                        <!--立即推广按钮-->
+                        <div class="index-shop-push"><span>立即推广</span></div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab2" class="tabList">
+                2
+            </div>
+            <div id="tab3" class="tabList">
+                3
+            </div>
+            <div id="tab4" class="tabList">
+                4
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
 
 <footer class="aui-bar aui-bar-tab" id="footer">
     <a href="javascript:;">
@@ -110,6 +205,8 @@
 </footer>
 <script src="../js/jquery-3.0.0.min.js"></script>
 <script src="../js/api.2.0.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/tab.js"></script>
 <script src="../js/aui-slide.js"></script>
 <script>
     $(document).ready(function () {
@@ -124,6 +221,26 @@
             "pageShow":true,
             "pageStyle":'dot',
             'dotPosition':'center'
+        });
+
+//        时间卡
+        var navTab=$('.tabClick');
+        var tabTop=navTab.offset().top;
+        console.log(tabTop);
+
+        var wh=$(window).height();
+        console.log(wh);
+
+
+        $('#tab1').scroll(function () {
+            var ws=$(window).scrollTop();
+            var s=wh-ws;
+            console.log(s);
+
+            if (ws>=tabTop){
+                alert('小于200了')
+            }
+
         });
     });
 </script>
