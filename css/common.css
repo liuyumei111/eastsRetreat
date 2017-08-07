@@ -1,8 +1,8 @@
 /*重复样式*/
 html,body{
     font-family:'Microsoft Yahei','Simsun',Arial, Helvetica, sans-serif;
-    width: 100%;
-    height: 100%;
+    /*width: 100%;
+    height: 100%;*/
     overflow-x: hidden;
     overflow-y: scroll;
     /* background-color: #fff; */
@@ -167,3 +167,11 @@ footer{
     color: #fff;
 
 }
+
+.loading,.no-info{
+    font-size: 0.7rem;
+    text-align: center;
+    display: none;
+    
+}
+
