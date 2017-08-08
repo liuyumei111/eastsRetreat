@@ -3,13 +3,14 @@
  */
 
 (function (w) {
-    var apiHost=' http://192.168.199.231:8081';
+    var apiHost=' http://192.168.199.107:8081';
+    var marketHost=' http://192.168.199.107:8083';
     
     //配置项
     w.C={};
     //域名
     C.host=apiHost+'/mall/mobile/';
-    C.market=apiHost+'market/mobile';
+    C.market=marketHost+'/market/mobile/';
 
     //是否开启打印日志
     C.debug=true;
@@ -25,14 +26,13 @@
     C.putCodeTime=60;
 
     C.token='201708031209898169cdb594d601fc4471a9c3bab8c7fe386b';
+    C.marketToken='201708081456494396f958ae5f48764562a6025ecc7215a9da';
     //mall接口
     C.interface={
-
         //折扣商城首页
         discount:'product/index',
         //商品详情
         detail:'product/detail',
-
         //意见反馈
         opinion:'uc/feedback/add',
         //商品类别
@@ -50,6 +50,10 @@
     };
     //market接口
     C.marketInterface={
+        //店铺分享
+        share:'store/share',
+        myShop:'uc/store/index'
+
 
     };
     //组合mall接口地址
@@ -58,8 +62,8 @@
     }
 
     //组合market接口地址
-    for (k in C.interface){
-        C.marketInterface[k]=C.market+C.interface[k];
+    for (k in C.marketInterface){
+        C.marketInterface[k]=C.market+C.marketInterface[k];
     }
 
 

@@ -10,6 +10,7 @@
 $(document).ready(function () {
     
 
+/*
 
 $(document).on("click.jumpurl", 'a', function (event) {
     //有nojump class 的不做跳转处理
@@ -23,24 +24,25 @@ $(document).on("click.jumpurl", 'a', function (event) {
     }
 });
 
-/**
+/!**
  * 跳转页面
  * @param url
- * */
+ * *!/
 function jumpUrl(url) {
     location.href=versionUrl(url);
 }
 
-/**
+/!**
  * 拼接 跳转URL 加上版本号
  * @param url
  * @returns {string}
- */
+ *!/
 function versionUrl(url) {
     url = url.replace(/[\?|&]vt=\d+/, '');
     return url;
     //return url + (url.indexOf("?") > -1 ? "&" : "?") + 'vt=' + C.versionTime;
 }
+*/
 
 
 /*后退一步*/

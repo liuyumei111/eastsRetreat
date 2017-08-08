@@ -1,5 +1,7 @@
 body,html{
     background: #fff;
+	width: 100%;
+	height: 100%;
 }
 .goodsdetail-detail{
 	width: 100%;
@@ -233,5 +235,26 @@ width: 50%;
 	font-size: 0.6rem;
 	color: #c1c1c1
 }
+.goods-detail-price{
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.now-generalize{
+	width: 3.25rem;
+	height: 1.1rem;
+	line-height: 1.1rem;
+	background-color: #f23030;
+	font-size: 0.6rem;
+	border-radius: 0.15rem;
+	text-align: center;
+	color: #fff;
+	overflow: hidden;
+}
+nav,.aui-slide3,.bg-dark>img,.aui-slide-wrap{
+	height: 17.0rem;
+}
+
 
 
