@@ -25,11 +25,11 @@
         }
     });
 
-
     function ajaxgetData() {
         if (flag){
-            return
+            return;
         }
+        $('.no-info').hide();
         $('.loading').show();
         flag=1;
         $.ajax({
@@ -55,9 +55,9 @@
                         $('#dis-list-vessel').append(oneProductCmp(data));
                     }else {
                         $('.no-info').show();
+                        num=maxnum+1;
                     }
                     flag=0;
-
 
                 }else {
                     alert(response.errorMsg);
