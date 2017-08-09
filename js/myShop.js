@@ -5,8 +5,8 @@
 $(document).ready(function () {
 
     //商品类别
-    var selectTpl=$('#my-select-template').html();
-    var selectCmp=Handlebars.compile(selectTpl);
+    var selectTpl=$('#my-select-template').html();        //获取到页面中的html代码块
+    var selectCmp=Handlebars.compile(selectTpl);            //让Handlebars编译获取到的html代码
 
     //商品信息
     var myShopInfo=$('#my-shop-template').html();
@@ -36,8 +36,10 @@ $(document).ready(function () {
         dataType:'json',
         data:{},
         success:function (response) {
+            //如果数据请求成功
             if (response.result=='success'){
                 var selectData=response.data;
+                //把Handlebars编译后数据放入到页面中
                 $('#my-shop-box').html(selectCmp(selectData));
 
                 ajaxGetShopData();

@@ -227,12 +227,12 @@ width: 25%;
 /* 关于我们 */
 
 .aboutus-box{
-	width: 100%；
+	width: 100%;
 	height: 100%;
 }
 .aboutus-box>ul{
 	margin-top: 2.5rem;
-	width: 100%；
+	width: 100%;
 	height: 100%;
 }
 .aboutus-box>ul>li{
@@ -257,12 +257,12 @@ width: 25%;
 .notice-title{
 	width: 17.8rem;
 	height: 3.0rem;
-		display: flex;
+	display: flex;
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
 	border-bottom: 0.1rem solid #e9e9e9;
-	margin: 0 0.5rem;
+	margin: 0 auto;
 }
 .notice-title>b{
 	font-size: 0.65rem;
@@ -271,7 +271,7 @@ width: 25%;
 .notice-img{
 	width: 17.8rem;
 	height: 8.65rem;
-	margin: 0.5rem;
+	margin: 0 auto;
 }
 .notice-img>img{
 	width: 100%;
@@ -280,7 +280,7 @@ width: 25%;
 .notice-text{
 	width: 17.8rem;
 	height: 8.65rem;
-	margin: 0.5rem;
+	margin: 0 auto;
 	text-indent: 1.5rem;
 }
 .notice-text>p{
