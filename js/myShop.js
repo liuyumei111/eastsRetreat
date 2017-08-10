@@ -95,7 +95,9 @@ $(document).ready(function () {
         if (flag){
             return;
         }
+        $('.no-info').hide();
         $('.loading').show();
+
         flag=1;
         $.ajax({
             url:C.marketInterface.myShop,
