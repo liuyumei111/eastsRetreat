@@ -12,40 +12,46 @@
     <link rel="stylesheet" href="../css/my.css">
 </head>
 <body>
-<header>
-    <img class="user-photo" src="../images/user.jpg" alt="">
-    <div class="member-info">
-        <div>李炳辉</div>
-        <div>12345678911</div>
-    </div>
-</header>
-<nav>
-    <div class="member-withdraw">
-        <div>可用余额 <span>00000000000元</span></div>
-        <div>提现</div>
-    </div>
-    <div class="member-order">
-        <ul class="member-order-list">
-            <li class="li-bor">
-                <div class="three"></div>
-                <div>
-                    <span class="ab e9-color">待收益</span><br>
-                    <span>10000.00</span>
-                </div>
 
-            </li>
-            <li>
-                <div class="four"></div>
-                <div>
-                    <span class="cd e9-color">累计收益</span><br>
-                    <span>10000.00</span>
-                </div>
+<div class="my-box1" id="my-box1">
+    <script type="text/x-handlebars-template" id="my-template">
+        <header>
+            <img class="user-photo" src="../images/user.jpg" alt="">
+            <div class="member-info">
+                <div>{{userNickName}}</div>
+                <div>{{userPhone}}</div>
+            </div>
+        </header>
+        <div class="member-withdraw">
+            <div>可用余额 <span>{{money}}元</span></div>
+            <div>提现</div>
+        </div>
+        <div class="member-order">
+            <ul class="member-order-list">
+                <li class="li-bor">
+                    <div class="three"></div>
+                    <div>
+                        <span class="ab e9-color">待收益</span><br>
+                        <span>{{preProfit}}</span>
+                    </div>
 
-            </li>
+                </li>
+                <li>
+                    <div class="four"></div>
+                    <div>
+                        <span class="cd e9-color">累计收益</span><br>
+                        <span>{{totalProfit}}</span>
+                    </div>
 
-        </ul>
-    </div>
-    <div class="member-info-entry">
+                </li>
+
+            </ul>
+        </div>
+    </script>
+</div>
+
+<!--列表-->
+<div class="member-info-entry">
         <ul class="member-info-list">
             <li>
                 <a href="myShop.html" class="display-box">
@@ -89,7 +95,9 @@
             </li>
         </ul>
     </div>
-</nav>
+
+
+
 <footer class="aui-bar aui-bar-tab" id="footer">
     <a href="extension.html">
         <div class="aui-bar-tab-item" tapmode>
@@ -116,5 +124,29 @@
         </div>
     </a>
 </footer>
+<script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/handlebars-v4.0.10.js"></script>
+<script>
+    var a=$('#my-template').html();
+    var b=Handlebars.compile(a);
+
+    $.ajax({
+        url:'http://192.168.199.107:8083/market/mobile/uc/index?token=201708081456494396f958ae5f48764562a6025ecc7215a9da',
+        type:'GET',
+        datatype:'json',
+        success:function (data) {
+            console.log(data)
+            if(data.result=='success'){
+                var data=data.data;
+                console.log(data);
+                $('#my-box1').html(b(data));
+
+            }
+        }
+    })
+
+
+
+</script>
 </body>
 </html>
