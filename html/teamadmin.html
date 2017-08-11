@@ -20,24 +20,54 @@
 </header>
 <nav>
     <div class="member-info-entry">
-        <ul class="member-info-list teamadmin-info-list">
-            <li>
-                <a href="javascript:;" class="display-box">
-                    <span>团队邀请码</span>
-                    <span>复制</span>
-                    <span>8888888</span>
-                </a>
-            </li>
-            <li>
-                <a href="myteam.html" class="display-box">
-                    <span>我的团队</span>
-                    <span>5人</span>
-                </a>
-            </li>
-        </ul>
+        <script type="text/x-handlebars-template" id="teamadmin-template">
+            <ul class="member-info-list teamadmin-info-list">
+                <li>
+                    <a href="javascript:;" class="display-box">
+                        <span>团队邀请码</span>
+                        <span>复制</span>
+                        <span>{{groupCode}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="myteam.html" class="display-box">
+                        <span>我的团队</span>
+                        <span>{{groupCount}}</span>
+                    </a>
+                </li>
+            </ul>
+        </script>
     </div>
 </nav>
 <script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/handlebars-v4.0.10.js"></script>
+<script src="../js/config.js"></script>
 <script src="../js/common.js"></script>
+<script>
+    var a=$('#teamadmin-template').html();
+    var b=Handlebars.compile(a);
+    $.ajax({
+        url:C.marketInterface.teamadmin,
+        type:'post',
+        data:{
+            token:C.marketToken
+        },
+        datatype:'json',
+        success:function (data) {
+//            console.log(data)
+            if(data.result=='success'){
+                var data=data.data;
+                $('.member-info-entry').html(b(data))
+            }else if(data.result=='login'){
+                alert(data.errorMsg)
+            }else {
+                alert(data.errorMsg)
+            }
+        },
+        error:function () {
+            alert('服务器异常')
+        }
+    })
+</script>
 </body>
 </html>

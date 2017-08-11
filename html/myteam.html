@@ -19,7 +19,8 @@
     <div class="aui-title my-aui-title">我的团队</div>
 </header>
 <nav>
-    <div class="myteam-info-entry">
+    <div class="myteam-info-entry" id="myteam-info-entry">
+        <script type="text/x-handlebars-template" id="myteam-template">
         <ul class="myteam-info-list">
             <li>
                 <a href="javascript:;" class="display-box">
@@ -29,41 +30,57 @@
                     <span>注册时间</span>
                 </a>
             </li>
+            {{#each data}}
             <li>
                 <a href="javascript:;" class="display-box">
-                    <span>12345678911</span>
-                    <span>张三</span>
+                    <span>{{userPhone}}</span>
+                    <span>{{createUser}}</span>
                     <span>开店成功</span>
-                    <span>2017-4-8</span>
+                    <span>{{Intercept createTime}}</span>
                 </a>
             </li>
-            <li>
-                <a href="javascript:;" class="display-box">
-                    <span>12345678911</span>
-                    <span>张三</span>
-                    <span>开店成功</span>
-                    <span>2017-4-8</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:;" class="display-box">
-                    <span>12345678911</span>
-                    <span>张三</span>
-                    <span>开店成功</span>
-                    <span>2017-4-8</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:;" class="display-box">
-                    <span>12345678911</span>
-                    <span>张三</span>
-                    <span>开店成功</span>
-                    <span>2017-4-8</span>
-                </a>
-            </li>
+            {{/each}}
         </ul>
+        </script>
     </div>
 </nav>
+<script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/handlebars-v4.0.10.js"></script>
+<script>
+    var a=$('#myteam-template').html();
+    var b=Handlebars.compile(a);
+    $.ajax({
+        url:C.marketInterface.myteam,
+        type:'GET',
+        data:{
+            token:C.marketToken
+        },
+        datatype:'json',
+        success:function (data) {
+            if(data.result=='success'){
+                console.log(data)
+                $('#myteam-info-entry').html(b(data))
+            }else if(data.result=='login'){
+                alert(data.errorMsg)
+            }else {
+                alert(data.errorMsg)
+            }
+        },
+        error:function () {
+            alert('服务器异常')
+        }
+    });
+
+    Handlebars.registerHelper('Intercept',function (value) {
+        if (value.length>=10){
+            return value.substring(10,0)
+        }else {
+            return value;
+        }
+    })
+
+</script>
 
 </body>
 </html>

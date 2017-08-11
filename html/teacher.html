@@ -19,18 +19,44 @@
     <div class="aui-title my-aui-title">我的培训老师</div>
 </header>
 <nav>
-    <div class="member-info-entry">
+    <div class="member-info-entry" id="member-info-entry">
+        <script type="text/x-handlebars-template" id="teacher-template">
         <ul class="member-info-list teacher-info-list">
             <li>
                 <a href="javascript:;" class="display-box">
-                    <span>天道酬勤</span>
+                    <span>{{userNickName}}</span>
                     <span>他的店铺</span>
                 </a>
             </li>
         </ul>
+        </script>
     </div>
 </nav>
 <script src="../js/jquery-3.0.0.min.js"></script>
 <script src="../js/common.js"></script>
+<script src="../js/handlebars-v4.0.10.js"></script>
+<script>
+    var a=$('#teacher-template').html();
+    var b=Handlebars.compile(a);
+    $.ajax({
+        url:'http://192.168.199.107:8083/market/mobile/uc/teacher/index?token=201708081456494396f958ae5f48764562a6025ecc7215a9da',
+        type:'GET',
+        datatype:'json',
+        success:function (data) {
+            if(data.result=='success'){
+                console.log(data)
+                var data=data.data;
+                $('.member-info-entry').html(b(data))
+            }else if(data.result=='login'){
+                alert(data.errorMsg)
+            }else {
+                alert(data.errorMsg)
+            }
+        },
+        error:function () {
+            alert('服务器异常')
+        }
+    })
+</script>
 </body>
 </html>
