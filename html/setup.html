@@ -18,6 +18,7 @@
     </div>
     <div class="aui-title my-aui-title">设置</div>
 </header>
+
 <nav>
     <div class="member-info-entry" id="member-info-entry">
         <script type="text/x-handlebars-template" id="setup-template">
@@ -65,8 +66,8 @@
                 alert(data.errorMsg)
             }
         },
-        error:function () {
-            alert('服务器异常')
+        error:function (response) {
+            alert(response.data.errorMsg);
         }
     })
 

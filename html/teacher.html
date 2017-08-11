@@ -39,22 +39,22 @@
     var a=$('#teacher-template').html();
     var b=Handlebars.compile(a);
     $.ajax({
-        url:'http://192.168.199.107:8083/market/mobile/uc/teacher/index?token=201708081456494396f958ae5f48764562a6025ecc7215a9da',
+        url:C.marketInterface.myTeacher,
         type:'GET',
-        datatype:'json',
+        dataType:'json',
+        data:{
+            token:C.marketToken
+        },
         success:function (data) {
             if(data.result=='success'){
-                console.log(data)
+                console.log(data);
                 var data=data.data;
                 $('.member-info-entry').html(b(data))
             }else if(data.result=='login'){
-                alert(data.errorMsg)
+                alert(data.errorMsg);
             }else {
-                alert(data.errorMsg)
+                alert(data.errorMsg);
             }
-        },
-        error:function () {
-            alert('服务器异常')
         }
     })
 </script>

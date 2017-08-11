@@ -130,27 +130,43 @@
 <script>
     var a=$('#my-template').html();
     var b=Handlebars.compile(a);
+
     $.ajax({
-        url:C.marketInterface.my,
-        type:'post',
+        url:'http://www.rrfun.com.cn/Uc/getInfo',
+        type:'GET',
         datatype:'json',
-        data:{
-            token:C.marketToken,
-        },
         success:function (data) {
-            if(data.result=='success'){
-                var data=data.data;
-                $('#my-box1').html(b(data));
-            }else if(data.result=='login'){
-                alert(data.errorMsg)
-            }else {
-                alert(data.errorMsg)
-            }
-        },
-        error:function () {
-            alert('服务器异常')
+            alert(data.openid);
+            //alert(data.nickname);
+            //alert(data.headimgurl);
         }
     })
+
+    /*$.ajax({
+        url:C.marketInterface.my,
+        type:'post',
+        dataType:'json',
+        data:{
+            token:C.marketToken
+        },
+        success:function (data) {
+<<<<<<< HEAD
+            if(data.result=='success'){
+                var data=data.data;
+=======
+            console.log(data);
+            if(data.result=='success'){
+                var data=data.data;
+                console.log(data);
+>>>>>>> b3c6551e5fd4214eee1d942d50e7ed933a9dba6b
+                $('#my-box1').html(b(data));
+            }else if(data.result=='login'){
+                alert(data.errorMsg);
+            }else {
+                alert(data.errorMsg);
+            }
+        }
+    })*/
 </script>
 </body>
 </html>
