@@ -3,8 +3,8 @@
  */
 
 (function (w) {
-    var apiHost=' http://192.168.199.107:8081';
-    var marketHost=' http://192.168.199.107:8083';
+    var apiHost='http://192.168.199.107:8081';
+    var marketHost='http://192.168.199.107:8083';
     
     //配置项
     w.C={};
@@ -52,7 +52,23 @@
     C.marketInterface={
         //店铺分享
         share:'store/share',
-        myShop:'uc/store/index'
+        //我的店铺
+        myShop:'uc/store/index',
+        //东东推个人中心
+        my:'uc/index',
+        // 绑定手机号
+        bindingtel:'uc/phone/bind',
+        // 设置
+        setup:'uc/set/index',
+        //团队管理
+        teamadmin:'uc/group/index',
+        //我的团队
+        myteam:'uc/group/peoples'
+
+
+
+
+
 
 
     };

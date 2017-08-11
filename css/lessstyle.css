@@ -27,7 +27,7 @@
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 15%;
+	width: 20%;
 
 }
 
@@ -39,6 +39,7 @@
 	justify-content: space-around;
 	align-items: center;
 	width: 85%;
+	font-size: 0.65rem;
 }
 .bindingtel-box-ul>li:nth-child(2)>p{
 	width: 4.5rem;
@@ -48,7 +49,7 @@
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 25%;
+	width: 32%;
 
 }
 
@@ -59,7 +60,17 @@
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 75%;
+	width: 38%;
+	font-size: 0.65rem;
+}
+.bindingtel-box-ul>li:nth-child(2)>div{
+	height: 100%;
+	padding-left: 0.5rem;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 30%;
 }
 .bindingtel-box-ul>li:nth-child(3)>p{
 	width: 2.5rem;
@@ -69,18 +80,31 @@
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 15%;
+	width: 22%;
 
 }
 
-.bindingtel-box-ul>li:nth-child(3)>input{
-	height: 100%;
+.bindingtel-box-ul>li:nth-child(3)>#information{
+	height: 86%;
 	padding-left: 0.5rem;
 	display: flex;
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 30%;
+	width: 48%;
+	font-size: 0.65rem;
+}
+.bindingtel-box-ul>li:nth-child(3)>#btn{
+	height: 86%;
+	/*padding-left: 0.5rem;*/
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 36%;
+	font-size: 0.65rem;
+	background: #f23030;
+	color: #ebebeb;
 }
 .bindingtel-box-ul>li:nth-child(3)>div{
 	height: 50%;

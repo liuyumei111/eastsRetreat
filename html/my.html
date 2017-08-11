@@ -125,28 +125,34 @@
     </a>
 </footer>
 <script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/config.js"></script>
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script>
     var a=$('#my-template').html();
     var b=Handlebars.compile(a);
-
     $.ajax({
-        url:'http://192.168.199.107:8083/market/mobile/uc/index?token=201708081456494396f958ae5f48764562a6025ecc7215a9da',
-        type:'GET',
+        url:C.marketInterface.my,
+        type:'post',
         datatype:'json',
+        data:{
+            token:C.marketToken,
+        },
         success:function (data) {
             console.log(data)
             if(data.result=='success'){
                 var data=data.data;
-                console.log(data);
+                console.log(data)
                 $('#my-box1').html(b(data));
-
+            }else if(data.result=='login'){
+                alert(data.errorMsg)
+            }else {
+                alert(data.errorMsg)
             }
+        },
+        error:function () {
+            alert('服务器异常')
         }
     })
-
-
-
 </script>
 </body>
 </html>
