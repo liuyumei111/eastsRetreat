@@ -64,11 +64,20 @@
         teamadmin:'uc/group/index',
         //我的团队
         myteam:'uc/group/peoples',
+<<<<<<< HEAD
+    //    交易成功
+        transuccess:'uc/order/list',
+    //    交易失败
+        tranfail:'uc/order/list',
+    //    交易中
+        tranconduct:'uc/order/list'
+=======
         //我的老师
         myTeacher:'uc/teacher/index'
 
 
 
+>>>>>>> b3c6551e5fd4214eee1d942d50e7ed933a9dba6b
 
 
 
