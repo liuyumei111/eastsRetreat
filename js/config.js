@@ -63,7 +63,9 @@
         //团队管理
         teamadmin:'uc/group/index',
         //我的团队
-        myteam:'uc/group/peoples'
+        myteam:'uc/group/peoples',
+        //我的老师
+        myTeacher:'uc/teacher/index'
 
 
 
