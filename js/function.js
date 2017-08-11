@@ -2,7 +2,6 @@
  * Created by Administrator on 2017/8/8.
  */
 
-
 /**
  * location.search
  *传入key，返回location.search中对应的value

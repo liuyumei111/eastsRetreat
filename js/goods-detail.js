@@ -3,7 +3,7 @@
  */
 
 $(document).ready(function () {
-    var detailId=locationSearcher('productId');
+    var detailId=locationSearcher('productsId');
     //详情数据模板
     var detailTpl=$('#detail-template').html();
     var detailCmp=Handlebars.compile(detailTpl);

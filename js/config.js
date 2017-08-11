@@ -63,10 +63,13 @@
         //团队管理
         teamadmin:'uc/group/index',
         //我的团队
-        myteam:'uc/group/peoples'
-
-
-
+        myteam:'uc/group/peoples',
+    //    交易成功
+        transuccess:'uc/order/list',
+    //    交易失败
+        tranfail:'uc/order/list',
+    //    交易中
+        tranconduct:'uc/order/list'
 
 
 

@@ -138,10 +138,8 @@
             token:C.marketToken,
         },
         success:function (data) {
-            console.log(data)
             if(data.result=='success'){
                 var data=data.data;
-                console.log(data)
                 $('#my-box1').html(b(data));
             }else if(data.result=='login'){
                 alert(data.errorMsg)
