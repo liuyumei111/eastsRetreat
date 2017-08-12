@@ -3,9 +3,13 @@
  */
 
 (function (w) {
-    var apiHost='http://192.168.199.107:8081';
-    var marketHost='http://192.168.199.107:8083';
-    
+    //var apiHost='http://192.168.199.107:8081';
+    var apiHost='http://www.rrfun.com.cn:8080';
+    //var marketHost='http://192.168.199.107:8083';
+    var marketHost='http://www.rrfun.com.cn:8081';
+
+
+
     //配置项
     w.C={};
     //域名
@@ -26,7 +30,10 @@
     C.putCodeTime=60;
 
     C.token='201708031209898169cdb594d601fc4471a9c3bab8c7fe386b';
-    C.marketToken='201708081456494396f958ae5f48764562a6025ecc7215a9da';
+    C.marketToken=localStorage.getItem('token');
+
+    //获取微信oppenId
+    C.getWxUserInfo='http://www.rrfun.com.cn/Uc/getInfo';
     //mall接口
     C.interface={
         //折扣商城首页
@@ -64,20 +71,16 @@
         teamadmin:'uc/group/index',
         //我的团队
         myteam:'uc/group/peoples',
-<<<<<<< HEAD
-    //    交易成功
+        //    交易成功
         transuccess:'uc/order/list',
-    //    交易失败
+        //    交易失败
         tranfail:'uc/order/list',
-    //    交易中
-        tranconduct:'uc/order/list'
-=======
+        //    交易中
+        tranconduct:'uc/order/list',
         //我的老师
-        myTeacher:'uc/teacher/index'
-
-
-
->>>>>>> b3c6551e5fd4214eee1d942d50e7ed933a9dba6b
+        myTeacher:'uc/teacher/index',
+        //注册登录提交验证码
+        reg:'login/reg'
 
 
 
@@ -92,6 +95,13 @@
     for (k in C.marketInterface){
         C.marketInterface[k]=C.market+C.marketInterface[k];
     }
+
+    //获取当前域名
+    var localHostUrl = window.location.href.replace(/(\?.+?)$/g, '');
+    localHostUrl = localHostUrl.replace(localHostUrl.split("/").pop(), '');
+    C.localHostUrl = localHostUrl;
+
+
 
 
 })(window);

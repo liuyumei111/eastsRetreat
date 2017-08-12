@@ -22,7 +22,8 @@
         <div id="dis-list-vessel">
             <script type="text/x-handlebars-template" id="one-product">
                 {{#each products}}
-                <a href="goodsDetail.html?productId={{id}}" class="display-box">
+                <!--<a href="goodsDetail.html?productId={{id}}" class="display-box">-->
+                <a href="javascript:;" class="display-box">
                     <div class="dis-list-box">
                         <div class="dis-shop-img">
                             <!--<img src="../img/grey.gif" data-src="{{mainImageUrl}}" alt="">-->
@@ -137,6 +138,7 @@
 <script src="__MARKET_JS__/config.js"></script>
 <script src="__MARKET_JS__/handlebars-v4.0.10.js"></script>
 <script src="__MARKET_JS__/common.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="__MARKET_JS__/selected.js"></script>
 <script>
     $('.dis-sale').click(function () {
@@ -147,6 +149,93 @@
     })
 
 </script>
+<script>
+    wx.config({
+        debug: false,//这里是开启测试，如果设置为true，则打开每个步骤，都会有提示，是否成功或者失败
+        appId: '{$signPackage.appId}',
+        timestamp: '{$signPackage.timestamp}',
+        nonceStr: '{$signPackage.nonceStr}',
+        signature: '{$signPackage.signature}',
+        jsApiList: [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'translateVoice',
+            'startRecord',
+            'stopRecord',
+            'onRecordEnd',
+            'playVoice',
+            'pauseVoice',
+            'stopVoice',
+            'uploadVoice',
+            'downloadVoice',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'closeWindow',
+            'scanQRCode',
+            'chooseWXPay',
+            'openProductSpecificView',
+            'addCard',
+            'chooseCard',
+            'openCard'
+        ]
+    });
 
+    //var  imgUrl="{$cfg.site_url}__STATIC__/hongbao/ewm_gz.jpg";
+    var  imgUrl="http://xzw.wangguanwei.com:8080/image-server/getImage?file=4c900968-6ee0-4aa0-9e28-6e41a8ab20cd.jpg";
+    //var  link="{$cfg.site_url}{:U('Uc/guanzhu')}";
+    var  link="http://www.baidu.com";
+    var  desc="邀请您来金度黄金！";
+    var  title="哈哈哈哈哈哈哈哈";
+    var succesUrl="http://www.qq.com";
+    wx.ready(function(){
+        wx.onMenuShareTimeline({
+            title : title,
+            desc: desc,
+            link : link,
+            imgUrl:imgUrl,
+            success: function () {
+                window.location=succesUrl;
+            },
+            cancel: function () {
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title : title,
+            desc: desc,
+            link : link,
+            imgUrl:imgUrl,
+            success: function () {
+                window.location=succesUrl;
+            },
+            cancel: function () {
+            }
+        });
+        wx.onMenuShareWeibo({
+            title : title,
+            desc: desc,
+            link : link,
+            imgUrl:imgUrl,
+            success: function () {
+                window.location=succesUrl;
+            },
+            cancel: function () {
+            }
+        });
+    });
+</script>
 </body>
 </html>
