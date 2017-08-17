@@ -16,7 +16,7 @@
 <div class="my-box1" id="my-box1">
     <script type="text/x-handlebars-template" id="my-template">
         <header>
-            <img class="user-photo" src="__MARKET_IMG__/user.jpg" alt="">
+            <img class="user-photo" src="../images/user.jpg" alt="">
             <div class="member-info">
                 <div>{{userNickName}}</div>
                 <div>{{userPhone}}</div>
@@ -34,7 +34,6 @@
                         <span class="ab e9-color">待收益</span><br>
                         <span>{{preProfit}}</span>
                     </div>
-
                 </li>
                 <li>
                     <div class="four"></div>
@@ -56,11 +55,6 @@
             <li>
                 <a href="myShop.html" class="display-box">
                     我的店铺
-                </a>
-            </li>
-            <li>
-                <a href="adminaddress.html" class="display-box">
-                    收货地址
                 </a>
             </li>
             <li>
@@ -131,7 +125,7 @@
     var a=$('#my-template').html();
     var b=Handlebars.compile(a);
 
-    $.ajax({
+   /* $.ajax({
         url:'http://www.rrfun.com.cn/Uc/getInfo',
         type:'GET',
         datatype:'json',
@@ -140,7 +134,7 @@
             //alert(data.nickname);
             //alert(data.headimgurl);
         }
-    });
+    });*/
 
     /*$.ajax({
         url:C.marketInterface.my,

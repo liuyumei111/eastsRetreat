@@ -376,9 +376,9 @@ select{
 	padding:0 0.5rem;
 	background-color: #fff;
 }
-.mar-bottom{
+/*.mar-bottom{
 	margin-bottom: 2.4rem;
-}
+}*/
 
 .dis-list-box{
 	width: 100%;
@@ -407,6 +407,7 @@ select{
 	line-height: 1rem;
 	text-align: center;
 	display: inline-block;
+	color: #fff;
 }
 .dis-shop-detail>span:nth-child(1){
 	background-color: #f23030;

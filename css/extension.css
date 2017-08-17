@@ -69,6 +69,11 @@ html, body{
 	border-bottom: 1px solid #f0f0f0;
 	font-size: 0.65rem;
 }
+.scroll-list{
+	overflow: hidden;
+	width: 100%;
+	height: 8.0rem;
+}
 
 
 

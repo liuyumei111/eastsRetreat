@@ -70,7 +70,7 @@ footer{
     width: 16.75rem;
     height: 16.45rem;
     background-color: #fff;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -167,13 +167,21 @@ footer{
     color: #fff;
 
 }
-
+.default-height{
+    width: 100%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
 .loading,.no-info{
     font-size: 0.7rem;
     text-align: center;
     display: none;
     
 }
-
+.display-box{
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+}
 
 
