@@ -40,19 +40,31 @@ $(document).ready(function () {
                     "pageStyle":'dot',
                     'dotPosition':'center'
                 });
+<<<<<<< HEAD
                 //点击平台公告
+=======
+
+>>>>>>> 4d8127a04d0bbc3e4a36acf1fcad4eef7289fd25
                 $(document).on('click','.my-notice-li',jumpDetail);
 
             }
         }
     });
+<<<<<<< HEAD
 
     //平台公告跳转
+=======
+    
+>>>>>>> 4d8127a04d0bbc3e4a36acf1fcad4eef7289fd25
     function jumpDetail() {
         var id=$(this).data('noticeid');
         location.href='notice.html?id='+id;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 4d8127a04d0bbc3e4a36acf1fcad4eef7289fd25
 
 
 
