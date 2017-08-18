@@ -5,8 +5,8 @@
 
 $(document).ready(function () {
 
-    var token=locationSearcher('token');
-    localStorage.setItem('token',token);
+    /*var token=locationSearcher('token');
+    localStorage.setItem('token',token);*/
 
     //轮播图
     var slide3 = new auiSlide({

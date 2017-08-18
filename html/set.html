@@ -42,5 +42,34 @@
 
 <script src="../js/jquery-3.0.0.min.js"></script>
 <script src="../js/common.js"></script>
+<script>
+
+    /**
+     * 判断是iOS或是安卓，改变数据的获取方式
+     *
+     * */
+
+    var ua = navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod/.test(ua)) {
+
+        //getToken(token);
+
+    } else {
+        //getToken(token);
+        var cleanCache='哈哈';
+        $(document).on('click','.out-login',poseAndroidToken);
+    }
+
+    //调用Android获取token方法
+    function poseAndroidToken(cleanCache) {
+        window.aaa.bbb(cleanCache);
+    }
+
+    function getToken(token) {
+        localStorage.setItem('token',token);
+        alert('获取到的token为'+token);
+        bbb(cleanCache);
+    }
+</script>
 </body>
 </html>

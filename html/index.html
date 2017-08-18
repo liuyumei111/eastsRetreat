@@ -111,6 +111,7 @@
             </a>
         </div>-->
 
+        <div id="token">123</div>
         <div class="home-shop-box">
             <img src="../images/banner1.png" alt="">
             <div class="home-shop-text">
@@ -212,5 +213,43 @@
 <!--<script src="../js/tab.js"></script>-->
 <script src="../js/aui-slide.js"></script>
 <script src="../js/index.js"></script>
+<script>
+
+    /**
+     * 判断是iOS或是安卓，改变数据的获取方式
+     *
+     * */
+    var ua = navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod/.test(ua)) {
+        alert('iOS的弹窗');
+        postSuccessToken();
+        //getToken(token);
+
+    } else {
+        alert('android的弹窗。');
+        //getToken(token);
+    }
+
+    //调用ios获取token方法。
+    function postSuccessToken() {
+        window.webkit.messageHandlers.postSuccessToken.postMessage('getToken');
+    }
+
+    //调用Android获取token方法
+    function poseAndroidToken() {
+        window.aaa.bbb('哈哈');
+    }
+
+    function getToken(token) {
+        localStorage.setItem('token',token);
+        var token=localStorage.getItem('token');
+        $('#token').html(token);
+        alert('获取到的token为'+token);
+
+    }
+
+
+
+</script>
 </body>
 </html>

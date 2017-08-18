@@ -125,18 +125,9 @@
     var a=$('#my-template').html();
     var b=Handlebars.compile(a);
 
-   /* $.ajax({
-        url:'http://www.rrfun.com.cn/Uc/getInfo',
-        type:'GET',
-        datatype:'json',
-        success:function (data) {
-            alert(data.openid);
-            //alert(data.nickname);
-            //alert(data.headimgurl);
-        }
-    });*/
+    //var token=localStorage.getItem('token');
 
-    /*$.ajax({
+    $.ajax({
         url:C.marketInterface.my,
         type:'post',
         dataType:'json',
@@ -144,23 +135,18 @@
             token:C.marketToken
         },
         success:function (data) {
-<<<<<<< HEAD
-            if(data.result=='success'){
-                var data=data.data;
-=======
-            console.log(data);
+
             if(data.result=='success'){
                 var data=data.data;
                 console.log(data);
->>>>>>> b3c6551e5fd4214eee1d942d50e7ed933a9dba6b
                 $('#my-box1').html(b(data));
             }else if(data.result=='login'){
-                alert(data.errorMsg);
+                alert('登录过期，请重新登录');
             }else {
                 alert(data.errorMsg);
             }
         }
-    })*/
+    })
 </script>
 </body>
 </html>
