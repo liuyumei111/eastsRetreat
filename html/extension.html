@@ -10,85 +10,81 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/extension.css">
     <link rel="stylesheet" href="../css/aui-slide.css">
+
 </head>
 <body>
 <!--头-->
 <header class="aui-bar aui-bar-nav" id="aui-header">
     <div class="aui-title">东东推</div>
 </header>
-<section class="my-index-box">
-
-    <!--轮播图-->
-    <nav>
-    <div id="aui-slide3">
-        <div class="aui-slide-wrap" >
-            <div class="aui-slide-node bg-dark">
-                <img src="../images/banner1.1.png" />
+<section class="my-index-box" id="page-box">
+    <script type="text/x-handlebars-template" id="page-template">
+        <!--轮播图-->
+        <div id="aui-slide3">
+            <div class="aui-slide-wrap">
+                {{#each banners}}
+                <a href="goodsdetail.html?productId={{id}}" class="display-box">
+                    <div class="aui-slide-node bg-dark">
+                        <img src="{{mainImageUrl}}" />
+                    </div>
+                </a>
+                {{/each}}
+                <!--<div class="aui-slide-node bg-dark">
+                    <img src="../images/banner2.2.png" />
+                </div>-->
             </div>
-            <div class="aui-slide-node bg-dark">
-                <img src="../images/banner2.2.png" />
-            </div>
-            <div class="aui-slide-node bg-dark">
-                <img src="../images/banner3.3.png" />
-            </div>
+            <div class="aui-slide-page-wrap"><!--分页容器--></div>
         </div>
-        <div class="aui-slide-page-wrap"><!--分页容器--></div>
-    </div>
-</nav>
-    <!--分享部分-->
-    <section class="my-share">
-        <ul>
-            <li class="my-share-li">
-                <a href="wxmass.html">
-                    <div class="my-share-li-img">
-                    <img src="../images/weixin.png" alt="">
-                    </div>
-                </a>
+        <!--分享部分-->
+        <section class="my-share">
+            <ul>
+                <li class="my-share-li">
+                    <a href="wxmass.html">
+                        <div class="my-share-li-img">
+                            <img src="../images/weixin.png" alt="">
+                        </div>
+                    </a>
 
-                <span>微信群发</span>
-                <p>群发精选爆款单品</p>
-            </li>
-            <li class="my-share-li">
-                <a href="friends.html">
-                    <div class="my-share-li-img">
-                        <img src="../images/pengyouquan.png" alt="">
-                    </div>
-                </a>
+                    <span>微信群发</span>
+                    <p>群发精选爆款单品</p>
+                </li>
+                <li class="my-share-li">
+                    <a href="friends.html">
+                        <div class="my-share-li-img">
+                            <img src="../images/pengyouquan.png" alt="">
+                        </div>
+                    </a>
 
-                <span>朋友圈群发</span>
-                <p>高收益一键群发</p>
-            </li>
-            <li class="my-share-li">
-                <a href="selected.html">
-                    <div class="my-share-li-img">
-                        <img src="../images/jingxuan.png" alt="">
-                    </div>
-                </a>
+                    <span>朋友圈群发</span>
+                    <p>高收益一键群发</p>
+                </li>
+                <li class="my-share-li">
+                    <a href="selected.html">
+                        <div class="my-share-li-img">
+                            <img src="../images/jingxuan.png" alt="">
+                        </div>
+                    </a>
+                    <span>单品精选</span>
+                    <p>精选商品 今日必发</p>
+                </li>
+            </ul>
+        </section>
+        <!--平台公告-->
+        <section class="my-notice">
+            <p class="my-notice-text1"><b><img src="../images/notice.png" alt="">平台公告</b></p>
+            <div class="scroll-list">
+                <ul id="scroll-list-ul">
+                    {{#each notices}}
+                    <li class="my-notice-li aui-clearfix" data-noticeid="{{id}}">
+                        <a href="javascript:;"><div>{{title}} <i style="float: right">>></i></div></a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </section>
+    </script>
 
-                <span>单品精选</span>
-                <p>精选商品 今日必发</p>
-            </li>
-        </ul>
-    </section>
-    <!--平台公告-->
-    <section class="my-notice">
-        <p class="my-notice-text1"><b><img src="../images/notice.png" alt="">平台公告</b></p>
-        <ul>
-            <li class="my-notice-li aui-clearfix">
-                <a href="notice.html"><div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div></a>
-            </li>
-            <li class="my-notice-li aui-clearfix">
-                <a href="notice.html"><div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div></a>
-            </li>
-            <li class="my-notice-li aui-clearfix">
-                <a href="notice.html"><div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div></a>
-            </li>
-            <li class="my-notice-li aui-clearfix">
-                <a href="notice.html"><div>【品牌入驻】纽特斯邦威入驻平台了 <i style="float: right">>></i></div></a>
-            </li>
-        </ul>
 
-    </section>
 </section>
 <footer class="aui-bar aui-bar-tab" id="footer">
     <a href="index.html">
@@ -118,23 +114,14 @@
 </footer>
 
 <script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/handlebars-v4.0.10.js"></script>
+<script src="../js/function.js"></script>
+<script src="../js/scroll.js"></script>
 <script src="../js/api.2.0.js"></script>
 <script src="../js/aui-slide.js"></script>
-<script>
-    $(document).ready(function () {
-        //轮播图
-        var slide3 = new auiSlide({
-            container:document.getElementById("aui-slide3"),
-            // "width":300,
-            "height":184,
-            "speed":500,
-            "autoPlay": 5000, //自动播放
-            "loop":true,
-            "pageShow":true,
-            "pageStyle":'dot',
-            'dotPosition':'center'
-        });
-    });
-</script>
+<script src="../js/extension.js"></script>
+
+
 </body>
 </html>

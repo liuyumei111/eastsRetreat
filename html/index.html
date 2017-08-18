@@ -208,43 +208,9 @@
 <script src="../js/jquery-3.0.0.min.js"></script>
 <script src="../js/api.2.0.js"></script>
 <script src="../js/search.js"></script>
+<script src="../js/function.js"></script>
 <!--<script src="../js/tab.js"></script>-->
 <script src="../js/aui-slide.js"></script>
-<script>
-    $(document).ready(function () {
-        //轮播图
-        var slide3 = new auiSlide({
-            container:document.getElementById("aui-slide3"),
-            // "width":300,
-            "height":184,
-            "speed":500,
-            "autoPlay": 5000, //自动播放
-            "loop":true,
-            "pageShow":true,
-            "pageStyle":'dot',
-            'dotPosition':'center'
-        });
-
-//        时间卡
-        var navTab=$('.tabClick');
-        var tabTop=navTab.offset().top;
-        console.log(tabTop);
-
-        var wh=$(window).height();
-        console.log(wh);
-
-
-        $('#tab1').scroll(function () {
-            var ws=$(window).scrollTop();
-            var s=wh-ws;
-            console.log(s);
-
-            if (ws>=tabTop){
-                alert('小于200了')
-            }
-
-        });
-    });
-</script>
+<script src="../js/index.js"></script>
 </body>
 </html>

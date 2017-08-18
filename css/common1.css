@@ -212,6 +212,11 @@ a:link,a:visited,a:hover,a:active{
 }
 select{
 	border: none;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: url(../images/arrow.png) no-repeat scroll right center transparent;
+	padding-right: 14px;
 }
 .dis-screen{
 	padding: 0.5rem;
@@ -376,9 +381,9 @@ select{
 	padding:0 0.5rem;
 	background-color: #fff;
 }
-.mar-bottom{
+/*.mar-bottom{
 	margin-bottom: 2.4rem;
-}
+}*/
 
 .dis-list-box{
 	width: 100%;
@@ -407,6 +412,7 @@ select{
 	line-height: 1rem;
 	text-align: center;
 	display: inline-block;
+	color: #fff;
 }
 .dis-shop-detail>span:nth-child(1){
 	background-color: #f23030;

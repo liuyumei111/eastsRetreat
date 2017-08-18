@@ -3,12 +3,10 @@
  */
 
 (function (w) {
-    //var apiHost='http://192.168.199.107:8081';
-    var apiHost='http://www.rrfun.com.cn:8080';
-    //var marketHost='http://192.168.199.107:8083';
-    var marketHost='http://www.rrfun.com.cn:8081';
-
-
+    var apiHost='http://192.168.199.107:8081';
+    //var apiHost='http://www.rrfun.com.cn:8080';
+    var marketHost='http://192.168.199.107:8083';
+    //var marketHost='http://www.rrfun.com.cn:8081';
 
     //配置项
     w.C={};
@@ -80,7 +78,18 @@
         //我的老师
         myTeacher:'uc/teacher/index',
         //注册登录提交验证码
-        reg:'login/reg'
+        reg:'login/reg',
+        //获取公告
+        notice:'notice/list',
+        //公告详情
+        noticeDetail:'notice/detail',
+        //商品中心
+        discount:'product/index',
+        //商品类别
+        selectType:'index/categorys',
+        //推广中心
+        promotionCenter:'index/index'
+
 
 
 

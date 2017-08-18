@@ -1,5 +1,7 @@
 body,html{
 	background-color: #fff;
+	width: 100%;
+	height: 100%;
 }
 .wxmass-box{
 	width: 100%;
@@ -19,19 +21,18 @@ body,html{
 }
 
 .wxmass-box-list>ul{
-	width: 17.75rem;
+	width: 100%;
 	height: 100%;
 	margin: 0 auto;
 }
-
 .wxmass-list-li{
 	height: 4.5rem;
 	border-bottom: 0.1rem solid #e9e9e9;
 	display: flex;
-display: -webkit-flex;
-justify-content: space-around;
-align-items: center;
-width: 100%;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
 }
 .wxmass-list-dd{
 	width: 2.325rem;
@@ -50,11 +51,11 @@ width: 100%;
 
 }
 .wxmass-list-len{
-		display: flex;
-display: -webkit-flex;
-/* justify-content: space-around; */
-align-items: center;
-width: 55%;
+	display: flex;
+	display: -webkit-flex;
+	/* justify-content: space-around; */
+	align-items: center;
+	/*width: 55%;*/
 
 }
 

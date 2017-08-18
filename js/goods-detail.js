@@ -3,7 +3,7 @@
  */
 
 $(document).ready(function () {
-    var detailId=locationSearcher('productsId');
+    var detailId=locationSearcher('productId');
     //详情数据模板
     var detailTpl=$('#detail-template').html();
     var detailCmp=Handlebars.compile(detailTpl);
@@ -19,7 +19,6 @@ $(document).ready(function () {
             if (response.result=='success'){
                 var data=response.data;
                 $('#detail-content-box').html(detailCmp(data));
-
             }
         }
     });
