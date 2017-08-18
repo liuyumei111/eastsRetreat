@@ -27,9 +27,11 @@
             <nav>
                 <div id="aui-slide3">
                     <div class="aui-slide-wrap" >
+                        {{#each (splitDetailImg bannerImageUrls)}}
                         <div class="aui-slide-node bg-dark">
-                            <img src="{{bannerImageUrls}}" alt="">
+                            <img src="{{name}}" alt="">
                         </div>
+                        {{/each}}
                         <!--<div class="aui-slide-node bg-dark">
                             <img src="{{bannerImageUrls}}" alt="">
                         </div>
@@ -68,11 +70,19 @@
                 <span class="ab">评价</span>
             </div>
         </section>
-
     </section>
     <!--详情和评价具体内容-->
     <section class="goodsdetail-con">
-        <div>详情</div>
+        <!--详情图片-->
+        <div class="goodsdetail-con-detail">
+            <script type="text/x-handlebars-template" id="goodsdetail-con-detail">
+                {{#product}}
+                {{#each (splitDetailImg detailImageUrls)}}
+                <img src={{name}} alt="">
+                {{/each}}
+                {{/product}}
+            </script>
+        </div>
         <div class="cc">
             <!--全部和有图-->
             <div class="goodsdetail-con-whole">
@@ -85,63 +95,71 @@
             <div class="goodsdetail-whole-con">
                 <!--全部-->
                 <div class="whole">
-                    <ul>
-                        <li>
-                            <!--用户名和日期-->
-                            <div class="user-date">
-                                <span>用户名sdfsdfsdfsd</span>
-                                <span>2017-6-26</span>
-                            </div>
-                            <p>
-                                发货很快，昂克赛拉大姐夫老司机埃弗拉手机垃圾费发货很快，昂克赛拉大姐夫老司机埃弗拉手机垃圾费,昂克赛拉大姐夫老司机埃弗拉手机垃圾费发货很快
-                            </p>
-                            <!--商品信息-->
-                            <span class="goods-detail">颜色分类 :净含量：200ml</span>
-
-                        </li>
-                        <li>
-                            <!--用户名和日期-->
-                            <div class="user-date">
-                                <span>用户名sdfsdfsdfsd</span>
-                                <span>2017-6-26</span>
-                            </div>
-                            <p>
-                                发货很快，昂克赛拉大姐夫老司机埃弗拉手机垃圾费发货很快，昂克赛拉大姐夫老司机埃弗拉手机垃圾费,昂克赛拉大姐夫老司机埃弗拉手机垃圾费发货很快
-                            </p>
-                            <!--商品信息-->
-                            <span class="goods-detail">颜色分类 :净含量：200ml</span>
-
-                        </li>
-                        <li>
-                            <!--用户名和日期-->
-                            <div class="user-date">
-                                <span>用户名sdfsdfsdfsd</span>
-                                <span>2017-6-26</span>
-                            </div>
-                            <p>
-                                发货很快，昂克赛拉大姐夫老司机埃弗拉手机垃圾费发货很快，昂克赛拉大姐夫老司机埃弗拉手机垃圾费,昂克赛拉大姐夫老司机埃弗拉手机垃圾费发货很快
-                            </p>
-                            <!--商品信息-->
-                            <span class="goods-detail">颜色分类 :净含量：200ml</span>
-
-                        </li>
-                        <li>
-                            <!--用户名和日期-->
-                            <div class="user-date">
-                                <span>用户名sdfsdfsdfsd</span>
-                                <span>2017-6-26</span>
-                            </div>
-                            <p>
-                                发货很快，昂克赛拉大姐夫老司机埃弗拉手机垃圾费发货很快，昂克赛拉大姐夫老司机埃弗拉手机垃圾费,昂克赛拉大姐夫老司机埃弗拉手机垃圾费发货很快
-                            </p>
-                            <!--商品信息-->
-                            <span class="goods-detail">颜色分类 :净含量：200ml</span>
-
-                        </li>
-                    </ul>
+                    <script type="text/x-handlebars-template" id="whole-ul">
+                        {{#feedbacks}}
+                        <ul>
+                            <li>
+                                <!--用户名和日期-->
+                                <div class="user-date">
+                                    <span>{{userId}}</span>
+                                    <span>{{createTime}}</span>
+                                </div>
+                                <p>
+                                    {{content}}
+                                </p>
+                                <!--图片-->
+                                <div class="img-box">
+                                    {{#each (splitDetailImg imageUrls)}}
+                                    {{#if name}}
+                                    <div class="passImg-detail-img">
+                                        <a href="{{name}}" class="">
+                                            <img src='{{name}}' alt="">
+                                        </a>
+                                    </div>
+                                    {{/if}}
+                                    {{/each}}
+                                </div>
+                                <!--商品信息-->
+                                <span class="goods-detail">{{note}}</span>
+                            </li>
+                        </ul>
+                        {{/feedbacks}}
+                    </script>
                 </div>
                 <!--有图-->
-                <div class="chooseimg" style="display: none;">有图的内容</div>
+                <div class="chooseimg" style="display: none;">
+                    <script type="text/x-handlebars-template" id="chooseimg">
+                        {{#feedbacks}}
+                        <ul>
+                            <li>
+                                <!--用户名和日期-->
+                                <div class="user-date">
+                                    <span>{{userId}}</span>
+                                    <span>{{createTime}}</span>
+                                </div>
+                                <p>
+                                    {{content}}
+                                </p>
+                                <!--图片-->
+                                <div class="img-box">
+                                    {{#each (splitDetailImg imageUrls)}}
+                                    {{#if name}}
+                                    <div class="passImg-detail-img">
+                                        <a href="{{name}}" class="">
+                                            <img src='{{name}}' alt="">
+                                        </a>
+                                    </div>
+                                    {{/if}}
+                                    {{/each}}
+                                </div>
+                                <!--商品信息-->
+                                <span class="goods-detail">{{note}}</span>
+                            </li>
+                        </ul>
+                        {{/feedbacks}}
+                    </script>
+
+                </div>
             </div>
 
         </div>
@@ -162,19 +180,8 @@
 <script src="../js/common.js"></script>
 <script src="../js/goods-detail.js"></script>
 <script>
-    //轮播图
-    var slide3 = new auiSlide({
-        container:document.getElementById("aui-slide3"),
-        // "width":300,
-        "height":340,
-        "speed":500,
-        "autoPlay": 5000, //自动播放
-        "loop":true,
-        "pageShow":true,
-        "pageStyle":'dot',
-        'dotPosition':'center'
-    });
-    <!--详情和评价切换-->
+
+//    <!--详情和评价切换-->
     $('.goodsdetail-sw-rl').click(function () {
         $(this).addClass('goodsdetail-active1').find('.ab').addClass('goodsdetail-active');
         $(this).siblings().removeClass('goodsdetail-active1').find('.ab').removeClass('goodsdetail-active');

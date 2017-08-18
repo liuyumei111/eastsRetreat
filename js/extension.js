@@ -40,21 +40,19 @@ $(document).ready(function () {
                     "pageStyle":'dot',
                     'dotPosition':'center'
                 });
+                //点击平台公告
 
                 $(document).on('click','.my-notice-li',jumpDetail);
 
             }
         }
     });
-    
+
+    //平台公告跳转
     function jumpDetail() {
-        var id=$(this).data('noticeid');
-        location.href='notice.html?id='+id;
+        var id = $(this).data('noticeid');
+        location.href = 'notice.html?id=' + id;
     }
-    
-
-
-
 
 
     
