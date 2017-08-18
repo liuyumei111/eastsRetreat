@@ -49,7 +49,10 @@
         //修改收货地址
         insertAddress:'uc/address/edit',
         //删除收货地址
-        deleteAddress:'uc/address/delete'
+        deleteAddress:'uc/address/delete',
+        //根据商品id获得所有评价信息
+        detailComment:'product/feedbacks'
+
         
 
     };
