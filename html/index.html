@@ -112,7 +112,6 @@
             </a>
         </div>-->
 
-        <div id="token">123</div>
         <div class="home-shop-box">
             <img src="../images/banner1.png" alt="">
             <div class="home-shop-text">
@@ -227,7 +226,7 @@
         //getToken(token);
 
     } else {
-        alert('android的弹窗。');
+        //alert('android的弹窗。');
         //getToken(token);
     }
 
@@ -244,8 +243,8 @@
     function getToken(token) {
         localStorage.setItem('token',token);
         var token=localStorage.getItem('token');
-        $('#token').html(token);
-        alert('获取到的token为'+token);
+        //$('#token').html(token);
+        //alert('获取到的token为'+token);
 
     }
 
