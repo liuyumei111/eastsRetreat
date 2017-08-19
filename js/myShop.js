@@ -119,6 +119,7 @@ $(document).ready(function () {
                     $('.loading').hide();
                     num++;
                     var data=response.data;
+                    $('#header-box').html(mineCmp(data));
                     maxnum=data['productCount'];
                     start=num*pageLength;
                     if(maxnum == 0){
@@ -127,7 +128,29 @@ $(document).ready(function () {
                    // console.log(data.products.length);
                     if (data.products.length>0){
                         $('#dis-list-vessel').append(myShopType(data));
-                        $('#header-box').html(mineCmp(data))
+
+
+                        //删除商品的弹框
+                        $(document).on('click','.dis-del',function () {
+                            var that=$(this);
+                            var thatDom=that.parents('.dis-list-box');
+                            var productId=that.parents('.dis-list-box').data('shopid');
+
+                            dialog.confirm({
+                                title: "确认要删除该商品吗",
+                                content: "",
+                                ok: function () {
+                                    deleteShop(thatDom,productId);
+                                    setTimeout(function () {
+                                        dialog.tusiSuccess('删除成功');
+                                    }, 500);
+                                },
+                                cancel: function () {
+                                }
+                            });
+                        })
+
+
                     }else {
                         $(".no-info").show();
                         num=maxnum+1;
@@ -137,6 +160,28 @@ $(document).ready(function () {
             }
         })
     }
+
+    //删除商品的请求
+
+    function deleteShop(that,productId) {
+        $.ajax({
+            url:C.marketInterface.delMyShop,
+            type:'get',
+            dataType:'json',
+            data:{
+                productId:productId,
+                token:C.marketToken
+                
+            },
+            success:function (response) {
+                if (response.result=='success'){
+                    that.remove();
+
+                }
+            }
+        });
+    }
+
 
 
 

@@ -20,19 +20,34 @@
 </header>
 <nav>
     <div class="member-info-entry" id="member-info-entry">
-        <script type="text/x-handlebars-template" id="teacher-template">
-        <ul class="member-info-list teacher-info-list">
-            <li>
-                <a href="javascript:;" class="display-box">
-                    <span>{{userNickName}}</span>
-                    <span>他的店铺</span>
-                </a>
-            </li>
+
+
+            <script type="text/x-handlebars-template" id="teacher-template">
+                {{#this}}
+                {{#valueCompare this '!==' ''}}
+                <ul class="member-info-list teacher-info-list">
+                    <li>
+                        <a href="javascript:;" class="display-box">
+                            <span>{{userNickName}}</span>
+                            <span>他的店铺</span>
+                        </a>
+                    </li>
+                </ul>
+                {{/valueCompare}}
+                {{#valueCompare this.length '===' 0 }}
+                <ul class="member-info-list teacher-info-list">
+                    <li class="no-teacher">暂无培训老师.....</li>
+                </ul>
+
+                {{/valueCompare}}
+                {{/this}}
+            </script>
         </ul>
-        </script>
+
     </div>
 </nav>
 <script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/config.js"></script>
 <script src="../js/common.js"></script>
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script>
@@ -47,9 +62,9 @@
         },
         success:function (data) {
             if(data.result=='success'){
-                console.log(data);
+                //console.log(data);
                 var data=data.data;
-                $('.member-info-entry').html(b(data))
+                $('.member-info-entry').html(b(data));
             }else if(data.result=='login'){
                 alert(data.errorMsg);
             }else {

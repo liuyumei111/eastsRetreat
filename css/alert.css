@@ -1,0 +1,157 @@
+.rDialog {
+    position: fixed;
+    _position: absolute;
+}
+
+.rDialog-wrap-, .rDialog-wrap-alert, .rDialog-wrap-confirm, .rDialog-wrap-loading, .rDialog-wrap-tusi {
+    position: relative;
+    background: #000;
+    filter: alpha(opacity=65);
+    opacity: .65;
+    background-clip: padding-box;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 1px 1px 1px #000;
+    padding: 20px 15px;
+}
+
+.rDialog-close{
+    position: absolute;
+    right: 10px;
+    top:10px;
+    width:20px;
+    height:20px;
+    background-image: url("../images/clone.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.rDialog-wrap-alert, .rDialog-wrap-confirm {
+    background: #fff;
+    box-shadow: 1px 1px 1px #ccc;
+    filter: alpha(opacity=100);
+    opacity: 1;
+    padding: 15px;
+}
+
+.rDialog-content {
+    overflow: hidden;
+    text-align: center;
+    line-height: 22px;
+    font-size: 15px;
+    color: #fff;
+}
+
+.rDialog-wrap-loading .rDialog-content, .rDialog-wrap-tusi .rDialog-content {
+    font-size: 16px;
+}
+
+.rDialog-wrap-alert .rDialog-content, .rDialog-wrap-confirm .rDialog-content {
+    color: #292d33;
+}
+
+.rDialog-header- {
+    text-align: center;
+    font-size: 18px;
+    color: #292d33;
+    margin-bottom: 10px;
+}
+
+.rDialog-header-load, .rDialog-header-error, .rDialog-header-success {
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 100%;
+    width: 50px;
+    height: 53px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.rDialog-header-load {
+    background-image: url("../images/alert-loading.gif");
+
+}
+
+.rDialog-header-error, .rDialog-header-success {
+    background-image: url("../images/alert-icons.png");
+}
+
+.rDialog-header-error {
+    background-position: 0 -53px;
+}
+
+.rDialog-header-success {
+    background-position: 0 0;
+}
+
+.rDialog-footer {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.rDialog-footer a {
+    margin-top: 10px;
+    display: block;
+    width: 40%;
+    border-radius: 4px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 18px;
+}
+
+.rDialog-footer a.rDialog-cancel {
+    color: #7a8899;
+    background-color: #fff;
+    margin-right: 10px;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #bcc5d1;
+}
+
+.rDialog-footer a.rDialog-cancel:hover {
+    background: #e1e5eb;
+
+}
+
+.rDialog-footer a.rDialog-ok {
+    color: #fff;
+    background-color: #e6454a;
+}
+
+.rDialog-footer a.rDialog-ok:hover {
+    background-color: #c23a3f;
+    color: #f4e1e2;
+}
+
+.rDialog-footer a:link, .rDialog-footer a:visited, .rDialog-footer a:hover {
+
+    text-decoration: none;
+}
+
+.rDialog-mask {
+    position: fixed;
+    _position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    filter: alpha(opacity=30);
+    opacity: .3;
+}

@@ -23,7 +23,7 @@
             <script type="text/x-handlebars-template" id="one-product">
                 {{#each products}}
                 <!--<a href="goodsDetail.html?productId={{id}}" class="display-box">-->
-                <a href="javascript:;" class="display-box">
+                <a href="goodsdetail.html?productId={{id}}" class="display-box">
                     <div class="dis-list-box">
                         <div class="dis-shop-img">
                             <!--<img src="../img/grey.gif" data-src="{{mainImageUrl}}" alt="">-->
@@ -31,16 +31,16 @@
                         </div>
                         <div class="dis-list-content">
                             <div class="dis-shop-detail">
-                                <span>红包 {{productHongbao}}元</span>
-                                <span>{{exemption isServenBack}}</span>
-                                <span>{{name}}</span>
+                                <span class="hongbao">红包 {{productHongbao}}元</span>
+                                <span class="is-baoyou">{{exemption isServenBack}}</span>
+                                <span class="shop-list-name">{{name}}</span>
                             </div>
                             <div class="dis-price">
                                 <span>优惠价:{{productPrice}}</span>
                                 <span>销量：{{totalSales}}</span>
                             </div>
                             <div class="dis-evaluate">
-                                <span>赚:30.61元</span>
+                                <span>赚:{{marketProfit}}元</span>
                                 <span>佣金率：<span>{{marketProfitPercent}}</span></span>
                             </div>
                             <div class="dis-del-sale">
@@ -138,7 +138,7 @@
 <script src="../js/config.js"></script>
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script src="../js/common.js"></script>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
 <script src="../js/selected.js"></script>
 <script>
     $('.dis-sale').click(function () {
@@ -149,7 +149,7 @@
     })
 
 </script>
-<script>
+<!--<script>
     wx.config({
         debug: false,//这里是开启测试，如果设置为true，则打开每个步骤，都会有提示，是否成功或者失败
         appId: '{$signPackage.appId}',
@@ -236,6 +236,6 @@
             }
         });
     });
-</script>
+&lt;!&ndash;</script>-->
 </body>
 </html>

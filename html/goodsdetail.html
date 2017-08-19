@@ -87,9 +87,9 @@
             <!--全部和有图-->
             <div class="goodsdetail-con-whole">
                 <div class="goodsdetail-whole-lr bor-r goodsdetail-active2">
-                    <span style="color: red">全部(236)</span>
+                    <span style="color: red">全部({{totalFeedbacks}})</span>
                 </div>
-                <div class="goodsdetail-whole-lr bor-l"><span>有图(18)</span></div>
+                <div class="goodsdetail-whole-lr bor-l"><span>有图({{totalImageFeedbacks}})</span></div>
             </div>
             <!--全部和有图具体内容-->
             <div class="goodsdetail-whole-con">
@@ -137,9 +137,7 @@
                                     <span>{{userId}}</span>
                                     <span>{{createTime}}</span>
                                 </div>
-                                <p>
-                                    {{content}}
-                                </p>
+                                <p>{{content}}</p>
                                 <!--图片-->
                                 <div class="img-box">
                                     {{#each (splitDetailImg imageUrls)}}

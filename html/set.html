@@ -7,6 +7,7 @@
     <title>设置</title>
     <link rel="stylesheet" href="../css/aui.2.0.css">
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/alert.css">
     <link rel="stylesheet" href="../css/set.css">
 </head>
 <body>
@@ -42,6 +43,8 @@
 
 <script src="../js/jquery-3.0.0.min.js"></script>
 <script src="../js/common.js"></script>
+<script src="../js/alert.js"></script>
+<script src="../js/set.js"></script>
 <script>
 
     /**
@@ -52,24 +55,13 @@
     var ua = navigator.userAgent.toLowerCase();
     if (/iphone|ipad|ipod/.test(ua)) {
 
-        //getToken(token);
 
     } else {
-        //getToken(token);
-        var cleanCache='哈哈';
-        $(document).on('click','.out-login',poseAndroidToken);
+
+
     }
 
-    //调用Android获取token方法
-    function poseAndroidToken(cleanCache) {
-        window.aaa.bbb(cleanCache);
-    }
 
-    function getToken(token) {
-        localStorage.setItem('token',token);
-        alert('获取到的token为'+token);
-        bbb(cleanCache);
-    }
 </script>
 </body>
 </html>

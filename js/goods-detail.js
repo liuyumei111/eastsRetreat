@@ -20,8 +20,7 @@ $(document).ready(function () {
     var chooseImgTpl=$('#chooseimg').html();
     var chooseImgCmp=Handlebars.compile(chooseImgTpl);
 
-
-
+    
     $.ajax({
         url:C.interface.detail,
         type:'POST',

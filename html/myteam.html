@@ -45,8 +45,10 @@
     </div>
 </nav>
 <script src="../js/jquery-3.0.0.min.js"></script>
-<script src="../js/config.js"></script>
 <script src="../js/handlebars-v4.0.10.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/common.js"></script>
+
 <script>
     var a=$('#myteam-template').html();
     var b=Handlebars.compile(a);
@@ -59,16 +61,16 @@
         datatype:'json',
         success:function (data) {
             if(data.result=='success'){
-                console.log(data)
+                console.log(data);
                 $('#myteam-info-entry').html(b(data))
             }else if(data.result=='login'){
-                alert(data.errorMsg)
+                alert(data.errorMsg);
             }else {
-                alert(data.errorMsg)
+                alert(data.errorMsg);
             }
         },
         error:function () {
-            alert('服务器异常')
+            alert('工作人员正在恢复中...');
         }
     });
 
