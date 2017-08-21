@@ -22,6 +22,18 @@ function locationSearcher(key) {
     return null;
 }
 
+//ios重新登录
+function iosIsLogin() {
+    window.webkit.messageHandlers.goLogin.postMessage(null);
+}
+
+//Android重新登录
+function androidIsToken() {
+    window.huifa.goLogin();
+}
+
+
+
 
 /*模拟弹窗*/
 var dialog={};

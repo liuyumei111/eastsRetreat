@@ -53,12 +53,6 @@
 <script src="../js/alert.js"></script>
 <script src="../js/set.js"></script>
 <script>
-
-
-
-
-
-
     $(document).on('click','.out-login',function () {
         dialog.confirm({
             title: "确认要退出吗?",
@@ -85,9 +79,9 @@
         var token=localStorage.getItem('token');
         localStorage.removeItem('token');
         $('.get-token').html(token);
-
+        //alert('调用这个方法辣。');
         setTimeout(function () {
-            dialog.tusiSuccess('删除成功');
+            dialog.tusiSuccess('退出成功');
         }, 500);
     }
 

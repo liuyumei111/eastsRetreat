@@ -3,10 +3,45 @@
  */
 
 
+/**
+ * 判断是iOS或是安卓，改变数据的获取方式
+ *
+ * */
+var ua = navigator.userAgent.toLowerCase();
+if (/iphone|ipad|ipod/.test(ua)) {
+    //alert('iOS的弹窗');
+    postSuccessToken();
+    //getToken(token);
+
+} else {
+    //alert('android的弹窗。');
+    poseAndroidToken();
+}
+
+//调用ios获取token方法。
+function postSuccessToken() {
+    window.webkit.messageHandlers.postSuccessToken.postMessage('getToken');
+}
+
+//调用Android获取token方法
+function poseAndroidToken() {
+    window.aaa.bbb('哈哈');
+}
+
+function getToken(token) {
+    localStorage.setItem('token',token);
+    var token=localStorage.getItem('token');
+    $('#token').html(token);
+    //alert('获取到的token为'+token);
+
+}
+/*var token=locationSearcher('token');
+ localStorage.setItem('token',token);*/
+
+
+
 $(document).ready(function () {
 
-    /*var token=locationSearcher('token');
-    localStorage.setItem('token',token);*/
 
     //轮播图
     var slide3 = new auiSlide({

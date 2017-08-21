@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>-->
-
+    <div class="get-token"></div>
     <div id="tab1" class="tabList">
         <!--<div class="home-three">
             <a href="javascript:;" class="display-box">
@@ -215,38 +215,7 @@
 <script src="../js/index.js"></script>
 <script>
 
-    /**
-     * 判断是iOS或是安卓，改变数据的获取方式
-     *
-     * */
-    var ua = navigator.userAgent.toLowerCase();
-    if (/iphone|ipad|ipod/.test(ua)) {
-        alert('iOS的弹窗');
-        postSuccessToken();
-        //getToken(token);
 
-    } else {
-        //alert('android的弹窗。');
-        //getToken(token);
-    }
-
-    //调用ios获取token方法。
-    function postSuccessToken() {
-        window.webkit.messageHandlers.postSuccessToken.postMessage('getToken');
-    }
-
-    //调用Android获取token方法
-    function poseAndroidToken() {
-        window.aaa.bbb('哈哈');
-    }
-
-    function getToken(token) {
-        localStorage.setItem('token',token);
-        var token=localStorage.getItem('token');
-        //$('#token').html(token);
-        //alert('获取到的token为'+token);
-
-    }
 
 
 
