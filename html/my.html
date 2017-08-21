@@ -78,7 +78,7 @@
                 </a>
             </li>
             <li>
-                <a href="setup.html" class="display-box">
+                <a href="set.html" class="display-box">
                     设置
                 </a>
             </li>
@@ -135,10 +135,9 @@
             token:C.marketToken
         },
         success:function (data) {
-
             if(data.result=='success'){
                 var data=data.data;
-                console.log(data);
+                //console.log(data);
                 $('#my-box1').html(b(data));
             }else if(data.result=='login'){
                 alert('登录过期，请重新登录');

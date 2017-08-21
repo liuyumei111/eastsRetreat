@@ -7,6 +7,7 @@
     <title>设置</title>
     <link rel="stylesheet" href="../css/aui.2.0.css">
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/common1.css">
     <link rel="stylesheet" href="../css/alert.css">
     <link rel="stylesheet" href="../css/set.css">
 </head>
@@ -21,7 +22,7 @@
     <div class="member-info-entry">
         <ul class="member-info-list">
             <li>
-                <a href="javascript:;" class="display-box">
+                <a href="bindingtel.html" class="display-box">
                     绑定手机号
                 </a>
             </li>
@@ -36,6 +37,11 @@
                     清除缓存
                 </a>
             </li>
+            <!--<li>
+                <a href="javascript:;" class="display-box get-token" >
+
+                </a>
+            </li>-->
         </ul>
     </div>
     <div class="out-login">退出登录</div>
@@ -43,22 +49,52 @@
 
 <script src="../js/jquery-3.0.0.min.js"></script>
 <script src="../js/common.js"></script>
+<script src="../js/function.js"></script>
 <script src="../js/alert.js"></script>
 <script src="../js/set.js"></script>
 <script>
 
-    /**
-     * 判断是iOS或是安卓，改变数据的获取方式
-     *
-     * */
-
-    var ua = navigator.userAgent.toLowerCase();
-    if (/iphone|ipad|ipod/.test(ua)) {
 
 
-    } else {
 
 
+
+    $(document).on('click','.out-login',function () {
+        dialog.confirm({
+            title: "确认要退出吗?",
+            content: "",
+            ok: function () {
+                /**
+                 * 判断是iOS或是安卓，改变数据的获取方式
+                 * */
+                var ua = navigator.userAgent.toLowerCase();
+                if (/iphone|ipad|ipod/.test(ua)) {
+
+                } else {
+                    cleanToken();
+                }
+
+            },
+            cancel: function () {
+
+            }
+        })
+    });
+
+    function loginOut() {
+        var token=localStorage.getItem('token');
+        localStorage.removeItem('token');
+        $('.get-token').html(token);
+
+        setTimeout(function () {
+            dialog.tusiSuccess('删除成功');
+        }, 500);
+    }
+
+
+    //调用Android方法
+    function cleanToken() {
+        window.huifa.loginOut();
     }
 
 
