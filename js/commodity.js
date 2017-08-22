@@ -80,7 +80,6 @@ $.ajax({
 
 });
 
-
 //搜索
 $(document).on('click','.aui-text-info',function () {
     searchName=$('#search-input').val();
@@ -170,6 +169,13 @@ function ajaxGetShopData() {
                     $(".no-info").show();
                     num=maxnum+1;
                 }
+
+                //这里添加立即推广事件
+                $(document).on('click','.now-tuiguang',nowTuiGuang);
+                //取消分享弹框
+                $('.cancel').click(function () {
+                    $('.wxmass-sends').hide();
+                });
                 flag=0;
             }
         }

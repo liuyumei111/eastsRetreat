@@ -120,7 +120,7 @@ $(document).ready(function () {
                     num++;
                     var data=response.data;
                     $('#header-box').html(mineCmp(data));
-                    maxnum=data['productCount'];
+                    maxnum=data['totalCount'];
                     start=num*pageLength;
                     if(maxnum == 0){
                         $(".no-info").show();
@@ -129,33 +129,54 @@ $(document).ready(function () {
                     if (data.products.length>0){
                         $('#dis-list-vessel').append(myShopType(data));
 
-
-                        //删除商品的弹框
-                        $(document).on('click','.dis-del',function () {
-                            var that=$(this);
-                            var thatDom=that.parents('.dis-list-box');
-                            var productId=that.parents('.dis-list-box').data('shopid');
-
-                            dialog.confirm({
-                                title: "确认要删除该商品吗",
-                                content: "",
-                                ok: function () {
-                                    deleteShop(thatDom,productId);
-                                    setTimeout(function () {
-                                        dialog.tusiSuccess('删除成功');
-                                    }, 500);
-                                },
-                                cancel: function () {
-                                }
-                            });
-                        })
-
-
                     }else {
                         $(".no-info").show();
                         num=maxnum+1;
                     }
                     flag=0;
+
+                    //删除商品的弹框
+                    $(document).on('click','.dis-del',function () {
+                        var that=$(this);
+                        var thatDom=that.parents('.dis-list-box');
+                        var productId=that.parents('.dis-list-box').data('shopid');
+
+                        dialog.confirm({
+                            title: "确认要删除该商品吗",
+                            content: "",
+                            ok: function () {
+                                deleteShop(thatDom,productId);
+                                setTimeout(function () {
+                                    dialog.tusiSuccess('删除成功');
+                                }, 500);
+                            },
+                            cancel: function () {
+                            }
+                        });
+                    });
+                    /*//分享店铺
+                    $('.clickshare').click(function () {
+                        $('.mask').show();
+                        $('.my-share').toggle();
+                    });
+                    /!*点击x按钮关闭店铺分享*!/
+                    $('.my-share-del1').click(function () {
+                        $('.mask').hide();
+                        $('.my-share').hide();
+                    });
+                    /!*点击立即推广*!/
+                    $('.dis-sale').click(function () {
+                        $('.myshop-share').toggle();
+                    });
+                    /!*点击立即推广*!/
+                    $('.close').click(function () {
+                        $('.myshop-share').toggle();
+                    });
+                    /!*点击x按钮关闭店铺分享*!/
+                    $('.my-share-del1').click(function () {
+                        $('.my-share').toggle();
+                    });*/
+
                 }
             }
         })

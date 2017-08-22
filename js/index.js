@@ -10,20 +10,12 @@
 var ua = navigator.userAgent.toLowerCase();
 if (/iphone|ipad|ipod/.test(ua)) {
     //alert('iOS的弹窗');
-<<<<<<< HEAD
     //postSuccessToken();
-=======
-    postSuccessToken();
->>>>>>> 7f4c77c50d4048541594e570720bfd94e6523e7f
     //getToken(token);
 
 } else {
     //alert('android的弹窗。');
-<<<<<<< HEAD
     //poseAndroidToken();
-=======
-    poseAndroidToken();
->>>>>>> 7f4c77c50d4048541594e570720bfd94e6523e7f
 }
 
 //调用ios获取token方法。
@@ -41,7 +33,6 @@ function getToken(token) {
     var token=localStorage.getItem('token');
     $('#token').html(token);
     //alert('获取到的token为'+token);
-
 }
 /*var token=locationSearcher('token');
  localStorage.setItem('token',token);*/
@@ -49,8 +40,6 @@ function getToken(token) {
 
 
 $(document).ready(function () {
-
-
     //轮播图
     var slide3 = new auiSlide({
         container:document.getElementById("aui-slide3"),

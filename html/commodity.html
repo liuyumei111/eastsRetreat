@@ -114,7 +114,7 @@
                             <span>好评 <span>{{percentFeedback}}</span></span>
                         </div>
                         <div class="dis-sale">
-                            <span>立即推广</span>
+                            <span class="now-tuiguang">立即推广</span>
                         </div>
                     </div>
                 </div>
@@ -122,10 +122,53 @@
             {{/each}}
         </script>
     </div>
-
     <div class="loading">加载更多...</div>
     <div class="no-info">没有更多信息了...</div>
     <div class="default-height"></div>
+
+    <!--立即推广-->
+    <section class="wxmass-sends">
+        <section class="wxmass-sends-item">
+            <div class="wxmass-item-title">
+                <span class="cancel">取消</span>
+                <span>共9张</span>
+
+            </div>
+            <div class="wxmass-item-img">
+                <img src="../images/banner1.png" alt="">
+            </div>
+            <ul class="wxmass-item-list">
+                <li>
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends1.png" alt="">
+                    </div>
+                    <span>发送给朋友</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends2.png" alt="">
+                    </div>
+                    <span>分享到朋友圈</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+                <li class="no-border">
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends3.png" alt="">
+                    </div>
+                    <span>收藏</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </section>
 </section>
 <!--底部栏-->
 <footer class="aui-bar aui-bar-tab" id="footer">
@@ -158,6 +201,7 @@
 <script src="../js/jquery-3.0.0.min.js"></script>
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script src="../js/config.js"></script>
+<script src="../js/function.js"></script>
 <script src="../js/aui-lazyload.js"></script>
 <script src="../js/api.2.0.js"></script>
 <script src="../js/api.js" ></script>
