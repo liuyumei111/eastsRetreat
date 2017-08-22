@@ -10,12 +10,20 @@
 var ua = navigator.userAgent.toLowerCase();
 if (/iphone|ipad|ipod/.test(ua)) {
     //alert('iOS的弹窗');
+<<<<<<< HEAD
     //postSuccessToken();
+=======
+    postSuccessToken();
+>>>>>>> 7f4c77c50d4048541594e570720bfd94e6523e7f
     //getToken(token);
 
 } else {
     //alert('android的弹窗。');
+<<<<<<< HEAD
     //poseAndroidToken();
+=======
+    poseAndroidToken();
+>>>>>>> 7f4c77c50d4048541594e570720bfd94e6523e7f
 }
 
 //调用ios获取token方法。
