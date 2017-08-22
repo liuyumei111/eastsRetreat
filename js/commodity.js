@@ -26,7 +26,8 @@ var range = 200, //距下边界长度/单位px
     num = 0, //当前数量
     totalheight = 0,
     flag=0,
-    start='0';
+    start='0',
+    searchName='';
 
 //获取商品类别(全部，男装，女装,饮料，家电)
 $.ajax({
@@ -80,6 +81,29 @@ $.ajax({
 });
 
 
+//搜索
+$(document).on('click','.aui-text-info',function () {
+    searchName=$('#search-input').val();
+    if (searchName==''){
+        return false;
+    }
+    $('#dis-select-box').hide();
+    $('#dis-list-vessel').empty();
+    num=0;
+    start = num;
+    ajaxGetShopData();
+});
+//删除文本之后请求数据。
+$(document).on('click','#clean-search',function () {
+    $('#dis-select-box').show();
+    $('#dis-list-vessel').empty();
+    searchName='';
+    num=0;
+    start = num;
+    ajaxGetShopData();
+});
+
+
 
 //监听滚动高度，加载数据
 $(window).on('scroll',function () {
@@ -106,6 +130,7 @@ function ajaxGetShopData() {
     }
     //条件成立
     //显示加载更多
+    $(".no-info").hide();
     $('.loading').show();
     flag=1;
     $.ajax({
@@ -118,7 +143,8 @@ function ajaxGetShopData() {
             start:start,
             length:pageLength,
             minMaxPrice:minMaxPrice,
-            minMaxSales:minMaxSales
+            minMaxSales:minMaxSales,
+            name:searchName
         },
         success:function (response) {
             if (response.result=='success'){
@@ -128,10 +154,10 @@ function ajaxGetShopData() {
                 num++;
                 //请求回来的数据
                 var data=response.data;
-                console.log(data);
+                //console.log(data);
                 //商品的总数
                 maxnum=data['productCount'];
-                //
+                //因为数据库采用的是行偏移量，所以这里需要num*pageLength
                 start=num*pageLength;
                 //当上平的总数等于0的时候显示没有更多信息了...
                 if(maxnum == 0){
@@ -150,12 +176,17 @@ function ajaxGetShopData() {
     })
 }
 
+
 //$(document).on('change','.dis-shop-type',getShopSelected);
 //$(document).on('change','.dis-shop-sort',getShopSort);
 $(document).on('click','#nmbConfirm',getScreen);
 $('.all-mask').bind('click',function () {
     $('.dis-screen-price').hide();
 });
+
+
+
+
 
 //商品筛选
 function getScreen() {
@@ -237,7 +268,7 @@ Handlebars.registerHelper('exemption',function (value) {
 });
 
 new auiLazyload({
-    errorImage:'../image/error-img.png'
+    errorImage:'../images/error-img.png'
 });
 
 $(document).ready(function () {
