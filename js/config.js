@@ -3,10 +3,10 @@
  */
 
 (function (w) {
-    var apiHost='http://192.168.199.107:8081';
-    //var apiHost='http://www.rrfun.com.cn:8080';
-    var marketHost='http://192.168.199.107:8083';
-    //var marketHost='http://www.rrfun.com.cn:8081';
+    //var apiHost='http://192.168.199.107:8081';
+    var apiHost='http://www.rrfun.com.cn:8080';
+    //var marketHost='http://192.168.199.107:8083';
+    var marketHost='http://www.rrfun.com.cn:8081';
 
     //配置项
     w.C={};
@@ -29,6 +29,7 @@
 
     C.token='201708031209898169cdb594d601fc4471a9c3bab8c7fe386b';
     C.marketToken=localStorage.getItem('token');
+    //C.marketToken='20170819154417162476c15c2872fe43e6a9f3ea2be81ec024';
 
     //获取微信oppenId
     C.getWxUserInfo='http://www.rrfun.com.cn/Uc/getInfo';
@@ -53,8 +54,6 @@
         //根据商品id获得所有评价信息
         detailComment:'product/feedbacks'
 
-        
-
     };
     //market接口
     C.marketInterface={
@@ -72,12 +71,7 @@
         teamadmin:'uc/group/index',
         //我的团队
         myteam:'uc/group/peoples',
-        //    交易成功
-        transuccess:'uc/order/list',
-        //    交易失败
-        tranfail:'uc/order/list',
-        //    交易中
-        tranconduct:'uc/order/list',
+
         //我的老师
         myTeacher:'uc/teacher/index',
         //注册登录提交验证码
@@ -91,13 +85,15 @@
         //商品类别
         selectType:'index/categorys',
         //推广中心
-        promotionCenter:'index/index'
-
-
-
+        promotionCenter:'index/index',
+        //销售管理(成功，失败，交易中)
+        orderList:'uc/order/list',
+        //个人店铺中删除商品
+        delMyShop:'uc/store/del'
 
 
     };
+
     //组合mall接口地址
     for (k in C.interface){
         C.interface[k]=C.host + C.interface[k];

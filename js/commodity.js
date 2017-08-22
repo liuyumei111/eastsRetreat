@@ -9,26 +9,26 @@
 //商品信息
 var shoptpl=$('#discount-list-template').html();
 var shopTemplate=Handlebars.compile(shoptpl);
-//商品类别
+//筛选(全部)
 var selectTpl=$('#select-template').html();
 var selectCmp=Handlebars.compile(selectTpl);
 
-//首页数据
+//后台获取的首页数据(ajax请求地址)
 var uri=C.interface.discount;
-//获取商品分类
+//后台获取的首页数据(获取商品分类)
 var selectUri=C.interface.selectType;
 
-//ajax加载商品列表
+//ajax加载商品列表(分页)
 var categoryId='',orderType='',pageLength=5,minMaxPrice='',minMaxSales='';
 
 var range = 200, //距下边界长度/单位px
-    maxnum = 0, //设置课程总数
+    maxnum = 0, //设置总数
     num = 0, //当前数量
     totalheight = 0,
     flag=0,
     start='0';
 
-//获取商品类别(全部，男装，女装)
+//获取商品类别(全部，男装，女装,饮料，家电)
 $.ajax({
     url:selectUri,
     type:'get',
@@ -36,16 +36,23 @@ $.ajax({
     data:{},
     success:function (response) {
         if (response.result=='success'){
+            //商品类别(全部，男装，女装,饮料，家电)
             var selectData=response.data;
+            //console.log(selectData);
+            //handlebars渲染数据
             $('#dis-select-box').html(selectCmp(selectData));
-
+            //加载商品数据
             ajaxGetShopData();
+            //点击全部，可以选择商品类别
             $(document).on('change','.dis-shop-type',function () {
+                //清空整个列表的数据
                 $('#dis-list-vessel').empty();
+                //
                 categoryId=$(this).val();
                 console.log(categoryId);
                 num=0;
                 start = num;
+                //加载商品数据
                 ajaxGetShopData();
             });
             $(document).on('change','.dis-shop-sort',function () {
@@ -91,10 +98,14 @@ $(window).on('scroll',function () {
     }
 });
 
+//加载商品数据
 function ajaxGetShopData() {
+    //如果条件不成立直接不执行
     if (flag){
         return;
     }
+    //条件成立
+    //显示加载更多
     $('.loading').show();
     flag=1;
     $.ajax({
@@ -111,19 +122,22 @@ function ajaxGetShopData() {
         },
         success:function (response) {
             if (response.result=='success'){
-
+                //显示加载隐藏
                 $('.loading').hide();
+                //每次都加1
                 num++;
+                //请求回来的数据
                 var data=response.data;
+                console.log(data);
+                //商品的总数
                 maxnum=data['productCount'];
+                //
                 start=num*pageLength;
+                //当上平的总数等于0的时候显示没有更多信息了...
                 if(maxnum == 0){
                     $(".no-info").show();
                 }
-
-                //console.log(data);
-
-                console.log(data.products.length);
+                //如果请求回来的数据条数大于0，在数据后插入新新数据，不覆盖旧数据;否则就显示没有更多信息了
                 if (data.products.length>0){
                     $('#dis-list-vessel').append(shopTemplate(data));
                 }else {
@@ -142,63 +156,6 @@ $(document).on('click','#nmbConfirm',getScreen);
 $('.all-mask').bind('click',function () {
     $('.dis-screen-price').hide();
 });
-//商品分类
-function getShopSelected() {
-    var thisValue=$(this).val();
-    //获取当前类别下的商品信息
-    $.ajax({
-        url:uri,
-        dataType:'json',
-        type:'get',
-        data:{
-            categoryId:thisValue
-        },
-        success:function (response) {
-            if (response.result=='success'){
-                console.log(response.data);
-                var data=response.data;
-                $('#dis-list-vessel').html(shopTemplate(data));
-                /*new auiLazyload({
-                 errorImage:'img/error-img.png'
-                 });*/
-
-            }else {
-                console.log(response.errorCode);
-            }
-        }
-    });
-}
-//商品排序
-function getShopSort() {
-    var shopType=$('.dis-shop-type').val();
-    console.log(shopType);
-    var thisValue=$(this).val();
-    console.log(thisValue);
-    //获取当前类别下的商品信息
-    $.ajax({
-        url:uri,
-        dataType:'json',
-        type:'get',
-        data:{
-            categoryId:shopType,
-            orderType:thisValue
-        },
-        success:function (response) {
-            if (response.result=='success'){
-                console.log(response.data);
-
-                var data=response.data;
-                $('#dis-list-vessel').html(shopTemplate(data));
-                /*new auiLazyload({
-                 errorImage:'img/error-img.png'
-                 });*/
-
-            }else {
-                console.log(response.errorCode);
-            }
-        }
-    });
-}
 
 //商品筛选
 function getScreen() {

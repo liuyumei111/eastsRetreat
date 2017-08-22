@@ -20,8 +20,7 @@ $(document).ready(function () {
     var chooseImgTpl=$('#chooseimg').html();
     var chooseImgCmp=Handlebars.compile(chooseImgTpl);
 
-
-
+    
     $.ajax({
         url:C.interface.detail,
         type:'POST',
@@ -32,7 +31,7 @@ $(document).ready(function () {
         success:function (response) {
             if (response.result=='success'){
                 var data=response.data;
-                console.log(data);
+                //console.log(data);
 
                 //详情数据
                 $('#detail-content-box').html(detailCmp(data));
@@ -72,7 +71,7 @@ $(document).ready(function () {
         success:function (response) {
             if (response.result=='success'){
                 var data=response.data;
-                console.log(data);
+                //console.log(data);
                 $('.whole').html(wholeCommentCmp(data))
 
             }else if (response.result == 'login') {
@@ -94,7 +93,7 @@ $(document).ready(function () {
         success:function (response) {
             if (response.result=='success'){
                 var data=response.data;
-                console.log(data);
+                //console.log(data);
                 $('.chooseimg').html(chooseImgCmp(data))
 
             }else if (response.result == 'login') {

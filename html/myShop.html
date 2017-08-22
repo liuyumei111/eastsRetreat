@@ -7,6 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="../css/aui.2.0.css">
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/alert.css">
     <link rel="stylesheet" href="../css/common1.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/myshop.css">
@@ -19,7 +20,7 @@
             <img class="user-photo" src="../images/user.jpg" alt="">
             <div class="member-info">
                 <div>{{userNickName}}</div>
-                <div>已经售66666件商品</div>
+                <div>已经售{{totalProduct}}件商品</div>
                 <div class="clickshare"><span>店铺分享</span></div>
             </div>
             {{/user}}
@@ -65,7 +66,7 @@
             <script type="text/x-handlebars-template" id="my-shop-template">
                 {{#each products}}
                 <a href="javascript:;" class="display-box">
-                    <div class="dis-list-box">
+                    <div class="dis-list-box" data-shopid="{{id}}">
                         <div class="dis-shop-img">
                             <img src="../images/22.jpg" alt="">
                             <div class="earn">
@@ -74,9 +75,9 @@
                         </div>
                         <div class="dis-list-content">
                             <div class="dis-shop-detail">
-                                <span>红包{{productHongbao}}元</span>
-                                <span>{{exemption isServenBack}}</span>
-                                <span>{{name}}</span>
+                                <span class="hongbao">红包{{productHongbao}}元</span>
+                                <!--<span class="is-baoyou">{{exemption isServenBack}}</span>-->
+                                <span class="shop-list-name">{{name}}</span>
                             </div>
                             <div class="dis-price">
                                 <span>优惠价:{{productPrice}}</span>
@@ -176,14 +177,16 @@
 </section>
 
 <script src="../js/jquery-3.0.0.min.js"></script>
-<script src="../js/api.2.0.js"></script>
-<script src="../js/config.js"></script>
+<!--<script src="../js/api.2.0.js"></script>-->
 <script src="../js/handlebars-v4.0.10.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/alert.js"></script>
+<script src="../js/function.js"></script>
 <script src="../js/common.js"></script>
 <script src="../js/myShop.js"></script>
 
 
-<script>
+<!--<script>
     $(document).ready(function () {
         /*筛选按钮的切换*/
         $('.dis-screen-btn').click(function () {
@@ -218,7 +221,7 @@
             $('.myshop-share').toggle();
         });
     });
-</script>
+</script>-->
 
 </body>
 </html>

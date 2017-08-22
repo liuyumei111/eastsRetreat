@@ -24,19 +24,16 @@
         <script type="text/x-handlebars-template" id="setup-template">
             <ul class="member-info-list">
                 <li>
-                <a href="javascript:;" class="display-box">
-                <span>当前版本</span>
-                <span>{{data}}</span>
-            </a>
-            </li>
-            <li>
-            <a href="javascript:;" class="display-box">
-                清除缓存
-                </a>
+                    <a href="javascript:;" class="display-box">
+                        <span>当前版本</span>
+                        <span>{{data}}</span>
+                    </a>
                 </li>
-                </ul>
+                <li>
+                <a href="javascript:;" class="display-box">清除缓存</a>
+                </li>
+            </ul>
         </script>
-
     </div>
     <div class="out-login">退出登录</div>
 </nav>
@@ -57,13 +54,13 @@
         },
         datatype:'json',
         success:function (data) {
-            console.log(data)
+            console.log(data);
             if(data.result=='success'){
                 $('#member-info-entry').html(b(data))
             }else if(data.result=='login'){
-                alert(data.errorMsg)
+                alert(data.errorMsg);
             }else {
-                alert(data.errorMsg)
+                alert(data.errorMsg);
             }
         },
         error:function (response) {

@@ -403,7 +403,7 @@ select{
 	height: 6.1rem;
 	margin-right: 0.5rem;
 }
-.dis-shop-detail>span:nth-child(1),.dis-shop-detail>span:nth-child(2){
+.hongbao,.is-baoyou{
 	color: #fff;
 	font-size: 0.5rem;
 	border-radius: 0.15rem;
@@ -414,13 +414,13 @@ select{
 	display: inline-block;
 	color: #fff;
 }
-.dis-shop-detail>span:nth-child(1){
+.hongbao{
 	background-color: #f23030;
 }
-.dis-shop-detail>span:nth-child(2){
+.is-baoyou{
 	background-color: rgb(255, 130, 53);
 }
-.dis-shop-detail>span:nth-child(3){
+.shop-list-name{
 	color: #1b1b1b;
 	font-size: 0.6rem;
 }

@@ -14,17 +14,21 @@
 <body>
 <!--搜索框-->
 <header>
-    <div class="aui-searchbar my-aui-searchbar" id="search">
-        <div class="aui-searchbar-input aui-border-radius" tapmode onclick="doSearch()">
+    <div class="aui-searchbar" id="search">
+        <div class="aui-searchbar-input aui-border-radius">
             <i class="aui-iconfont aui-icon-search"></i>
-            <form action="javascript:search();">
-                <input type="search" placeholder="请在此输入商品名称" id="search-input">
-            </form>
+            <input type="search" placeholder="请输入搜索内容" id="search-input">
+            <div class="aui-searchbar-clear-btn">
+                <i class="aui-iconfont aui-icon-close"></i>
+            </div>
         </div>
-        <div class="aui-searchbar-cancel" tapmod>取消搜索</div>
+        <div class="aui-searchbar-btn" tapmode>取消</div>
     </div>
 </header>
+
+<!--中间部分-->
 <section class="comm-box">
+    <!--筛选部分-->
     <div class="dis-select-box" id="dis-select-box">
         <script type="text/x-handlebars-template" id="select-template">
             <select class="dis-shop-type" id="shop-type-box">
@@ -61,8 +65,8 @@
             </div>
         </script>
     </div>
+    <!--列表渲染-->
     <div id="dis-list-vessel" class="mar-bottom">
-
         <!--<a href="javascript:;" class="display-box">
             <div class="dis-list-box">
                 <div class="dis-shop-img">
@@ -88,42 +92,43 @@
                 </div>
             </div>
         </a>-->
-
+        <script type="text/x-handlebars-template" id="discount-list-template">
+            {{#each products}}
+            <a href="goodsdetail.html?productId={{id}}" class="display-box">
+                <div class="dis-list-box">
+                    <div class="dis-shop-img">
+                        <img src="../images/lazy-img.jpg" data-src="{{mainImageUrl}}" alt="">
+                    </div>
+                    <div class="dis-list-content">
+                        <div class="dis-shop-detail">
+                            <span class="hongbao">红包{{productHongbao}}元</span>
+                            <span class="is-baoyou">{{exemption isServenBack}}</span>
+                            <span class="shop-list-name">{{name}}</span>
+                        </div>
+                        <div class="dis-price">
+                            <span>￥{{productPrice}}</span>
+                            <span>￥{{productOrginPrice}}</span>
+                        </div>
+                        <div class="dis-evaluate">
+                            <span>{{totalFeedback}}评价</span>
+                            <span>好评 <span>{{percentFeedback}}</span></span>
+                        </div>
+                        <div class="dis-sale">
+                            <span>立即推广</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+        </script>
     </div>
+
     <div class="loading">加载更多...</div>
     <div class="no-info">没有更多信息了...</div>
     <div class="default-height"></div>
 </section>
-<script type="text/x-handlebars-template" id="discount-list-template">
-    {{#each products}}
-    <a href="goodsdetail.html?productId={{id}}" class="display-box">
-        <div class="dis-list-box">
-            <div class="dis-shop-img">
-                <!--<img src="../img/grey.gif" data-src="{{mainImageUrl}}" alt="">-->
-                <img src="../images/lazy-img.jpg" data-src="{{mainImageUrl}}" alt="">
-            </div>
-            <div class="dis-list-content">
-                <div class="dis-shop-detail">
-                    <span>红包{{productHongbao}}元</span>
-                    <span>{{exemption isServenBack}}</span>
-                    <span>{{name}}</span>
-                </div>
-                <div class="dis-price">
-                    <span>￥{{productPrice}}</span>
-                    <span>￥{{productOrginPrice}}</span>
-                </div>
-                <div class="dis-evaluate">
-                    <span>{{totalFeedback}}评价</span>
-                    <span>好评 <span>{{percentFeedback}}</span></span>
-                </div>
-                <div class="dis-sale">
-                    <span>立即推广</span>
-                </div>
-            </div>
-        </div>
-    </a>
-    {{/each}}
-</script>
+
+<!--底部栏-->
 <footer class="aui-bar aui-bar-tab" id="footer">
     <a href="index.html">
         <div class="aui-bar-tab-item" tapmode>
@@ -156,6 +161,7 @@
 <script src="../js/config.js"></script>
 <script src="../js/aui-lazyload.js"></script>
 <script src="../js/api.2.0.js"></script>
+<script src="../js/api.js" ></script>
 <script src="../js/search.js"></script>
 <script src="../js/commodity.js"></script>
 </body>

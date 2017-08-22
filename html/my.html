@@ -78,7 +78,7 @@
                 </a>
             </li>
             <li>
-                <a href="setup.html" class="display-box">
+                <a href="set.html" class="display-box">
                     设置
                 </a>
             </li>
@@ -89,8 +89,6 @@
             </li>
         </ul>
     </div>
-
-
 
 <footer class="aui-bar aui-bar-tab" id="footer">
     <a href="index.html">
@@ -120,23 +118,15 @@
 </footer>
 <script src="../js/jquery-3.0.0.min.js"></script>
 <script src="../js/config.js"></script>
+<script src="../js/function.js"></script>
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script>
     var a=$('#my-template').html();
     var b=Handlebars.compile(a);
 
-   /* $.ajax({
-        url:'http://www.rrfun.com.cn/Uc/getInfo',
-        type:'GET',
-        datatype:'json',
-        success:function (data) {
-            alert(data.openid);
-            //alert(data.nickname);
-            //alert(data.headimgurl);
-        }
-    });*/
+    //var token=localStorage.getItem('token');
 
-    /*$.ajax({
+    $.ajax({
         url:C.marketInterface.my,
         type:'post',
         dataType:'json',
@@ -144,23 +134,22 @@
             token:C.marketToken
         },
         success:function (data) {
-<<<<<<< HEAD
             if(data.result=='success'){
                 var data=data.data;
-=======
-            console.log(data);
-            if(data.result=='success'){
-                var data=data.data;
-                console.log(data);
->>>>>>> b3c6551e5fd4214eee1d942d50e7ed933a9dba6b
+                //console.log(data);
                 $('#my-box1').html(b(data));
             }else if(data.result=='login'){
-                alert(data.errorMsg);
+                var ua = navigator.userAgent.toLowerCase();
+                if (/iphone|ipad|ipod/.test(ua)) {
+                    iosIsLogin();
+                } else {
+                    androidIsToken();
+                }
             }else {
                 alert(data.errorMsg);
             }
         }
-    })*/
+    })
 </script>
 </body>
 </html>
