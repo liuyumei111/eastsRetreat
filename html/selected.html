@@ -24,10 +24,10 @@
                 {{#each products}}
                 <!--<a href="goodsDetail.html?productId={{id}}" class="display-box">-->
                 <a href="goodsdetail.html?productId={{id}}" class="display-box">
-                    <div class="dis-list-box">
+                    <div class="dis-list-box" data-productid="{{id}}">
                         <div class="dis-shop-img">
                             <!--<img src="../img/grey.gif" data-src="{{mainImageUrl}}" alt="">-->
-                            <img src="{{mainImageUrl}}" alt="">
+                            <img src="../images/lazy-img.jpg" data-src="{{mainImageUrl}}" alt="">
                         </div>
                         <div class="dis-list-content">
                             <div class="dis-shop-detail">
@@ -45,7 +45,7 @@
                             </div>
                             <div class="dis-del-sale">
                                 <div class="dis-del"></div>
-                                <div class="dis-sale">
+                                <div class="dis-sale ">
                                     <span class="now-tuiguang">立即推广</span>
                                 </div>
                             </div>
@@ -88,65 +88,178 @@
     </section>
     <div class="loading">加载更多...</div>
     <div class="no-info">没有更多数据了...</div>
-    <!--立即推广-->
-    <section class="wxmass-sends">
-        <section class="wxmass-sends-item">
-            <div class="wxmass-item-title">
-                <span class="cancel">取消</span>
-                <span>共9张</span>
 
-            </div>
-            <div class="wxmass-item-img">
-                <img src="../images/banner1.png" alt="">
-            </div>
-            <ul class="wxmass-item-list">
-                <li>
-                    <div class="wxmass-item-list-img">
-                        <img src="../images/sends1.png" alt="">
-                    </div>
-                    <span>发送给朋友</span>
-                    <div class="aui-col-xs-3 wxmass-col-xs-3">
-                        <i class="aui-iconfont aui-icon-right"></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="wxmass-item-list-img">
-                        <img src="../images/sends2.png" alt="">
-                    </div>
-                    <span>分享到朋友圈</span>
-                    <div class="aui-col-xs-3 wxmass-col-xs-3">
-                        <i class="aui-iconfont aui-icon-right"></i>
-                    </div>
-                </li>
-                <li class="no-border">
-                    <div class="wxmass-item-list-img">
-                        <img src="../images/sends3.png" alt="">
-                    </div>
-                    <span>收藏</span>
-                    <div class="aui-col-xs-3 wxmass-col-xs-3">
-                        <i class="aui-iconfont aui-icon-right"></i>
-                    </div>
-                </li>
-            </ul>
-        </section>
-
-    </section>
 </section>
 
 <script src="../js/jquery-3.0.0.min.js"></script>
 <script src="../js/api.2.0.js"></script>
 <script src="../js/config.js"></script>
+<script src="../js/aui-lazyload.js"></script>
 <script src="../js/function.js"></script>
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script src="../js/common.js"></script>
 <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
 <script src="../js/selected.js"></script>
 <script>
-    /*$('.dis-sale').click(function () {
-        $('.wxmass-sends').toggle();
-    });*/
+
+
+    var num=0,pageLength=5,flag=0,maxnum=0,range=200,start=0;
+
+    var oneProductTpl=$('#one-product').html();
+    var oneProductCmp=Handlebars.compile(oneProductTpl);
+
+    ajaxgetData();
+    //监听滚动高度，加载数据
+    $(window).on('scroll',function () {
+        var srollPos = $(window).scrollTop(); //滚动条距顶部距离(页面超出窗口的高度)
+        //console.log("滚动条到顶部的垂直高度: " + $(document).scrollTop());
+        //console.log("页面的文档高度 ："+$(document).height());
+        //console.log('浏览器的高度：'+$(window).height());
+        totalheight = parseFloat($(window).height()) + parseFloat(srollPos);
+
+        if (num>=maxnum){
+            return;
+        }
+        if (($(document).height()-range)<=totalheight&&num<maxnum){
+            //这里不能使用模板填充，应该是append()....
+            ajaxgetData();
+        }
+    });
+
+    function ajaxgetData() {
+        if (flag){
+            return;
+        }
+        $('.no-info').hide();
+        $('.loading').show();
+        flag=1;
+        $.ajax({
+            url:C.interface.discount,
+            type:'get',
+            dataType:'json',
+            data:{
+                start:start,
+                length:pageLength
+            },
+            success:function (response) {
+                if (response.result=='success'){
+                    $('.loading').hide();
+                    num++;
+                    var data=response.data;
+                    maxnum=data['productCount'];
+                    start=num*pageLength;
+                    if (maxnum==0){
+                        $('.no-info').show();
+                    }
+                    if (data.products.length>0){
+                        $('#dis-list-vessel').append(oneProductCmp(data));
+
+                    }else {
+                        $('.no-info').show();
+                        num=maxnum+1;
+                    }
+                    flag=0;
+                    //这里添加立即推广事件
+                    $('.now-tuiguang').unbind().bind('click',nowTuiGuang);
+
+                }else {
+                    alert(response.errorMsg);
+
+                }
+            }
+        })
+    }
+
+    //立即推广
+    function nowTuiGuang(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var that=$(this);
+        var thisPapa=that.parents('.dis-list-box');
+        var thisImg=thisPapa.find('.dis-shop-img').find('img').attr('src');
+        var shareProductId=thisPapa.data('productid');
+        localStorage.setItem('shareId',shareProductId);
+
+        $('.wxmass-item-img').find('img').attr('src',thisImg);
+        $('.wxmass-sends').show();
+
+        $('.share-firends').unbind().bind('click',function (event) {
+            shareFrends(event,'1');
+        });
+
+        $('.share-firends-quan').unbind().bind('click',function (event) {
+            shareFrends(event,'2');
+        });
+    }
+
+    //分享朋友圈
+    function shareFrends(event,type) {
+        event.stopPropagation();
+
+        var productId=localStorage.getItem('shareId');
+        $.ajax({
+            url:C.marketInterface.shareFriend,
+            type:'get',
+            dataType:'json',
+            data:{
+                token:C.marketToken,
+                productId:productId
+            },
+            success:function (response) {
+                if (response.result=='success'){
+                    //console.log(response.data);
+                    var imgUrl=response.data.imgUrl;
+                    var url=response.data.url;
+                    var title=response.data.title;
+                    var content=response.data.content;
+                    var data={
+                        postType:'shareProducts',
+                        productId:productId,
+                        type:type,
+                        url:url,
+                        imgUrl:String(imgUrl),
+                        title:title,
+                        content:content
+                    };
+                    console.log(data);
+                    var ua = navigator.userAgent.toLowerCase();
+                    if (/iphone|ipad|ipod/.test(ua)) {
+
+                        iosShare(data);
+                        event.stopPropagation();
+                    } else {
+                        //console.log(JSON.stringify(data));
+                        androidShare(JSON.stringify(data));
+                        event.stopPropagation();
+                    }
+                }
+            },
+            error:function () {
+                alert('服务器异常');
+            }
+        });
+
+    }
+
+    //拉取安卓分享
+    function androidShare(param) {
+        alert(param);
+        window.huifa.shareProducts(param);
+    }
+    //拉取iOS分享
+
+    function iosShare(param) {
+        window.webkit.messageHandlers.shareProducts.postMessage(param);
+    }
+
+
     $('.cancel').click(function () {
         $('.wxmass-sends').toggle();
+    });
+
+
+    $(document).ready(function () {
+
     })
 
 </script>

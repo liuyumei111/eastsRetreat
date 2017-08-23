@@ -2,7 +2,6 @@
  * Created by Administrator on 2017/8/8.
  */
 
-$(document).ready(function () {
 
     //商品类别
     var selectTpl=$('#my-select-template').html();        //获取到页面中的html代码块
@@ -136,7 +135,8 @@ $(document).ready(function () {
                     flag=0;
 
                     //删除商品的弹框
-                    $(document).on('click','.dis-del',function () {
+                    $(document).on('click','.dis-del',function (event) {
+                        event.preventDefault();
                         var that=$(this);
                         var thatDom=that.parents('.dis-list-box');
                         var productId=that.parents('.dis-list-box').data('shopid');
@@ -154,28 +154,31 @@ $(document).ready(function () {
                             }
                         });
                     });
-                    /*//分享店铺
+
+                    //分享店铺
                     $('.clickshare').click(function () {
                         $('.mask').show();
-                        $('.my-share').toggle();
+                        $('.my-share').show();
+
+                        /*点击x按钮关闭店铺分享*/
+                        $('.my-share-del1').click(function () {
+                            $('.mask').hide();
+                            $('.my-share').hide();
+                        });
                     });
-                    /!*点击x按钮关闭店铺分享*!/
-                    $('.my-share-del1').click(function () {
-                        $('.mask').hide();
-                        $('.my-share').hide();
-                    });
-                    /!*点击立即推广*!/
-                    $('.dis-sale').click(function () {
-                        $('.myshop-share').toggle();
-                    });
-                    /!*点击立即推广*!/
+
+                    //分享商品
+                    $('.now-tuiguang').unbind().bind('click',nowTuiGuang);
+
+
+                    /*点击立即推广*/
                     $('.close').click(function () {
-                        $('.myshop-share').toggle();
+                        $('.myshop-share').hide();
                     });
-                    /!*点击x按钮关闭店铺分享*!/
+                    /*点击x按钮关闭店铺分享*/
                     $('.my-share-del1').click(function () {
                         $('.my-share').toggle();
-                    });*/
+                    });
 
                 }
             }
@@ -183,7 +186,6 @@ $(document).ready(function () {
     }
 
     //删除商品的请求
-
     function deleteShop(that,productId) {
         $.ajax({
             url:C.marketInterface.delMyShop,
@@ -205,5 +207,96 @@ $(document).ready(function () {
 
 
 
+    //立即推广
+    function nowTuiGuang(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var that=$(this);
+        var thisPapa=that.parents('.dis-list-box');
+        var thisImg=thisPapa.find('.dis-shop-img').find('img').attr('src');
+        var shareProductId=thisPapa.data('productid');
+        localStorage.setItem('shareId',shareProductId);
 
+        $('.wxmass-item-img').find('img').attr('src',thisImg);
+        $('.wxmass-sends').show();
+
+        $('.share-firends').unbind().bind('click',function (event) {
+            shareFrends(event,'1');
+        });
+
+        $('.share-firends-quan').unbind().bind('click',function (event) {
+            shareFrends(event,'2');
+        });
+    }
+
+    //分享朋友圈
+    function shareFrends(event,type) {
+        event.stopPropagation();
+
+        var productId=localStorage.getItem('shareId');
+        $.ajax({
+            url:C.marketInterface.shareFriend,
+            type:'get',
+            dataType:'json',
+            data:{
+                token:C.marketToken,
+                productId:productId
+            },
+            success:function (response) {
+                if (response.result=='success'){
+                    //console.log(response.data);
+                    var imgUrl=response.data.imgUrl;
+                    var url=response.data.url;
+                    var title=response.data.title;
+                    var content=response.data.content;
+                    var data={
+                        postType:'shareProducts',
+                        productId:productId,
+                        type:type,
+                        url:url,
+                        imgUrl:String(imgUrl),
+                        title:title,
+                        content:content
+                    };
+                    console.log(data);
+                    var ua = navigator.userAgent.toLowerCase();
+                    if (/iphone|ipad|ipod/.test(ua)) {
+
+                        iosShare(data);
+                        event.stopPropagation();
+                    } else {
+                        //console.log(JSON.stringify(data));
+                        androidShare(JSON.stringify(data));
+                        event.stopPropagation();
+                    }
+                }else {
+                    alert(response.errorMsg);
+                }
+            },
+            error:function () {
+                alert('服务器异常');
+            }
+        });
+
+    }
+    //拉取安卓分享
+    function androidShare(param) {
+        alert(param);
+        window.huifa.shareProducts(param);
+    }
+    //拉取iOS分享
+
+    function iosShare(param) {
+        window.webkit.messageHandlers.shareProducts.postMessage(param);
+    }
+
+    $('.cancel').click(function () {
+        $('.wxmass-sends').hide();
+    });
+
+
+$(document).ready(function () {
+    new auiLazyload({
+        errorImage:'../images/error-img.png'
+    });
 });

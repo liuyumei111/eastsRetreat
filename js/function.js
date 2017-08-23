@@ -32,17 +32,13 @@ function androidIsToken() {
     window.huifa.goLogin();
 }
 
-//立即推广
-function nowTuiGuang(event) {
 
-    var that=$(this);
-    var thisPapa=that.parents('.dis-list-box');
-    var thisImg=thisPapa.find('.dis-shop-img').find('img').attr('src');
 
-    $('.wxmass-item-img').find('img').attr('src',thisImg);
-    $('.wxmass-sends').show();
-    event.preventDefault();
-}
+
+
+
+
+
 
 
 /*模拟弹窗*/

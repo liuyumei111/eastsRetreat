@@ -65,10 +65,10 @@
         <div id="dis-list-vessel">
             <script type="text/x-handlebars-template" id="my-shop-template">
                 {{#each products}}
-                <a href="javascript:;" class="display-box">
-                    <div class="dis-list-box" data-shopid="{{id}}">
+                <a href="goodsdetail.html?producdId={{id}}" class="display-box">
+                    <div class="dis-list-box" data-shopid="{{id}}" data-productid="{{productId}}">
                         <div class="dis-shop-img">
-                            <img src="../images/22.jpg" alt="">
+                            <img src="../images/lazy-img.jpg" data-src="{{mainImageUrl}}" alt="">
                             <div class="earn">
                                 <span>共赚<span>{{profit}}</span>元</span>
                             </div>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="dis-del-sale">
                                 <div class="dis-del"></div>
-                                <div class="dis-sale">
+                                <div class="dis-sale now-tuiguang">
                                     <span>立即推广</span>
                                 </div>
                             </div>
@@ -103,6 +103,49 @@
     </section>
     <div class="loading">加载更多...</div>
     <div class="no-info">没有更多数据了...</div>
+    <!--立即推广-->
+    <section class="wxmass-sends">
+        <section class="wxmass-sends-item">
+            <div class="wxmass-item-title">
+                <span class="cancel">取消</span>
+                <span>分享</span>
+
+            </div>
+            <div class="wxmass-item-img">
+                <img src="../images/banner1.png" alt="">
+            </div>
+            <ul class="wxmass-item-list">
+                <li class="share-firends">
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends1.png" alt="">
+                    </div>
+                    <span>发送给朋友</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+                <li class="share-firends-quan">
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends2.png" alt="">
+                    </div>
+                    <span>分享到朋友圈</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+                <li class="no-border">
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends3.png" alt="">
+                    </div>
+                    <span>收藏</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </section>
     <div class="mask"></div>
     <!--分享层-->
     <section class="my-share">
@@ -167,7 +210,6 @@
                 <div class="myshop-item-code-text">
                     <span>扫描或微信长按识别二维码</span>
                 </div>
-
             </div>
             <!--保存到相册-->
             <div class="myshop-share-item-deposit">
@@ -184,43 +226,11 @@
 <script src="../js/function.js"></script>
 <script src="../js/common.js"></script>
 <script src="../js/alert.js"></script>
+<script src="../js/aui-lazyload.js"></script>
 <script src="../js/myShop.js"></script>
-<!--<script>
-    $(document).ready(function () {
-        /*筛选按钮的切换*/
-        $('.dis-screen-btn').click(function () {
-            $('.dis-screen').toggle();
-        });
-        /*分享店铺*/
-        $('.clickshare').click(function () {
-            $('.my-share').toggle();
-        });
-        /*点击x按钮关闭店铺分享*/
-        $('.my-share-del1').click(function () {
-            $('.my-share').toggle();
-        });
-        /*点击删除按钮*/
-        $('.dis-del').click(function () {
-            $('.myshop-del').toggle();
-        });
-        /*点击删除按钮*/
-        $('.item-cancel').click(function () {
-            $('.myshop-del').toggle();
-        });
-        /*点击删除按钮*/
-        $('.item-del').click(function () {
-            $('.myshop-del').toggle();
-        });
-        /*点击立即推广*/
-        $('.dis-sale').click(function () {
-            $('.myshop-share').toggle();
-        });
-        /*点击立即推广*/
-        $('.close').click(function () {
-            $('.myshop-share').toggle();
-        });
-    });
-</script>-->
+<script>
+
+</script>
 
 </body>
 </html>

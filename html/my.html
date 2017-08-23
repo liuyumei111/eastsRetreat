@@ -121,6 +121,10 @@
 <script src="../js/function.js"></script>
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script>
+    if (C.marketToken=='null'||C.marketToken==undefined){
+        alert('请重新登录');
+        location.href='login.html';
+    }
     var a=$('#my-template').html();
     var b=Handlebars.compile(a);
 

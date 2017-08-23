@@ -1,10 +1,7 @@
-/**
- * Created by Administrator on 2017/8/17.
- */
+
 /**
  * Created by Administrator on 2017/7/26.
  */
-
 
 //商品信息
 var shoptpl=$('#discount-list-template').html();
@@ -169,22 +166,110 @@ function ajaxGetShopData() {
                     $(".no-info").show();
                     num=maxnum+1;
                 }
+                flag=0;
 
                 //这里添加立即推广事件
-                $(document).on('click','.now-tuiguang',nowTuiGuang);
+                $('.now-tuiguang').unbind().bind('click',nowTuiGuang);
                 //取消分享弹框
                 $('.cancel').click(function () {
                     $('.wxmass-sends').hide();
                 });
-                flag=0;
             }
+        },
+        error:function () {
+            alert('服务器异常');
         }
     })
 }
 
 
-//$(document).on('change','.dis-shop-type',getShopSelected);
-//$(document).on('change','.dis-shop-sort',getShopSort);
+
+
+//立即推广
+function nowTuiGuang(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var that=$(this);
+    var thisPapa=that.parents('.dis-list-box');
+    var thisImg=thisPapa.find('.dis-shop-img').find('img').attr('src');
+    var shareProductId=thisPapa.data('productid');
+    localStorage.setItem('shareId',shareProductId);
+
+    $('.wxmass-item-img').find('img').attr('src',thisImg);
+    $('.wxmass-sends').show();
+
+    $('.share-firends').unbind().bind('click',function (event) {
+        shareFrends(event,'1');
+    });
+
+    $('.share-firends-quan').unbind().bind('click',function (event) {
+        shareFrends(event,'2');
+    });
+}
+
+//分享朋友圈
+function shareFrends(event,type) {
+    event.stopPropagation();
+
+    var productId=localStorage.getItem('shareId');
+    $.ajax({
+        url:C.marketInterface.shareFriend,
+        type:'get',
+        dataType:'json',
+        data:{
+            token:C.marketToken,
+            productId:productId
+        },
+        success:function (response) {
+            if (response.result=='success'){
+                //console.log(response.data);
+                var imgUrl=response.data.imgUrl;
+                var url=response.data.url;
+                var title=response.data.title;
+                var content=response.data.content;
+                var data={
+                    postType:'shareProducts',
+                    productId:productId,
+                    type:type,
+                    url:url,
+                    imgUrl:String(imgUrl),
+                    title:title,
+                    content:content
+                };
+                console.log(data);
+                var ua = navigator.userAgent.toLowerCase();
+                if (/iphone|ipad|ipod/.test(ua)) {
+
+                    iosShare(data);
+                    event.stopPropagation();
+                } else {
+                    //console.log(JSON.stringify(data));
+                    androidShare(JSON.stringify(data));
+                    event.stopPropagation();
+                }
+            }
+        },
+        error:function () {
+            alert('服务器异常');
+        }
+    });
+
+}
+
+
+//拉取安卓分享
+function androidShare(param) {
+    alert(param);
+    window.huifa.shareProducts(param);
+}
+//拉取iOS分享
+
+function iosShare(param) {
+    window.webkit.messageHandlers.shareProducts.postMessage(param);
+}
+
+
+//筛选
 $(document).on('click','#nmbConfirm',getScreen);
 $('.all-mask').bind('click',function () {
     $('.dis-screen-price').hide();
@@ -256,6 +341,9 @@ function getScreen() {
 }
 
 
+
+
+
 //
 Handlebars.registerHelper('hongbao',function (sales) {
     if (sales==null){
@@ -273,12 +361,12 @@ Handlebars.registerHelper('exemption',function (value) {
     }
 });
 
-new auiLazyload({
-    errorImage:'../images/error-img.png'
-});
+
 
 $(document).ready(function () {
-
+    new auiLazyload({
+        errorImage:'../images/error-img.png'
+    });
 });
 
 
