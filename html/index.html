@@ -15,14 +15,15 @@
 <body>
 <!--搜索框-->
 <header>
-    <div class="aui-searchbar my-aui-searchbar" id="search">
-        <div class="aui-searchbar-input aui-border-radius" tapmode onclick="doSearch()">
+    <div class="aui-searchbar" id="search">
+        <div class="aui-searchbar-input aui-border-radius">
             <i class="aui-iconfont aui-icon-search"></i>
-            <form action="javascript:search();">
-                <input type="search" placeholder="请在此输入商品名称" id="search-input">
-            </form>
+            <input type="search" placeholder="请输入搜索内容" id="search-input">
+            <div class="aui-searchbar-clear-btn" id="clean-search">
+                <i class="aui-iconfont aui-icon-close"></i>
+            </div>
         </div>
-        <div class="aui-searchbar-cancel" tapmod>取消搜索</div>
+        <div class="aui-searchbar-btn aui-text-info" tapmode>搜索</div>
     </div>
 </header>
 <!--轮播图-->
