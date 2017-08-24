@@ -45,6 +45,12 @@ function nowTuiGuang(event) {
 }
 
 
+
+
+
+
+
+
 /*模拟弹窗*/
 var dialog={};
 dialog.alert = function (data) {

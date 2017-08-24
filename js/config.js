@@ -5,7 +5,7 @@
 (function (w) {
     var apiHost='http://192.168.199.107:8081';
     //var apiHost='http://www.rrfun.com.cn:8080';
-    var marketHost='http://192.168.199.107:8083';
+    var marketHost='http://192.168.199.107:8080';
     //var marketHost='http://www.rrfun.com.cn:8081';
 
     //配置项
@@ -89,9 +89,9 @@
         //销售管理(成功，失败，交易中)
         orderList:'uc/order/list',
         //个人店铺中删除商品
-        delMyShop:'uc/store/del'
-
-
+        delMyShop:'uc/store/del',
+        //分享给朋友或朋友圈
+        shareFriend:'product/send'
     };
 
     //组合mall接口地址

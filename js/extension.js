@@ -45,6 +45,9 @@ $(document).ready(function () {
                 $(document).on('click','.my-notice-li',jumpDetail);
 
             }
+        },
+        error:function () {
+            alert('服务器异常');
         }
     });
 

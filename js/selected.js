@@ -5,6 +5,7 @@
 $(document).ready(function () {
 
 
+<<<<<<< HEAD
     var num=0,pageLength=5,flag=0,maxnum=0,range=200,start=0;
 
     var oneProductTpl=$('#one-product').html();
@@ -64,6 +65,14 @@ $(document).ready(function () {
                         num=maxnum+1;
                     }
                     flag=0;
+=======
+    
+    
+    
+    
+
+});
+>>>>>>> 16ef118eed57a300d0d1344bd986d09c34ed2562
 
                 }else {
                     alert(response.errorMsg);
@@ -72,6 +81,13 @@ $(document).ready(function () {
         })
     }
 
+<<<<<<< HEAD
+=======
+$(document).ready(function () {
+    new auiLazyload({
+        errorImage:'../images/error-img.png'
+    });
+>>>>>>> 16ef118eed57a300d0d1344bd986d09c34ed2562
 });
 
 
