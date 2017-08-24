@@ -113,11 +113,8 @@
                 <img src="../images/banner1.png" alt="">
             </div>
             <ul class="wxmass-item-list">
-<<<<<<< HEAD
                 <li>
-=======
                 <li class="share-firends">
->>>>>>> 16ef118eed57a300d0d1344bd986d09c34ed2562
                     <div class="wxmass-item-list-img">
                         <img src="../images/sends1.png" alt="">
                     </div>
@@ -126,11 +123,8 @@
                         <i class="aui-iconfont aui-icon-right"></i>
                     </div>
                 </li>
-<<<<<<< HEAD
                 <li>
-=======
                 <li class="share-firends-quan">
->>>>>>> 16ef118eed57a300d0d1344bd986d09c34ed2562
                     <div class="wxmass-item-list-img">
                         <img src="../images/sends2.png" alt="">
                     </div>
@@ -188,7 +182,7 @@
 <script src="../js/aui-lazyload.js"></script>
 <script src="../js/api.2.0.js"></script>
 <script src="../js/api.js" ></script>
-<script src="../js/search.js"></script>
+<!--<script src="../js/search.js"></script>-->
 <script>
     //商品信息
     var shoptpl=$('#discount-list-template').html();
@@ -264,18 +258,7 @@
 
     });
 
-    //搜索
-    $(document).on('click','.aui-text-info',function () {
-        searchName=$('#search-input').val();
-        if (searchName==''){
-            return false;
-        }
-        $('#dis-select-box').hide();
-        $('#dis-list-vessel').empty();
-        num=0;
-        start = num;
-        ajaxGetShopData();
-    });
+
     //删除文本之后请求数据。
     $(document).on('click','#clean-search',function () {
         $('#dis-select-box').show();
@@ -285,8 +268,6 @@
         start = num;
         ajaxGetShopData();
     });
-
-
 
     //监听滚动高度，加载数据
     $(window).on('scroll',function () {
@@ -349,6 +330,12 @@
                     //如果请求回来的数据条数大于0，在数据后插入新新数据，不覆盖旧数据;否则就显示没有更多信息了
                     if (data.products.length>0){
                         $('#dis-list-vessel').append(shopTemplate(data));
+
+                        $('.aui-searchbar-btn').click(function () {
+                            // 搜索功能
+                            searchCommodity()
+
+                        })
                     }else {
                         $(".no-info").show();
                         num=maxnum+1;
@@ -367,6 +354,42 @@
             },
             error:function () {
                 alert('服务器异常');
+            }
+        })
+    }
+
+
+    function searchCommodity() {
+        var inputVal= $('#search-input').val();
+        $.ajax({
+            url:uri,
+            type:'POST',
+            dataType:'json',
+            data:{
+                name:inputVal
+            },
+            success:function (response) {
+                if (response.result=='success'){
+                    $('.loading').hide();
+                    num++;
+                    var data=response.data;
+                    maxnum=data['productCount'];
+                    start=num*pageLength;
+                    if(maxnum == 0){
+                        $(".no-info").show();
+                    }
+                    if (data.products.length>0){
+                        //清空容器中的内容
+                        $('#dis-list-vessel').empty();
+                        //把获取过来的数据放到页面
+                        $('#dis-list-vessel').html(shopTemplate(data));
+
+                    }else {
+                        $(".no-info").show();
+                        num=maxnum+1;
+                    }
+                    flag=0;
+                }
             }
         })
     }
@@ -443,25 +466,22 @@
 
     }
 
-
     //拉取安卓分享
     function androidShare(param) {
         alert(param);
         window.huifa.shareProducts(param);
     }
-    //拉取iOS分享
 
+    //拉取iOS分享
     function iosShare(param) {
         window.webkit.messageHandlers.shareProducts.postMessage(param);
     }
-
 
     //筛选
     $(document).on('click','#nmbConfirm',getScreen);
     $('.all-mask').bind('click',function () {
         $('.dis-screen-price').hide();
     });
-
 
     //商品筛选
     function getScreen() {
@@ -524,8 +544,7 @@
         });
     }
 
-
-    //
+    //红包
     Handlebars.registerHelper('hongbao',function (sales) {
         if (sales==null){
             return null;
@@ -541,13 +560,14 @@
             return '退货不包邮';
         }
     });
-
+    //懒加载错误的图片
     $(document).ready(function () {
         new auiLazyload({
             errorImage:'../images/error-img.png'
         });
     });
 </script>
+
 <!--<script src="../js/commodity.js"></script>-->
 </body>
 </html>
