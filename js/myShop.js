@@ -135,7 +135,7 @@
                     flag=0;
 
                     //删除商品的弹框
-                    $(document).on('click','.dis-del',function (event) {
+                    $('.dis-del').unbind().click(function (event) {
                         event.preventDefault();
                         var that=$(this);
                         var thatDom=that.parents('.dis-list-box');
@@ -151,9 +151,11 @@
                                 }, 500);
                             },
                             cancel: function () {
+                                
                             }
                         });
                     });
+
 
                     //分享店铺
                     $('.clickshare').click(function () {
@@ -169,7 +171,6 @@
 
                     //分享商品
                     $('.now-tuiguang').unbind().bind('click',nowTuiGuang);
-
 
                     /*点击立即推广*/
                     $('.close').click(function () {
@@ -194,12 +195,10 @@
             data:{
                 productId:productId,
                 token:C.marketToken
-                
             },
             success:function (response) {
                 if (response.result=='success'){
                     that.remove();
-
                 }
             }
         });
