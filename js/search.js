@@ -17,6 +17,7 @@ if(searchBar){
         }
     }
 }
+
 searchBarClearBtn.onclick = function(){
     this.style.display = 'none';
     searchBarInput.value = '';
