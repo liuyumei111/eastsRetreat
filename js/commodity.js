@@ -89,7 +89,6 @@ $(document).on('click','.aui-text-info',function () {
     start = num;
     ajaxGetShopData();
 });
-
 //删除文本之后请求数据。
 $(document).on('click','#clean-search',function () {
     $('#dis-select-box').show();
@@ -167,13 +166,6 @@ function ajaxGetShopData() {
                     $(".no-info").show();
                     num=maxnum+1;
                 }
-
-                //这里添加立即推广事件
-                $(document).on('click','.now-tuiguang',nowTuiGuang);
-                //取消分享弹框
-                $('.cancel').click(function () {
-                    $('.wxmass-sends').hide();
-                });
                 flag=0;
 
                 //这里添加立即推广事件

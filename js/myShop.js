@@ -135,12 +135,8 @@
                     flag=0;
 
                     //删除商品的弹框
-<<<<<<< HEAD
-                    $(document).on('click','.dis-del',function () {
-=======
                     $(document).on('click','.dis-del',function (event) {
                         event.preventDefault();
->>>>>>> 16ef118eed57a300d0d1344bd986d09c34ed2562
                         var that=$(this);
                         var thatDom=that.parents('.dis-list-box');
                         var productId=that.parents('.dis-list-box').data('shopid');
@@ -158,30 +154,6 @@
                             }
                         });
                     });
-<<<<<<< HEAD
-                    /*//分享店铺
-                    $('.clickshare').click(function () {
-                        $('.mask').show();
-                        $('.my-share').toggle();
-                    });
-                    /!*点击x按钮关闭店铺分享*!/
-                    $('.my-share-del1').click(function () {
-                        $('.mask').hide();
-                        $('.my-share').hide();
-                    });
-                    /!*点击立即推广*!/
-                    $('.dis-sale').click(function () {
-                        $('.myshop-share').toggle();
-                    });
-                    /!*点击立即推广*!/
-                    $('.close').click(function () {
-                        $('.myshop-share').toggle();
-                    });
-                    /!*点击x按钮关闭店铺分享*!/
-                    $('.my-share-del1').click(function () {
-                        $('.my-share').toggle();
-                    });*/
-=======
 
                     //分享店铺
                     $('.clickshare').click(function () {
@@ -207,7 +179,6 @@
                     $('.my-share-del1').click(function () {
                         $('.my-share').toggle();
                     });
->>>>>>> 16ef118eed57a300d0d1344bd986d09c34ed2562
 
                 }
             }
