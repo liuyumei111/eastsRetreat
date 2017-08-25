@@ -184,6 +184,7 @@
         unLock: function () {
             if (this.settings.lock) {
                 if (isLock) {
+                    console.log(this.lock);
                     this.lock.remove();
                     isLock = false;
                 }

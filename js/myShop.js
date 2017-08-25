@@ -135,7 +135,7 @@
                     flag=0;
 
                     //删除商品的弹框
-                    $(document).on('click','.dis-del',function (event) {
+                    $('.dis-del').unbind().click(function (event) {
                         event.preventDefault();
                         var that=$(this);
                         var thatDom=that.parents('.dis-list-box');
@@ -220,11 +220,11 @@
         $('.wxmass-item-img').find('img').attr('src',thisImg);
         $('.wxmass-sends').show();
 
-        $('.share-firends').unbind().bind('click',function (event) {
+        $('.share-firends').unbind().one('click',function (event) {
             shareFrends(event,'1');
         });
 
-        $('.share-firends-quan').unbind().bind('click',function (event) {
+        $('.share-firends-quan').unbind().one('click',function (event) {
             shareFrends(event,'2');
         });
     }
