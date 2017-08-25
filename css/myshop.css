@@ -99,7 +99,7 @@ nav{
     left: 0;
     padding-top: 1.5rem;
     display: none;
-    z-index: 10;
+    z-index: 1000;
 }
 .my-share>ul{
     display: -webkit-flex;
@@ -254,17 +254,17 @@ align-items: center;
     display: none;
 }
 .myshop-share-item{
-    width: 16.75rem;
+    width: 90%;
     height: 17.0rem;
     background-color: #fff;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
     border-radius: 0.25rem;
-    background-color: #fff；
+    background-color: #fff;
 }
 .myshop-share-item-title{
     width: 100%;
@@ -332,8 +332,11 @@ align-items: center;
     width: 100%;
     height: 100%;
 }
-
-
+#share-erweima{
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 0 auto;
+}
 
 
 

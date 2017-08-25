@@ -119,6 +119,9 @@
                     num++;
                     var data=response.data;
                     $('#header-box').html(mineCmp(data));
+                    var myShopId=data.user.id;
+                    //console.log(myShopId);
+                    localStorage.setItem('myShopId',myShopId);
                     maxnum=data['totalCount'];
                     start=num*pageLength;
                     if(maxnum == 0){
@@ -151,14 +154,14 @@
                                 }, 500);
                             },
                             cancel: function () {
-                                
+
                             }
                         });
                     });
 
-
                     //分享店铺
                     $('.clickshare').click(function () {
+                        event.preventDefault();
                         $('.mask').show();
                         $('.my-share').show();
 
@@ -167,6 +170,30 @@
                             $('.mask').hide();
                             $('.my-share').hide();
                         });
+
+                        //分享二维码
+                        $('.share-erweima').unbind().click(function (event) {
+                            event.preventDefault();
+                            $('.mask').hide();
+                            $('.my-share').hide();
+                            var qrcode = new QRCode(document.getElementById("share-erweima"), {
+                                width : 90,
+                                height : 90
+                            });
+                            //生成二维码
+                            qrcode.makeCode(myShopId);
+
+                            $('.myshop-share').show();
+                            //alert('aaa');
+                        });
+
+                        //分享朋友圈
+                        $('.share-friends').unbind().click(function (event) {
+                            event.stopPropagation();
+                            alert('fff');
+                        })
+
+
                     });
 
                     //分享商品
@@ -179,6 +206,8 @@
                     /*点击x按钮关闭店铺分享*/
                     $('.my-share-del1').click(function () {
                         $('.my-share').toggle();
+
+
                     });
 
                 }
