@@ -24,68 +24,48 @@
             <img src="../images/banner1.png" alt="">
         </div>
         <div class="wxmass-box-list">
-            <ul>
-                <li class="wxmass-list-li">
-                    <!--第几波商品-->
-                    <div class="wxmass-list-len">
-                        <!--购物袋-->
-                        <div class="wxmass-list-dd"></div>
-                        <div class="wxmass-list-sp">
-                            <p>第一波商品</p>
-                            <span>第1-9个精选商品</span>
+            <ul id="shop-batch">
+                <script type="text/x-handlebars-template" id="shop-batch-template">
+                    {{#each this}}
+                    <li class="wxmass-list-li" data-id="{{id}}">
+                        <!--第几波商品-->
+                        <div class="wxmass-list-len">
+                            <!--购物袋-->
+                            <div class="wxmass-list-dd"></div>
+                            <div class="wxmass-list-sp">
+                                <p>{{name}}</p>
+                                <span>{{content}}</span>
+                            </div>
                         </div>
-                    </div>
-                    <!--发送-->
-                    <div class="wxmass-list-send"><span>批量发送</span></div>
-                </li>
+                        <!--发送-->
+                        <div class="wxmass-list-send"><span>批量发送</span></div>
+                    </li>
+                    {{/each}}
+                </script>
 
-                <li class="wxmass-list-li">
-                    <!--第几波商品-->
+                <!--<li class="wxmass-list-li">
+                    &lt;!&ndash;第几波商品&ndash;&gt;
                     <div class="wxmass-list-len">
-                        <!--购物袋-->
+                        &lt;!&ndash;购物袋&ndash;&gt;
                         <div class="wxmass-list-dd"></div>
                         <div class="wxmass-list-sp">
                             <p>第一波商品</p>
                             <span>第10-18个精选商品</span>
                         </div>
                     </div>
-                    <!--发送-->
+                    &lt;!&ndash;发送&ndash;&gt;
                     <div class="wxmass-list-send"><span>批量发送</span></div>
-                </li>
+                </li>-->
 
-                <li class="wxmass-list-li">
-                    <!--第几波商品-->
-                    <div class="wxmass-list-len">
-                        <!--购物袋-->
-                        <div class="wxmass-list-dd"></div>
-                        <div class="wxmass-list-sp">
-                            <p>第一波商品</p>
-                            <span>第19-27个精选商品</span>
-                        </div>
-                    </div>
-                    <!--发送-->
-                    <div class="wxmass-list-send"><span>批量发送</span></div>
-                </li>
-
-                <li class="wxmass-list-li">
-                    <!--第几波商品-->
-                    <div class="wxmass-list-len">
-                        <!--购物袋-->
-                        <div class="wxmass-list-dd"></div>
-                        <div class="wxmass-list-sp">
-                            <p>第一波商品</p>
-                            <span>第28-36个精选商品</span>
-                        </div>
-                    </div>
-                    <!--发送-->
-                    <div class="wxmass-list-send"><span>批量发送</span></div>
-                </li>
-
-                <div class="wxmass-list-xts"><span>小提示：批量发送时已经抢光的精选商品不会被发送</span></div>
             </ul>
+            <div class="wxmass-list-xts"><span>小提示：批量发送时已经抢光的精选商品不会被发送</span></div>
+
         </div>
 
 
+    </section>
+    <section class="share-loading">
+        <img src="../images/loading.gif" alt="">
     </section>
     <!--批量发送遮罩层-->
     <section class="wxmass-sends">
@@ -132,14 +112,99 @@
     </section>
 </section>
 <script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/handlebars-v4.0.10.js"></script>
+<script src="../js/config.js"></script>
 <script src="../js/common.js"></script>
 <script>
-    $('.wxmass-list-li').click(function () {
-        $('.wxmass-sends').toggle()
+
+    var batchTpl=$('#shop-batch-template').html();
+    var batchCmp=Handlebars.compile(batchTpl);
+
+
+    $.ajax({
+        url:C.marketInterface.batchShare,
+        type:'get',
+        dataType:'json',
+        data:{
+            token:C.marketToken
+        },
+        success:function (response) {
+            if (response.result=='success'){
+
+                var data=response.data;
+                $('#shop-batch').html(batchCmp(data));
+
+
+                $('.wxmass-list-send').unbind().bind('click',function (event) {
+
+                    batchShare(event,$(this));
+
+                });
+
+                $('.cancel').click(function () {
+                    $('.wxmass-sends').toggle();
+                });
+
+
+
+
+            }else if (response.result=='login'){
+                alert('登录已过期请重新登录');
+
+            }else {
+                alert(response.errorMsg);
+            }
+        },
+        error:function () {
+            alert('服务器异常');
+        }
     });
-    $('.cancel').click(function () {
-        $('.wxmass-sends').toggle()
-    })
+
+    function batchShare(event,that) {
+        event.preventDefault();
+        event.stopPropagation();
+        var id=that.parent('.wxmass-list-li').data('id');
+
+
+        $('.share-loading').show();
+        //$('.wxmass-sends').toggle();
+
+        $.ajax({
+            url:C.marketInterface.weixinBatchSend,
+            type:'get',
+            dataType:'json',
+            data:{
+                token:C.marketToken,
+                id:id
+            },
+            success:function (response) {
+                if (response.result=='success'){
+
+                    var data=response.data;
+                    //var shareImg=$('.wxmass-sends').find('.wxmass-item-img').find('img').attr();
+
+                    //console.log(shareImg);
+                    console.log(data);
+                    $('.share-loading').hide();
+                    $('.wxmass-sends').toggle();
+
+                }else if (response.result=='login'){
+                    alert('请重新登录');
+
+                }else {
+                    alert(response.errorMsg);
+                }
+            },
+            error:function () {
+                alert('服务器异常');
+            }
+        })
+    }
+
+
+
+
+
 </script>
 
 </body>

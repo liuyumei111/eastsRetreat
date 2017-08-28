@@ -144,6 +144,9 @@
         </section>
     </section>
 </section>
+<section class="share-loading">
+    <img src="../images/loading.gif" alt="">
+</section>
 <!--底部栏-->
 <footer class="aui-bar aui-bar-tab" id="footer">
     <a href="index.html">
@@ -243,7 +246,7 @@
                     console.log(orderType);
                     num = 0;
                     start = num;
-                    ajaxGetShopData()
+                    ajaxGetShopData();
                 });
 
 
@@ -375,36 +378,24 @@
     function nowTuiGuang(event) {
         event.preventDefault();
         event.stopPropagation();
+        $('.share-loading').show();
+
         var that = $(this);
         var thisPapa = that.parents('.dis-list-box');
         var thisImg = thisPapa.find('.dis-shop-img').find('img').attr('src');
         var shareProductId = thisPapa.data('productid');
-        localStorage.setItem('shareId', shareProductId);
+        //localStorage.setItem('shareId', shareProductId);
 
         $('.wxmass-item-img').find('img').attr('src', thisImg);
-        $('.wxmass-sends').show();
 
-        $('.share-firends').unbind().bind('click', function (event) {
-            shareFrends(event, '1');
-        });
 
-        $('.share-firends-quan').unbind().bind('click', function (event) {
-            shareFrends(event, '2');
-        });
-    }
-
-    //分享朋友圈
-    function shareFrends(event, type) {
-        event.stopPropagation();
-
-        var productId = localStorage.getItem('shareId');
         $.ajax({
             url: C.marketInterface.shareFriend,
             type: 'get',
             dataType: 'json',
             data: {
                 token: C.marketToken,
-                productId: productId
+                productId: shareProductId
             },
             success: function (response) {
                 if (response.result == 'success') {
@@ -413,26 +404,45 @@
                     var url = response.data.url;
                     var title = response.data.title;
                     var content = response.data.content;
-                    var data = {
-                        postType: 'shareProducts',
-                        productId: productId,
-                        type: type,
-                        url: url,
-                        imgUrl: String(imgUrl),
-                        title: title,
-                        content: content
-                    };
-                    console.log(data);
-                    var ua = navigator.userAgent.toLowerCase();
-                    if (/iphone|ipad|ipod/.test(ua)) {
 
-                        iosShare(data);
-                        event.stopPropagation();
-                    } else {
-                        //console.log(JSON.stringify(data));
-                        androidShare(JSON.stringify(data));
-                        event.stopPropagation();
+                    $('.share-loading').hide();
+                    $('.wxmass-sends').show();
+
+
+                    $('.share-firends').unbind().bind('click',function (event) {
+                        getShareType(event,'1');
+
+                    });
+                    $('.share-firends-quan').unbind().bind('click', function (event) {
+                        getShareType(event, '2');
+                    });
+
+                    function getShareType(event, type) {
+                        event.preventDefault();
+                        var shareData = {
+                            postType: 'shareProducts',
+                            productId: shareProductId,
+                            type:type,
+                            url: url,
+                            imgUrl: String(imgUrl),
+                            title: title,
+                            content: content
+                        };
+                        //console.log(shareData);
+
+                        var ua = navigator.userAgent.toLowerCase();
+                        if (/iphone|ipad|ipod/.test(ua)) {
+
+                            console.log(shareData);
+                            iosShare(shareData);
+                            event.stopPropagation();
+                        } else {
+                            //console.log(JSON.stringify(data));
+                            androidShare(JSON.stringify(shareData));
+                            event.stopPropagation();
+                        }
                     }
+
                 }
             },
             error: function () {
@@ -440,7 +450,14 @@
             }
         });
 
+
+
+
+
+
+
     }
+
 
 
     //拉取安卓分享

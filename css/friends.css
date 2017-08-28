@@ -47,6 +47,7 @@ align-items: center;
 	width: 3.9rem;
 	height: 3.9rem;
 	margin-bottom: 0.5rem;
+	margin-left: 0.2rem;
 }
 .friends-box-detail-ul>li>img{
 	width: 100%;
@@ -54,13 +55,12 @@ align-items: center;
 }
 .friends-box-detail-ul{
 	margin-top: 1rem;
-		display: flex;
-display: -webkit-flex;
-justify-content: space-around;
-/* justify-content: flex-start; */
-align-items: center;
-width: 100%;
-flex-wrap: wrap;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	flex-wrap: wrap;
 }
 .friends-detail-bottom{
 	width: 100%;

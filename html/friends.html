@@ -19,14 +19,36 @@
         <div class="aui-title my-aui-title">朋友圈</div>
     </header>
     <section class="friends-box">
-        <ul class="friends-box-content">
-            <li>
-                <!--建议-->
-                <section class="friends-box-proposal">
+        <ul class="friends-box-content" id="friends-box">
+            <script type="text/x-handlebars-template" id="friends-box-template">
+                {{#each product}}
+                <li>
+                    <!--朋友圈具体内容-->
+                    <div class="friends-box-detail">
+                        <h3 class="friends-detail-user">小一</h3>
+                        <!--<p class="friends-detail-text1">#周末福利#</p>-->
+                        <span class="friends-detail-text2">{{word}}</span>
+                        <ul class="friends-box-detail-ul">
+                            {{#each urls}}
+                            <li><img src="{{this}}" alt=""></li>
+                            {{/each}}
+                            <div class="friends-detail-bottom"><span>一键发朋友圈</span></div>
+                        </ul>
+                        <!--用户头像-->
+                        <div class="friends-box-detail-tx"><img src="../images/tx.png" alt=""></div>
+
+                    </div>
+                </li>
+                {{/each}}
+            </script>
+            <!--<li>
+                &lt;!&ndash;建议&ndash;&gt;
+                &lt;!&ndash;<section class="friends-box-proposal">
                     <div class="friends-timer"></div>
                     <span>建议下午3-7点发</span>
-                </section>
-                <!--朋友圈具体内容-->
+                </section>&ndash;&gt;
+
+                &lt;!&ndash;朋友圈具体内容&ndash;&gt;
                 <div class="friends-box-detail">
                     <h3 class="friends-detail-user">小一</h3>
                     <p class="friends-detail-text1">#周末福利#</p>
@@ -43,59 +65,16 @@
                         <li><img src="../images/22.jpg" alt=""></li>
                         <div class="friends-detail-bottom"><span>一键发朋友圈</span></div>
                     </ul>
-                    <!--用户头像-->
+                    &lt;!&ndash;用户头像&ndash;&gt;
                     <div class="friends-box-detail-tx"><img src="../images/tx.png" alt=""></div>
 
                 </div>
-            </li>
-            <li>
-                <!--朋友圈具体内容-->
-                <div class="friends-box-detail">
-                    <h3 class="friends-detail-user">小一</h3>
-                    <p class="friends-detail-text1">#周末福利#</p>
-                    <span class="friends-detail-text2">纳尼？水果，果汁，零食，这么便宜?</span>
-                    <ul class="friends-box-detail-ul">
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <div class="friends-detail-bottom"><span>一键发朋友圈</span></div>
-                    </ul>
-                    <!--用户头像-->
-                    <div class="friends-box-detail-tx"><img src="../images/tx.png" alt=""></div>
+            </li>-->
 
-                </div>
-            </li>
-            <li>
-                <!--朋友圈具体内容-->
-                <div class="friends-box-detail">
-                    <h3 class="friends-detail-user">小一</h3>
-                    <p class="friends-detail-text1">#周末福利#</p>
-                    <span class="friends-detail-text2">纳尼？水果，果汁，零食，这么便宜?</span>
-                    <ul class="friends-box-detail-ul">
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <li><img src="../images/22.jpg" alt=""></li>
-                        <div class="friends-detail-bottom"><span>一键发朋友圈</span></div>
-                    </ul>
-                    <!--用户头像-->
-                    <div class="friends-box-detail-tx"><img src="../images/tx.png" alt=""></div>
-
-                </div>
-            </li>
         </ul>
     </section>
+    <div class="loading">加载更多...</div>
+    <div class="no-info">没有更多信息了...</div>
     <!--分享到朋友圈的层-->
     <div class="friends-share">
         <div class="friends-share-item">
@@ -113,14 +92,105 @@
     </div>
 </section>
 <script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/handlebars-v4.0.10.js"></script>
+<script src="../js/config.js"></script>
+
+
 <script src="../js/common.js"></script>
 <script>
-    $('.friends-detail-bottom').click(function () {
-        $('.friends-share').toggle()
+
+    var range = 200, //距下边界长度/单位px
+        maxnum = 0, //设置总数
+        num = 0, //当前数量
+        totalheight = 0,
+        flag = 0,
+        start = '0',
+        pageLength ='3';
+
+    getFriendsQuanShare();
+
+    var friendsTpl=$('#friends-box-template').html();
+    var friendCmp=Handlebars.compile(friendsTpl);
+
+
+
+    $(window).on('scroll',function () {
+
+        var scrollPos= $(window).scrollTop(); //滚动条距顶部距离
+        totalheight=parseFloat($(window).height())+parseFloat(scrollPos);
+
+        if (num>maxnum){
+            return false;
+        }
+        if (($(document).height() - range) <= totalheight && num < maxnum){
+            getFriendsQuanShare();
+        }
     });
-    $('.return').click(function () {
-        $('.friends-share').toggle()
-    })
+
+    function getFriendsQuanShare() {
+        if (flag){
+            return;
+        }
+        //条件成立
+        //显示加载更多
+        $(".no-info").hide();
+        $('.loading').show();
+        flag = 1;
+
+        $.ajax({
+            url:C.marketInterface.friendBatch,
+            type:'get',
+            dataType:'json',
+            data:{
+                token:C.marketToken,
+                start:start,
+                length:pageLength
+            },
+            success:function (response) {
+                if(response.result=='success'){
+                    $('.loading').hide();
+                    num++;
+                    var data=response.data;
+                    maxnum=data['totalCount'];
+                    start=num * pageLength;
+                    if (maxnum==0){
+                        $('.no-info').show();
+
+                    }
+                    if (data.product.length>0){
+                        $('#friends-box').append(friendCmp(data));
+                    }else {
+                        $('.no-info').show();
+                        num=maxnum + 1;
+                    }
+                    flag=0;
+
+
+                    $('.friends-detail-bottom').click(function () {
+                        $('.friends-share').toggle();
+                    });
+                    $('.return').click(function () {
+                        $('.friends-share').toggle();
+                    });
+
+
+
+
+
+                }else if (response.result=='login'){
+                    alert('请重新登录');
+                }else {
+                    alert(response.errorMsg);
+                }
+            },
+            error:function () {
+                alert('服务器异常');
+            }
+        })
+    }
+
+
+
 </script>
 </body>
 </html>

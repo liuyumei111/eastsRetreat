@@ -3,9 +3,9 @@
  */
 
 (function (w) {
-    var apiHost='http://192.168.199.107:8080';
+    var apiHost='http://192.168.199.107:8081';
     // var apiHost='http://www.rrfun.com.cn:8080';
-    var marketHost='http://192.168.199.107:8080';
+    var marketHost='http://192.168.199.107:8083';
     //var marketHost='http://www.rrfun.com.cn:8081';
 
     //配置项
@@ -29,7 +29,7 @@
 
     C.token='201708031209898169cdb594d601fc4471a9c3bab8c7fe386b';
     //C.marketToken=localStorage.getItem('token');
-    C.marketToken='20170819154417162476c15c2872fe43e6a9f3ea2be81ec024';
+    C.marketToken='201708271127141342d9445d6a2d3c4b23b8d680f7ace49987';
 
     //获取微信oppenId
     C.getWxUserInfo='http://www.rrfun.com.cn/Uc/getInfo';
@@ -91,7 +91,13 @@
         //个人店铺中删除商品
         delMyShop:'uc/store/del',
         //分享给朋友或朋友圈
-        shareFriend:'product/send'
+        shareFriend:'product/send',
+        //微信群发波次商品
+        batchShare:'product/weixinBatch',
+        //微信群发当前波的商品
+        weixinBatchSend:'product/weixinBatchSend',
+        //发送到微信朋友圈
+        friendBatch:'product/friendBatch'
     };
 
     //组合mall接口地址
