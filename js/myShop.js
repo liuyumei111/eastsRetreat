@@ -172,6 +172,7 @@
                         $('.my-share-del1').click(function () {
                             $('.mask').hide();
                             $('.my-share').hide();
+
                         });
 
                         //分享二维码
@@ -204,6 +205,7 @@
 
                     /*点击立即推广*/
                     $('.close').click(function () {
+                        $('#share-erweima').html('');
                         $('.myshop-share').hide();
                     });
                     /*点击x按钮关闭店铺分享*/

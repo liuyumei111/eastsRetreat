@@ -27,8 +27,8 @@
     C.putCodeTime=60;
 
     C.token='201708031209898169cdb594d601fc4471a9c3bab8c7fe386b';
-    C.marketToken=localStorage.getItem('token');
-    //C.marketToken='201708271127141342d9445d6a2d3c4b23b8d680f7ace49987';
+    //C.marketToken=localStorage.getItem('token');
+    C.marketToken='201708271127141342d9445d6a2d3c4b23b8d680f7ace49987';
 
     //获取微信oppenId
     C.getWxUserInfo='http://www.rrfun.com.cn/Uc/getInfo';
