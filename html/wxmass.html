@@ -137,16 +137,14 @@
 
                 $('.wxmass-list-send').unbind().bind('click',function (event) {
 
-                    batchShare(event,$(this));
+                    getBatchShare(event,$(this));
 
                 });
+
 
                 $('.cancel').click(function () {
                     $('.wxmass-sends').toggle();
                 });
-
-
-
 
             }else if (response.result=='login'){
                 alert('登录已过期请重新登录');
@@ -160,7 +158,39 @@
         }
     });
 
-    function batchShare(event,that) {
+    function getBatchShare(event,that) {
+        event.preventDefault();
+        event.stopPropagation();
+        var id=that.parent('.wxmass-list-li').data('id');
+        var data={
+            id:id,
+            postType:'batchShare'
+        };
+
+        var ua = navigator.userAgent.toLowerCase();
+        if (/iphone|ipad|ipod/.test(ua)) {
+
+            iosBatchShare(data);
+            event.stopPropagation();
+        } else {
+            //console.log(JSON.stringify(data));
+            androidBatchShare(JSON.stringify(data));
+            event.stopPropagation();
+        }
+
+    }
+
+
+    //安卓拉取分享
+    function androidBatchShare(param) {
+        window.huifa.batchShare(param);
+    }
+    //iOS拉取分享
+    function iosBatchShare(param) {
+        window.webkit.messageHandlers.batchShare.postMessage(param);
+    }
+
+    /*function batchShare(event,that) {
         event.preventDefault();
         event.stopPropagation();
         var id=that.parent('.wxmass-list-li').data('id');
@@ -199,7 +229,7 @@
                 alert('服务器异常');
             }
         })
-    }
+    }*/
 
 
 

@@ -32,8 +32,8 @@
                             {{#each urls}}
                             <li><img src="{{this}}" alt=""></li>
                             {{/each}}
-                            <div class="friends-detail-bottom"><span>一键发朋友圈</span></div>
                         </ul>
+                        <div class="friends-detail-bottom"><span>一键发朋友圈</span></div>
                         <!--用户头像-->
                         <div class="friends-box-detail-tx"><img src="../images/tx.png" alt=""></div>
 
@@ -166,14 +166,47 @@
                     flag=0;
 
 
-                    $('.friends-detail-bottom').click(function () {
-                        $('.friends-share').toggle();
-                    });
-                    $('.return').click(function () {
-                        $('.friends-share').toggle();
-                    });
+                    $('.friends-detail-bottom').unbind().bind('click',function () {
+                        //$('.friends-share').toggle();
+                        //alert('aaa');
+
+                        var shareInfo=[];
+
+                        var imgUrls=$(this).siblings('.friends-box-detail-ul').find('li');
+
+                        imgUrls.each(function () {
+                            var imgUrl=($(this).find('img').attr('src'));
+                            shareInfo.push(imgUrl);
+                        });
+                        //console.log(shareInfo);
+                        var shareText=$(this).siblings('.friends-detail-text2').html();
 
 
+                        var shareQuan={
+                            postType:'shareFriendQuan',
+                            shareImgInfo:shareInfo,
+                            shareText:shareText
+                        };
+
+                        var ua = navigator.userAgent.toLowerCase();
+                        if (/iphone|ipad|ipod/.test(ua)) {
+
+                            //console.log(shareQuan);
+                            iosShareQuan(shareQuan);
+                            event.stopPropagation();
+                        } else {
+                            //console.log(JSON.stringify(data));
+                            androidShareQuan(JSON.stringify(shareQuan));
+                            event.stopPropagation();
+                        }
+
+
+
+                    });
+
+                    /*$('.return').unbind().bind('click',function () {
+                        $('.friends-share').toggle();
+                    });*/
 
 
 
@@ -187,6 +220,16 @@
                 alert('服务器异常');
             }
         })
+    }
+
+
+    //拉取安卓分享到朋友圈
+    function androidShareQuan(param) {
+        window.huifa.shareFriendQuan(param);
+    }
+    //拉取iOS分享到朋友圈
+    function iosShareQuan(param) {
+        window.webkit.messageHandlers.shareFriendQuan.postMessage(param);
     }
 
 
