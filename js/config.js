@@ -7,7 +7,6 @@
     // var apiHost='http://www.rrfun.com.cn:8080';
     var marketHost='http://192.168.199.107:8083';
     //var marketHost='http://www.rrfun.com.cn:8081';
-
     //配置项
     w.C={};
     //域名
@@ -28,8 +27,8 @@
     C.putCodeTime=60;
 
     C.token='201708031209898169cdb594d601fc4471a9c3bab8c7fe386b';
-    //C.marketToken=localStorage.getItem('token');
-    C.marketToken='201708271127141342d9445d6a2d3c4b23b8d680f7ace49987';
+    C.marketToken=localStorage.getItem('token');
+    //C.marketToken='201708271127141342d9445d6a2d3c4b23b8d680f7ace49987';
 
     //获取微信oppenId
     C.getWxUserInfo='http://www.rrfun.com.cn/Uc/getInfo';

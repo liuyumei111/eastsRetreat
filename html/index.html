@@ -229,8 +229,9 @@
 
     } else {
         //alert('android的弹窗。');
-        postAndroidToken();
+        //postAndroidToken();
     }
+
 
     //调用ios获取token方法。
     function postSuccessToken() {
@@ -241,6 +242,8 @@
     function postAndroidToken() {
         window.huifa.getToken();
     }
+
+
 
     function getToken(token) {
         localStorage.setItem('token',token);

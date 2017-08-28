@@ -72,7 +72,7 @@
             <a href="goodsdetail.html?productId={{id}}" class="display-box">
                 <div class="dis-list-box" data-productid="{{id}}">
                     <div class="dis-shop-img">
-                        <img src="../images/lazy-img.jpg" data-src="{{mainImageUrl}}" alt="">
+                        <img src="../images/lazy.gif" data-src="{{mainImageUrl}}" alt="">
                     </div>
                     <div class="dis-list-content">
                         <div class="dis-shop-detail">
@@ -268,7 +268,7 @@
     //搜索
     $(document).on('click', '.aui-text-info', function () {
         searchName = $('#search-input').val();
-        console.log(searchName)
+        console.log(searchName);
         if (searchName == '') {
             return false;
         }
@@ -351,6 +351,9 @@
                     //如果请求回来的数据条数大于0，在数据后插入新新数据，不覆盖旧数据;否则就显示没有更多信息了
                     if (data.products.length > 0) {
                         $('#dis-list-vessel').append(shopTemplate(data));
+                        new auiLazyload({
+                            errorImage:'../images/error-img.png'
+                        });
                     } else {
                         $(".no-info").show();
                         num = maxnum + 1;

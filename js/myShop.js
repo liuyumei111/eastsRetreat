@@ -130,6 +130,9 @@
                    // console.log(data.products.length);
                     if (data.products.length>0){
                         $('#dis-list-vessel').append(myShopType(data));
+                        new auiLazyload({
+                            errorImage:'../images/error-img.png'
+                        });
 
                     }else {
                         $(".no-info").show();
@@ -309,7 +312,7 @@
     }
     //拉取安卓分享
     function androidShare(param) {
-        alert(param);
+        //alert(param);
         window.huifa.shareProducts(param);
     }
     //拉取iOS分享

@@ -27,7 +27,7 @@
                     <div class="dis-list-box" data-productid="{{id}}">
                         <div class="dis-shop-img">
                             <!--<img src="../img/grey.gif" data-src="{{mainImageUrl}}" alt="">-->
-                            <img src="../images/lazy-img.jpg" data-src="{{mainImageUrl}}" alt="">
+                            <img src="../images/lazy.gif" data-src="{{mainImageUrl}}" alt="">
                         </div>
                         <div class="dis-list-content">
                             <div class="dis-shop-detail">
@@ -88,6 +88,50 @@
     </section>
     <div class="loading">加载更多...</div>
     <div class="no-info">没有更多数据了...</div>
+
+</section>
+
+<!--立即推广-->
+<section class="wxmass-sends">
+    <section class="wxmass-sends-item">
+        <div class="wxmass-item-title">
+            <span class="cancel">取消</span>
+            <span>分享</span>
+
+        </div>
+        <div class="wxmass-item-img">
+            <img src="../images/banner1.png" alt="">
+        </div>
+        <ul class="wxmass-item-list">
+            <li class="share-firends">
+                <div class="wxmass-item-list-img">
+                    <img src="../images/sends1.png" alt="">
+                </div>
+                <span>发送给朋友</span>
+                <div class="aui-col-xs-3 wxmass-col-xs-3">
+                    <i class="aui-iconfont aui-icon-right"></i>
+                </div>
+            </li>
+            <li class="share-firends-quan">
+                <div class="wxmass-item-list-img">
+                    <img src="../images/sends2.png" alt="">
+                </div>
+                <span>分享到朋友圈</span>
+                <div class="aui-col-xs-3 wxmass-col-xs-3">
+                    <i class="aui-iconfont aui-icon-right"></i>
+                </div>
+            </li>
+            <li class="no-border">
+                <div class="wxmass-item-list-img">
+                    <img src="../images/sends3.png" alt="">
+                </div>
+                <span>收藏</span>
+                <div class="aui-col-xs-3 wxmass-col-xs-3">
+                    <i class="aui-iconfont aui-icon-right"></i>
+                </div>
+            </li>
+        </ul>
+    </section>
 
 </section>
 
@@ -153,14 +197,19 @@
                     }
                     if (data.products.length>0){
                         $('#dis-list-vessel').append(oneProductCmp(data));
+                        new auiLazyload({
+                            errorImage:'../images/error-img.png'
+                        });
 
                     }else {
                         $('.no-info').show();
                         num=maxnum+1;
                     }
                     flag=0;
+
                     //这里添加立即推广事件
                     $('.now-tuiguang').unbind().bind('click',nowTuiGuang);
+
 
                 }else {
                     alert(response.errorMsg);
@@ -232,6 +281,10 @@
                         androidShare(JSON.stringify(data));
                         event.stopPropagation();
                     }
+                }else if (response.result=='login'){
+                    alert('请重新登录');
+                }else {
+                    alert(response.errorMsg);
                 }
             },
             error:function () {
@@ -243,7 +296,7 @@
 
     //拉取安卓分享
     function androidShare(param) {
-        alert(param);
+        //alert(param);
         window.huifa.shareProducts(param);
     }
     //拉取iOS分享
@@ -251,7 +304,6 @@
     function iosShare(param) {
         window.webkit.messageHandlers.shareProducts.postMessage(param);
     }
-
 
     $('.cancel').click(function () {
         $('.wxmass-sends').toggle();
