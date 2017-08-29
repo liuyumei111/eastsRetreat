@@ -242,21 +242,28 @@
 
     //立即推广
     function nowTuiGuang(event) {
+        //默认行为
         event.preventDefault();
+        //阻止冒泡
         event.stopPropagation();
         var that=$(this);
+        //找到(祖先)元素dis-list-box
         var thisPapa=that.parents('.dis-list-box');
+        //获取图片的src属性值
         var thisImg=thisPapa.find('.dis-shop-img').find('img').attr('src');
+        //给每一个商品信息添加一个productid唯一的id值
         var shareProductId=thisPapa.data('productid');
+        //设置localStorage   key:shareId   value:shareProductId
         localStorage.setItem('shareId',shareProductId);
-
+        //点开立即推广之后的商品图src
         $('.wxmass-item-img').find('img').attr('src',thisImg);
+        //点击立即推广就显示这个层
         $('.wxmass-sends').show();
-
+        //点击分享--发送给朋友
         $('.share-firends').unbind().bind('click',function (event) {
             shareFrends(event,'1');
         });
-
+        //点击分享--分享到朋友圈
         $('.share-firends-quan').unbind().bind('click',function (event) {
             shareFrends(event,'2');
         });
@@ -264,8 +271,9 @@
 
     //分享朋友圈
     function shareFrends(event,type) {
+        //阻止冒泡
         event.stopPropagation();
-
+        // 获取到localStorage
         var productId=localStorage.getItem('shareId');
         $.ajax({
             url:C.marketInterface.shareFriend,
@@ -277,10 +285,13 @@
             },
             success:function (response) {
                 if (response.result=='success'){
-                    //console.log(response.data);
+                    //获取到图片标识ulr
                     var imgUrl=response.data.imgUrl;
+                    // 获取url
                     var url=response.data.url;
+                    //获取标题
                     var title=response.data.title;
+                    //获取主体内容
                     var content=response.data.content;
                     var data={
                         postType:'shareProducts',
@@ -323,11 +334,12 @@
         window.webkit.messageHandlers.shareProducts.postMessage(param);
     }
 
+    //删除商品
     $('.cancel').click(function () {
         $('.wxmass-sends').hide();
     });
 
-
+//图片懒加载
 $(document).ready(function () {
     new auiLazyload({
         errorImage:'../images/error-img.png'
