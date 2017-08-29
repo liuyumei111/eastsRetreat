@@ -57,7 +57,7 @@
     //market接口
     C.marketInterface={
         //店铺分享
-        share:'store/share',
+        share:'uc/store/share',
         //我的店铺
         myShop:'uc/store/index',
         //东东推个人中心
