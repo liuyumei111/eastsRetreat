@@ -526,7 +526,7 @@
             return false;
         }
 //最低价不能大于最高价
-        if (lowPrice > highPrice) {
+        if (lowPrice < highPrice) {
             alert('最低价不能大于最高价');
             return false;
         }

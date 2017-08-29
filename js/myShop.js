@@ -299,6 +299,11 @@ function shopShare(event) {
         alert('点击了分享朋友圈');
         shareFrendsTwo(event, '2');
     });
+    //点击分享--复制链接
+    $('.share-url').unbind().bind('click', function (event) {
+        alert('点击复制链接');
+        copyurl(event, '2');
+    });
 
 
     //分享二维码
@@ -378,7 +383,7 @@ function shareFrends(event, type) {
 //   发送给朋友222 / 分享到朋友圈222
 function shareFrendsTwo(event, type) {
     event.stopPropagation();
-    $.ajax({
+   /* $.ajax({
         url: C.marketInterface.share,
         type: 'get',
         dataType: 'json',
@@ -414,10 +419,33 @@ function shareFrendsTwo(event, type) {
         error: function () {
             alert('服务器异常');
         }
-    });
+    });*/
+
+    var data='';
+    var ua = navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod/.test(ua)) {
+        iosShareTwo(data);
+        event.stopPropagation();
+    } else {
+        //console.log(JSON.stringify(data));
+        androidShareTwo(JSON.stringify(data));
+        event.stopPropagation();
+    }
 }
 
 
+function copyurl() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod/.test(ua)) {
+        iosCopyUrl();
+        event.stopPropagation();
+    } else {
+        //console.log(JSON.stringify(data));
+        androidCopyUrl();
+        event.stopPropagation();
+    }
+
+}
 
 // 立即推广拉取安卓分享
 function androidShare(param) {
@@ -442,8 +470,16 @@ function iosShareTwo(param) {
     window.webkit.messageHandlers.shopShare.postMessage(param);
 }
 
+//店铺分享拉取安卓复制链接
+function androidCopyUrl() {
+    //alert(param);
+    window.huifa.copyUrlWay();
+}
 
-
+//店铺分享拉取iOS复制链接
+function iosCopyUrl() {
+    window.webkit.messageHandlers.copyUrlWay.postMessage();
+}
 
 //删除商品
 $('.cancel').click(function () {

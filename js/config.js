@@ -3,7 +3,7 @@
  */
 
 (function (w) {
-    var apiHost='http://192.168.199.107:8081';
+    var apiHost='http://192.168.199.107:8080';
     // var apiHost='http://www.rrfun.com.cn:8080';
     var marketHost='http://192.168.199.107:8083';
     //var marketHost='http://www.rrfun.com.cn:8081';
