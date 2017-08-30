@@ -20,6 +20,11 @@ $(document).ready(function () {
     var chooseImgTpl=$('#chooseimg').html();
     var chooseImgCmp=Handlebars.compile(chooseImgTpl);
 
+    //评价中的:全部和有图
+    var imgTemp=$('#imgNum').html();
+    var imgTempCmp=Handlebars.compile(imgTemp);
+
+
     
     $.ajax({
         url:C.interface.detail,
@@ -31,7 +36,6 @@ $(document).ready(function () {
         success:function (response) {
             if (response.result=='success'){
                 var data=response.data;
-                //console.log(data);
 
                 //详情数据
                 $('#detail-content-box').html(detailCmp(data));
@@ -71,8 +75,9 @@ $(document).ready(function () {
         success:function (response) {
             if (response.result=='success'){
                 var data=response.data;
-                //console.log(data);
                 $('.whole').html(wholeCommentCmp(data))
+                //评价中的:全部和有图
+                $('.goodsdetail-con-whole').html(imgTempCmp(data))
 
             }else if (response.result == 'login') {
                 alert('您还没有登录，请登录');
@@ -81,6 +86,7 @@ $(document).ready(function () {
             }
         }
     });
+
     //根据商品id获取有图评价
     $.ajax({
         url:C.interface.detailComment,
@@ -93,9 +99,7 @@ $(document).ready(function () {
         success:function (response) {
             if (response.result=='success'){
                 var data=response.data;
-                //console.log(data);
                 $('.chooseimg').html(chooseImgCmp(data))
-
             }else if (response.result == 'login') {
                 alert('您还没有登录，请登录');
             } else {
@@ -103,11 +107,6 @@ $(document).ready(function () {
             }
         }
     });
-    
-   
-
-
-
 
 });
 

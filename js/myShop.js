@@ -296,7 +296,6 @@ function shopShare(event) {
 
     //点击分享--分享到朋友圈
     $('.share-friends').unbind().bind('click', function (event) {
-        alert('点击了分享朋友圈');
         shareFrendsTwo(event, '2');
     });
     //点击分享--复制链接
@@ -308,7 +307,6 @@ function shopShare(event) {
 
     //分享二维码
     $('.share-erweima').unbind().click(function (event) {
-        alert(1)
         event.preventDefault();
         $('.mask').hide();
         $('.my-share').hide();

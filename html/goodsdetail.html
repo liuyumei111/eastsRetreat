@@ -86,10 +86,14 @@
         <div class="cc">
             <!--全部和有图-->
             <div class="goodsdetail-con-whole">
+                <script type="text/x-handlebars-template" id="imgNum">
                 <div class="goodsdetail-whole-lr bor-r goodsdetail-active2">
                     <span style="color: red">全部({{totalFeedbacks}})</span>
                 </div>
-                <div class="goodsdetail-whole-lr bor-l"><span>有图({{totalImageFeedbacks}})</span></div>
+                <div class="goodsdetail-whole-lr bor-l">
+                    <span>有图({{totalImageFeedbacks}})</span>
+                </div>
+                </script>
             </div>
             <!--全部和有图具体内容-->
             <div class="goodsdetail-whole-con">
@@ -159,7 +163,6 @@
 
                 </div>
             </div>
-
         </div>
     </section>
     <!--底部购物车-->
@@ -188,6 +191,7 @@
     });
     //        <!--所有评价和图片评价切换-->
     $('.goodsdetail-whole-lr').click(function () {
+        alert(2222)
         $(this).addClass('goodsdetail-active2').find('span').css('color','red');
         $(this).siblings().removeClass('goodsdetail-active2').find('span').css('color','#1f1f1f');
         var index1=$(this).index();

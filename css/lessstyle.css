@@ -20,52 +20,51 @@
 	border-bottom: 0.1rem solid #e9e9e9;
 }
 .bindingtel-box-ul>li:nth-child(1)>p{
-	width: 2.5rem;
+	/*width: 2.5rem;*/
 	color: #262626;
 	font-size: 0.65rem;
 	display: flex;
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 20%;
+	width: 28%;
 
 }
 
 .bindingtel-box-ul>li:nth-child(1)>input{
 	height: 100%;
-	padding-left: 0.5rem;
 	display: flex;
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 85%;
+	width: 72%;
 	font-size: 0.65rem;
 }
 .bindingtel-box-ul>li:nth-child(2)>p{
-	width: 4.5rem;
+	/*width: 4.5rem;*/
 	color: #262626;
 	font-size: 0.65rem;
 	display: flex;
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 32%;
+	width: 28%;
 
 }
 
 .bindingtel-box-ul>li:nth-child(2)>input{
 	height: 100%;
-	padding-left: 0.5rem;
+	/*padding-left: 0.5rem;*/
 	display: flex;
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 38%;
+	width: 27%;
 	font-size: 0.65rem;
 }
 .bindingtel-box-ul>li:nth-child(2)>div{
 	height: 100%;
-	padding-left: 0.5rem;
+	/*padding-left: 0.5rem;*/
 	display: flex;
 	display: -webkit-flex;
 	justify-content: space-around;
@@ -73,25 +72,30 @@
 	width: 30%;
 }
 .bindingtel-box-ul>li:nth-child(3)>p{
-	width: 2.5rem;
+	/*width: 2.5rem;*/
 	color: #262626;
 	font-size: 0.65rem;
 	display: flex;
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 22%;
+	width: 28%;
 
 }
+/*!*style="width: 100px;height: 50px;"*!
+.v_container{
+	width: 5rem!important;
+	height: 1.5rem!important;
+
+}*/
 
 .bindingtel-box-ul>li:nth-child(3)>#information{
 	height: 86%;
-	padding-left: 0.5rem;
 	display: flex;
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 48%;
+	width: 27%;
 	font-size: 0.65rem;
 }
 .bindingtel-box-ul>li:nth-child(3)>#btn{

@@ -16,13 +16,15 @@
 <header>
     <div class="aui-searchbar" id="search">
         <div class="aui-searchbar-input aui-border-radius">
-            <i class="aui-iconfont aui-icon-search"></i>
-            <input type="search" placeholder="请输入搜索内容" id="search-input">
-            <div class="aui-searchbar-clear-btn" id="clean-search">
-                <i class="aui-iconfont aui-icon-close"></i>
-            </div>
+            <form class="search-form">
+                <i class="aui-iconfont aui-icon-search"></i>
+                <input type="search" placeholder="请输入搜索内容" id="search-input" autocomplete="off">
+                <div class="aui-searchbar-clear-btn" id="clean-search">
+                    <i class="aui-iconfont aui-icon-close"></i>
+                </div>
+            </form>
         </div>
-        <div class="aui-searchbar-btn aui-text-info" tapmode>搜索</div>
+        <div class="aui-searchbar-btn aui-text-info" tapmode style="cursor:pointer">搜索</div>
     </div>
 </header>
 
@@ -264,8 +266,27 @@
 
     });
 
-    //搜索
-    $(document).on('click', '.aui-text-info', function () {
+
+    //搜索功能
+            //手机端软键盘搜索
+    $('.search-form').submit(function (e) {
+        e.preventDefault();
+        searchName = $('#search-input').val();
+        console.log(searchName);
+        if (searchName == '') {
+            return false;
+        }
+        $('#dis-select-box').hide();
+//        清空
+        $('#dis-list-vessel').empty();
+        num = 0;
+        start = num;
+        ajaxGetShopData();
+    });
+
+    //点击搜索按钮搜索
+    $(document).on('click', '.aui-text-info', function (e) {
+        $('.search-from').trigger('submit');
         searchName = $('#search-input').val();
         console.log(searchName);
         if (searchName == '') {
@@ -351,7 +372,7 @@
                     if (data.products.length > 0) {
                         $('#dis-list-vessel').append(shopTemplate(data));
                         new auiLazyload({
-                            errorImage:'../images/error-img.png'
+                            errorImage: '../images/error-img.png'
                         });
                     } else {
                         $(".no-info").show();
@@ -411,8 +432,8 @@
                     $('.wxmass-sends').show();
 
 
-                    $('.share-firends').unbind().bind('click',function (event) {
-                        getShareType(event,'1');
+                    $('.share-firends').unbind().bind('click', function (event) {
+                        getShareType(event, '1');
 
                     });
                     $('.share-firends-quan').unbind().bind('click', function (event) {
@@ -424,7 +445,7 @@
                         var shareData = {
                             postType: 'shareProducts',
                             productId: shareProductId,
-                            type:type,
+                            type: type,
                             url: url,
                             imgUrl: String(imgUrl),
                             title: title,
@@ -453,13 +474,7 @@
         });
 
 
-
-
-
-
-
     }
-
 
 
     //拉取安卓分享
@@ -476,7 +491,7 @@
 
 
     //点击确定筛选
-    $(document).on('click', '#nmbConfirm',function () {
+    $(document).on('click', '#nmbConfirm', function () {
         getScreen()
     });
 

@@ -296,6 +296,17 @@ select{
 	margin: 0.75rem 0;
 	font-size: 0.7rem;
 }
+#nmbConfirm{
+	margin-left: 80%;
+	background-color: #f23030;
+	width: 3rem;
+	height: 1.8rem;
+	line-height: 1.8rem;
+	text-align: center;
+	border-radius: 0.2rem;
+	color: #fff;
+	font-size: 0.8rem;
+}
 
 /* 红包样式 */
 .cart-detail{
@@ -397,11 +408,18 @@ select{
 .dis-shop-img{
 	height: 6.1rem;
 	position: relative;
+	width: 50%;
+	margin-right: 0.5rem;
 }
 .dis-shop-img>img{
-	width: 7.95rem;
-	height: 6.1rem;
+	/*width: 7.95rem;*/
+	/*height: 6.1rem;*/
 	margin-right: 0.5rem;
+	width: 100%;
+	height:100%;
+}
+.dis-list-content{
+	width: 50%;
 }
 .hongbao,.is-baoyou{
 	color: #fff;
@@ -438,7 +456,7 @@ select{
 	color: #1b1b1b;
 	font-size: 0.6rem;
 	margin: 0.25rem 0;
-	width: 5.0rem;
+	width: 46%;
 }
 .dis-price>span:nth-child(2){
 	color: #1b1b1b;
@@ -448,7 +466,7 @@ select{
 }
 .dis-evaluate{
 	color: #1b1b1b;
-	font-size: 0.6rem;
+	font-size: 0.65rem;
 	display: flex;
     display: -webkit-flex;
     /* justify-content: space-around; */
@@ -462,21 +480,21 @@ select{
 
 }
 .dis-evaluate>span:nth-child(1){
-	width: 5.0rem;
+	width: 46%;
 	font-size: 0.65rem;
 	color: #ff0000;
 }
 .dis-sale{
-	font-size: 0.7rem;
 	margin-top: 0.3rem;
 	color: #1b1b1b;
-	width: 2.8rem;
-	height: 1.1rem;
+	width: 3.2rem;
+	height: 1.5rem;
 	background-color: #f23030;
 	border-radius: 0.2rem;
 	float: right;
 	margin-right: 0.5rem;
 	text-align: center;
+	line-height: 1.5rem;
 }
 .dis-sale>span{
 	font-size: 0.6rem;
@@ -575,5 +593,16 @@ select{
     transform: rotate(-135deg);
 }
 
+.search-form{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
 
-
+#search-input{
+	outline: none;
+	position: absolute;
+	top: 0;
+	left: 1.3rem;
+	background: #fff!important;
+}

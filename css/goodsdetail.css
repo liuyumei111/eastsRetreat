@@ -250,14 +250,14 @@ width: 50%;
 }
 .now-generalize{
 	width: 3.25rem;
-	height: 1.1rem;
-	line-height: 1.1rem;
+	height: 1.5rem;
 	background-color: #f23030;
-	font-size: 0.6rem;
-	border-radius: 0.15rem;
+	font-size: 0.65rem;
+	border-radius: 0.2rem;
 	text-align: center;
 	color: #fff;
 	overflow: hidden;
+	line-height: 1.5rem;
 }
 nav,.aui-slide3,.bg-dark>img,.aui-slide-wrap{
 	height: 17.0rem;
