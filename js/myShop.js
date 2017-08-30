@@ -301,8 +301,8 @@ function shopShare(event) {
     });
     //点击分享--复制链接
     $('.share-url').unbind().bind('click', function (event) {
-        alert('点击复制链接');
-        copyurl(event, '2');
+        //alert('点击复制链接');
+        copyurl();
     });
 
 
@@ -478,7 +478,7 @@ function androidCopyUrl() {
 
 //店铺分享拉取iOS复制链接
 function iosCopyUrl() {
-    window.webkit.messageHandlers.copyUrlWay.postMessage();
+    window.webkit.messageHandlers.copyUrlWay.postMessage(null);
 }
 
 //删除商品
