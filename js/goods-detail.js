@@ -60,6 +60,8 @@ $(document).ready(function () {
 
                 //详情图片
                 $('.goodsdetail-con-detail').html(detailImgCmp(data));
+
+                //处理详情页面的图片尺寸按比例缩放问题
                 var imgWidth=$('.bg-dark').width();
                 console.log(imgWidth);
                 $('.aui-slide-wrap').css('height',imgWidth);

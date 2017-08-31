@@ -87,10 +87,10 @@
             <!--全部和有图-->
             <div class="goodsdetail-con-whole">
                 <script type="text/x-handlebars-template" id="imgNum">
-                <div class="goodsdetail-whole-lr bor-r goodsdetail-active2">
+                <div class="goodsdetail-whole-lr bor-r goodsdetail-active2" onclick="addclass(this)">
                     <span style="color: red">全部({{totalFeedbacks}})</span>
                 </div>
-                <div class="goodsdetail-whole-lr bor-l">
+                <div class="goodsdetail-whole-lr bor-l" onclick="addclass(this)">
                     <span>有图({{totalImageFeedbacks}})</span>
                 </div>
                 </script>
@@ -189,14 +189,18 @@
         var index=$(this).index();
         $(".goodsdetail-con > div").eq(index).show().siblings().hide();
     });
+
+
     //        <!--所有评价和图片评价切换-->
-    $('.goodsdetail-whole-lr').click(function () {
-        alert(2222)
-        $(this).addClass('goodsdetail-active2').find('span').css('color','red');
-        $(this).siblings().removeClass('goodsdetail-active2').find('span').css('color','#1f1f1f');
-        var index1=$(this).index();
-        $('.goodsdetail-whole-con>div').eq(index1).show().siblings().hide()
-    });
+     function addclass(obj) {
+         var $this=$(obj);
+         $this.addClass('goodsdetail-active2').find('span').css('color','red');
+         $this.siblings().removeClass('goodsdetail-active2').find('span').css('color','#1f1f1f');
+         var index1=$this.index();
+         $('.goodsdetail-whole-con>div').eq(index1).show().siblings().hide()
+     }
+
+
 </script>
 </body>
 </html>
