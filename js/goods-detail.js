@@ -49,7 +49,7 @@ $(document).ready(function () {
                 var slide3 = new auiSlide({
                     container:document.getElementById("aui-slide3"),
                     // "width":300,
-                    "height":340,
+                    //"height":340,
                     "speed":500,
                     "autoPlay": 5000, //自动播放
                     "loop":true,
@@ -59,7 +59,11 @@ $(document).ready(function () {
                 });
 
                 //详情图片
-                $('.goodsdetail-con-detail').html(detailImgCmp(data))
+                $('.goodsdetail-con-detail').html(detailImgCmp(data));
+                var imgWidth=$('.bg-dark').width();
+                console.log(imgWidth);
+                $('.aui-slide-wrap').css('height',imgWidth);
+                $('.bg-dark').find('img').css('height',imgWidth);
 
             }else if (response.result == 'login') {
                 alert('您还没有登录，请登录');
