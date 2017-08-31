@@ -4,6 +4,9 @@
 
 $(document).ready(function () {
     var detailId=locationSearcher('productId');
+    console.log(detailId);
+    // var detailId=location.search.replace('?productid=','');
+    // console.log(detailId);
     //详情数据模板
     var detailTpl=$('#detail-template').html();
     var detailCmp=Handlebars.compile(detailTpl);
@@ -25,7 +28,7 @@ $(document).ready(function () {
     var imgTempCmp=Handlebars.compile(imgTemp);
 
 
-    console.log(detailId)
+
     
     $.ajax({
         url:C.interface.detail,
@@ -96,7 +99,8 @@ $(document).ready(function () {
         dataType:'json',
         data:{
             productId:detailId,
-            isHaveImg:'1'
+            isHaveImg:'1',
+            a:'b'
         },
         success:function (response) {
             if (response.result=='success'){

@@ -407,6 +407,8 @@
         var thisPapa = that.parents('.dis-list-box');
         var thisImg = thisPapa.find('.dis-shop-img').find('img').attr('src');
         var shareProductId = thisPapa.data('productid');
+        console.log(shareProductId)
+
         //localStorage.setItem('shareId', shareProductId);
 
         $('.wxmass-item-img').find('img').attr('src', thisImg);
