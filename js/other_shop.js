@@ -1,7 +1,33 @@
+/*
+$(document).ready(function () {
+
+    var userId=locationSearcher('userId');
+
+    $.ajax({
+        url:C.interface
+    })
+    /!*筛选按钮的切换*!/
+    $('.dis-screen-btn').click(function () {
+        $('.dis-screen').toggle();
+    });
+    /!*分享店铺*!/
+    $('.clickshare').click(function () {
+        $('.my-share').toggle();
+    });
+    /!*点击x按钮关闭店铺分享*!/
+    $('.my-share-del1').click(function () {
+        $('.my-share').toggle();
+    });
+
+});*/
+
+
 /**
  * Created by Administrator on 2017/8/8.
  */
 
+var userId=locationSearcher('userId');
+// console.log(userId);
 
     //商品类别
 var selectTpl = $('#my-select-template').html();        //获取到页面中的html代码块
@@ -31,9 +57,11 @@ var range = 200, //距下边界长度/单位px
 //获取商品类别(全部，男装，女装)
 $.ajax({
     url: selectUri,
-    type: 'get',
+    type: 'POST',
     dataType: 'json',
-    data: {},
+    data: {
+        userId:userId
+    },
     success: function (response) {
         //如果数据请求成功
         if (response.result == 'success') {
@@ -112,7 +140,7 @@ function ajaxGetShopData() {
             length: pageLength,
             minMaxPrice: minMaxPrice,
             minMaxSales: minMaxSales,
-            token: C.marketToken
+            userId:userId
         },
         success: function (response) {
             if (response.result == 'success') {
@@ -141,79 +169,10 @@ function ajaxGetShopData() {
                 }
                 flag = 0;
 
-                //删除商品的弹框
-                $('.dis-del').unbind().click(function (event) {
-                    event.preventDefault();
-                    var that = $(this);
-                    var thatDom = that.parents('.dis-list-box');
-                    var productId = that.parents('.dis-list-box').data('shopid');
-
-                    dialog.confirm({
-                        title: "确认要删除该商品吗",
-                        content: "",
-                        ok: function () {
-                            deleteShop(thatDom, productId);
-                            setTimeout(function () {
-                                dialog.tusiSuccess('删除成功');
-                            }, 500);
-                        },
-                        cancel: function () {
-
-                        }
-                    });
-                });
-
-
-                /*     //分享店铺
-                     $('.clickshare').click(function () {
-                         event.preventDefault();
-                         $('.mask').show();
-                         $('.my-share').show();
-
-                         /!*点击x按钮关闭店铺分享*!/
-                         $('.my-share-del1').click(function () {
-                             $('.mask').hide();
-                             $('.my-share').hide();
-
-                         });
-
-                         //分享二维码
-                         $('.share-erweima').unbind().click(function (event) {
-                             event.preventDefault();
-                             $('.mask').hide();
-                             $('.my-share').hide();
-                             var qrcode = new QRCode(document.getElementById("share-erweima"), {
-                                 width : 90,
-                                 height : 90
-                             });
-                             //生成二维码
-                             qrcode.makeCode(myShopId);
-
-                             $('.myshop-share').show();
-                             //alert('aaa');
-                         });
-
-                         //分享朋友圈
-                         $('.share-friends').unbind().click(function (event) {
-                             event.stopPropagation();
-                         })
-
-
-                     });*/
-
-
-                $('.clickshare').click(function () {
-
-
-                });
-                //分享店铺
-                $('.clickshare').unbind().bind('click', shopShare);
-
-
                 //立即推广
-                $('.now-tuiguang').unbind().bind('click', nowTuiGuang);
+                $('.dis-sale').unbind().bind('click', nowTuiGuang);
 
-                /*点击立即推广*/
+                /*点击关闭*/
                 $('.close').click(function () {
                     $('#share-erweima').html('');
                     $('.myshop-share').hide();
@@ -227,25 +186,6 @@ function ajaxGetShopData() {
         }
     })
 }
-
-//删除商品的请求
-function deleteShop(that, productId) {
-    $.ajax({
-        url: C.marketInterface.delMyShop,
-        type: 'get',
-        dataType: 'json',
-        data: {
-            productId: productId,
-            token: C.marketToken
-        },
-        success: function (response) {
-            if (response.result == 'success') {
-                that.remove();
-            }
-        }
-    });
-}
-
 
 //立即推广
 function nowTuiGuang(event) {
@@ -290,11 +230,6 @@ function shopShare(event) {
 
     });
 
-    //点击分享朋友圈
-    // $('.share-friends').unbind().click(function (event) {
-    //     event.stopPropagation();
-    // })
-
     //点击分享--分享到朋友圈
     $('.share-friends').unbind().bind('click', function (event) {
         shareFrendsTwo(event, '2');
@@ -336,7 +271,7 @@ function shareFrends(event, type) {
         dataType: 'json',
         data: {
             token: C.marketToken,
-            productId: productId
+            userId: userId
         },
         success: function (response) {
             if (response.result == 'success') {
@@ -382,44 +317,6 @@ function shareFrends(event, type) {
 //   发送给朋友222 / 分享到朋友圈222
 function shareFrendsTwo(event, type) {
     event.stopPropagation();
-   /* $.ajax({
-        url: C.marketInterface.share,
-        type: 'get',
-        dataType: 'json',
-        data: {
-            token: C.marketToken,
-        },
-        success: function (response) {
-            if (response.result == 'success') {
-                // 获取url
-                var storeUrl = response.data.storeUrl;
-                // 获取name
-                var name = response.data.name;
-                var headImgUrl = response.data.headImgUrl;
-                var data = {
-                    storeUrl: storeUrl,
-                    name: name,
-                    headImgUrl: headImgUrl,
-                };
-                console.log(data);
-                var ua = navigator.userAgent.toLowerCase();
-                if (/iphone|ipad|ipod/.test(ua)) {
-                    iosShareTwo(data);
-                    event.stopPropagation();
-                } else {
-                    //console.log(JSON.stringify(data));
-                    androidShareTwo(JSON.stringify(data));
-                    event.stopPropagation();
-                }
-            } else {
-                alert(response.errorMsg);
-            }
-        },
-        error: function () {
-            alert('服务器异常');
-        }
-    });*/
-
     var data='';
     var ua = navigator.userAgent.toLowerCase();
     if (/iphone|ipad|ipod/.test(ua)) {
@@ -479,11 +376,6 @@ function androidCopyUrl() {
 function iosCopyUrl() {
     window.webkit.messageHandlers.copyUrlWay.postMessage(null);
 }
-
-//删除商品
-$('.cancel').click(function () {
-    $('.wxmass-sends').hide();
-});
 
 //图片懒加载
 $(document).ready(function () {
@@ -555,6 +447,7 @@ function getScreen() {
         data: {
             minMaxPrice: minMaxPrice,
             minMaxSales: minMaxSales,
+            userId:userId
         },
         success: function (response) {
             console.log(response);

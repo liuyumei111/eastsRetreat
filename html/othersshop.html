@@ -7,255 +7,229 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="../css/aui.2.0.css">
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/alert.css">
     <link rel="stylesheet" href="../css/common1.css">
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/othershop.css">
+    <link rel="stylesheet" href="../css/myshop.css">
 </head>
 <body>
-<header>
-    <img class="user-photo" src="../images/user.jpg" alt="">
-    <div class="member-info">
-        <div>小一的店铺</div>
-        <div class="clickshare"><span>分享他的店铺</span></div>
-    </div>
-</header>
-<section class="comm-box">
-    <div class="dis-select-box">
-        <select>
-            <option value="全部">全部(100)</option>
-            <option value="男装">女装(20)</option>
-            <option value="童装">童装(20)</option>
-            <option value="情侣装">情侣装(60)</option>
-        </select>
-        <select>
-            <option value="全部">默认排序</option>
-            <option value="价格由低到高">价格由低到高</option>
-            <option value="价格由高到低">价格由高到低</option>
-            <option value="销量由高到低">销量由高到低</option>
-        </select>
-        <div class="dis-screen-btn dis-screen-active">筛选</div>
-        <div class="dis-screen">
-            <div class="dis-screen-price">
-                <div class="dis-price-section">价格区间</div>
-                <div class="dis-screen-select">
-                    <div class="dis-low-price">最低价</div>
-                    <div class="dis-price-line"></div>
-                    <div class="dis-high-price">最高价</div>
-                </div>
-                <div class="dis-screen-select">
-                    <div class="dis-low-sales">最低销量</div>
-                    <div class="dis-price-line"></div>
-                    <div class="dis-high-sales">最销量</div>
-                </div>
-                <div class="aui-list-item-inner">
-                    <label><input class="aui-radio" checked type="radio" name="radio2"> 退货免运费</label>
-                </div>
+<section>
+    <header id="header-box">
+        <script type="text/x-handlebars-template" id="mine-info-template">
+            {{#user}}
+            <img class="user-photo" src="../images/user.jpg" alt="">
+            <div class="member-info">
+                <div>{{userNickName}}</div>
+                <div>已经售{{totalProduct}}件商品</div>
+                <!--<div class="clickshare" id="clickshare1"><span>分享他的店铺</span></div>-->
             </div>
-        </div>
-    </div>
-    <div id="dis-list-vessel">
-        <a href="javascript:;" class="display-box">
-            <div class="dis-list-box">
-                <div class="dis-shop-img">
-                    <img src="../images/22.jpg" alt="">
-                </div>
-                <div class="dis-list-content">
-                    <div class="dis-shop-detail">
-                        <span>红包20.00元</span>
-                        <span>退货免运费</span>
-                        <span>我爱北京天安门我爱北京天安门</span>
-                    </div>
-                    <div class="dis-price">
-                        <span>优惠价:108:00</span>
-                        <span>销量：269</span>
-                    </div>
-                    <div class="dis-evaluate">
-                        <span>赚:30.61元</span>
-                        <span>佣金率：28.9%</span>
-                    </div>
-                        <div class="dis-sale">
-                            <span>立即推广</span>
+            {{/user}}
+        </script>
+    </header>
+    <section class="comm-box">
+        <div class="dis-select-box" id="my-shop-box">
+            <script type="text/x-handlebars-template" id="my-select-template">
+                <select class="dis-shop-type">
+                    {{#each this}}
+                    <option value="{{id}}">{{name}}({{count}})</option>
+                    {{/each}}
+                    <!--<option value="男装">女装(20)</option>-->
+                </select>
+                <select class="dis-shop-sort">
+                    <option value="全部">默认排序</option>
+                    <option value="priceDesc">价格由低到高</option>
+                    <option value="priceAsc">价格由高到低</option>
+                    <option value="salesDesc">销量由高到低</option>
+                </select>
+                <div class="dis-screen-btn">筛选</div>
+                <div class="dis-screen">
+                    <div class="dis-screen-price">
+                        <div class="dis-price-section">价格区间</div>
+                        <div class="dis-screen-select">
+                            <input type="number" class="dis-low-price" placeholder="最低价">
+                            <div class="dis-price-line"></div>
+                            <input type="number" class="dis-high-price" placeholder="最高价">
                         </div>
-
+                        <div class="dis-price-section">商品销量</div>
+                        <div class="dis-screen-select">
+                            <input type="number" class="dis-low-sales" placeholder="最低销量">
+                            <div class="dis-price-line"></div>
+                            <input type="number" class="dis-high-sales" placeholder="最高销量">
+                        </div>
+                        <div class="aui-list-item-inner">
+                            <label><input class="aui-radio servenBack" type="checkbox" name="radio2"> 退货免运费</label>
+                        </div>
+                        <div id="nmbConfirm">确定</div>
+                    </div>
                 </div>
-            </div>
-        </a>
-        <a href="javascript:;" class="display-box">
-            <div class="dis-list-box">
-                <div class="dis-shop-img">
-                    <img src="../images/22.jpg" alt="">
-                </div>
-                <div class="dis-list-content">
-                    <div class="dis-shop-detail">
-                        <span>红包20.00元</span>
-                        <span>退货免运费</span>
-                        <span>我爱北京天安门我爱北京天安门</span>
-                    </div>
-                    <div class="dis-price">
-                        <span>优惠价:108:00</span>
-                        <span>销量：269</span>
-                    </div>
-                    <div class="dis-evaluate">
-                        <span>赚:30.61元</span>
-                        <span>佣金率：28.9%</span>
-                    </div>
-                    <div class="dis-sale">
-                        <span>立即推广</span>
-                    </div>
-
-                </div>
-            </div>
-        </a>
-        <a href="javascript:;" class="display-box">
-            <div class="dis-list-box">
-                <div class="dis-shop-img">
-                    <img src="../images/22.jpg" alt="">
-                </div>
-                <div class="dis-list-content">
-                    <div class="dis-shop-detail">
-                        <span>红包20.00元</span>
-                        <span>退货免运费</span>
-                        <span>我爱北京天安门我爱北京天安门</span>
-                    </div>
-                    <div class="dis-price">
-                        <span>优惠价:108:00</span>
-                        <span>销量：269</span>
-                    </div>
-                    <div class="dis-evaluate">
-                        <span>赚:30.61元</span>
-                        <span>佣金率：28.9%</span>
-                    </div>
-                    <div class="dis-sale">
-                        <span>立即推广</span>
-                    </div>
-
-                </div>
-            </div>
-        </a>
-        <a href="javascript:;" class="display-box">
-            <div class="dis-list-box">
-                <div class="dis-shop-img">
-                    <img src="../images/22.jpg" alt="">
-                </div>
-                <div class="dis-list-content">
-                    <div class="dis-shop-detail">
-                        <span>红包20.00元</span>
-                        <span>退货免运费</span>
-                        <span>我爱北京天安门我爱北京天安门</span>
-                    </div>
-                    <div class="dis-price">
-                        <span>优惠价:108:00</span>
-                        <span>销量：269</span>
-                    </div>
-                    <div class="dis-evaluate">
-                        <span>赚:30.61元</span>
-                        <span>佣金率：28.9%</span>
-                    </div>
-                    <div class="dis-sale">
-                        <span>立即推广</span>
-                    </div>
-
-                </div>
-            </div>
-        </a>
-        <a href="javascript:;" class="display-box">
-        <div class="dis-list-box">
-            <div class="dis-shop-img">
-                <img src="../images/22.jpg" alt="">
-            </div>
-            <div class="dis-list-content">
-                <div class="dis-shop-detail">
-                    <span>红包20.00元</span>
-                    <span>退货免运费</span>
-                    <span>我爱北京天安门我爱北京天安门</span>
-                </div>
-                <div class="dis-price">
-                    <span>优惠价:108:00</span>
-                    <span>销量：269</span>
-                </div>
-                <div class="dis-evaluate">
-                    <span>赚:30.61元</span>
-                    <span>佣金率：28.9%</span>
-                </div>
-                <div class="dis-sale">
-                    <span>立即推广</span>
-                </div>
-
-            </div>
+            </script>
         </div>
-    </a>
-        <a href="javascript:;" class="display-box">
-            <div class="dis-list-box">
-                <div class="dis-shop-img">
+        <div id="dis-list-vessel">
+            <script type="text/x-handlebars-template" id="my-shop-template">
+                {{#each products}}
+                <a href="goodsdetail.html?productId={{productId}}" class="display-box">
+                    <div class="dis-list-box" data-shopid="{{id}}" data-productid="{{productId}}">
+                        <div class="dis-shop-img">
+                            <img src="../images/lazy.gif" data-src="{{mainImageUrl}}" alt="">
+                            <div class="earn">
+                                <span>共赚{{profit}}元</span>
+                            </div>
+                        </div>
+                        <div class="dis-list-content">
+                            <div class="dis-shop-detail">
+                                <span class="hongbao">红包{{productHongbao}}元</span>
+                                <!--<span class="is-baoyou">{{exemption isServenBack}}</span>-->
+                                <span class="shop-list-name">{{name}}</span>
+                            </div>
+                            <div class="dis-price">
+                                <span>优惠价:{{productPrice}}</span>
+                                <span>销量：{{totalSales}}</span>
+                            </div>
+                            <div class="dis-evaluate">
+                                <span>赚:{{marketProfit}}元</span>
+                                <span>佣金率：{{marketProfitPercent}}</span>
+                            </div>
+                            <div class="dis-sale">
+                                <span>立即推广</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+                {{/each}}
+            </script>
+        </div>
+    </section>
+    <div class="loading">加载更多...</div>
+    <div class="no-info">没有更多数据了...</div>
+    <!--立即推广-->
+    <section class="wxmass-sends">
+        <section class="wxmass-sends-item">
+            <div class="wxmass-item-title">
+                <span class="cancel">取消</span>
+                <span>分享</span>
+
+            </div>
+            <div class="wxmass-item-img">
+                <img src="../images/banner1.png" alt="">
+            </div>
+            <ul class="wxmass-item-list">
+                <li class="share-firends">
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends1.png" alt="">
+                    </div>
+                    <span>发送给朋友</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+                <li class="share-firends-quan">
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends2.png" alt="">
+                    </div>
+                    <span>分享到朋友圈</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+                <li class="no-border">
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends3.png" alt="">
+                    </div>
+                    <span>收藏</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </section>
+    <div class="mask"></div>
+    <!--分享层-->
+    <section class="my-share">
+        <ul>
+            <li class="my-share-li share-friends">
+                <div class="my-share-li-img">
+                    <img src="../images/pyq.png" alt="">
+                </div>
+                <p>朋友</p>
+            </li>
+            <li class="my-share-li share-url">
+                <div class="my-share-li-img">
+                    <img src="../images/lj.png" alt="">
+                </div>
+                <p>复制链接</p>
+            </li>
+            <li class="my-share-li share-erweima">
+                <div class="my-share-li-img">
+                    <img src="../images/ewm.png" alt="">
+                </div>
+                <p>二维码</p>
+            </li>
+        </ul>
+        <div class="my-share-del1"><img src="../images/del1.png" alt=""></div>
+    </section>
+  <!--  &lt;!&ndash;删除商品层&ndash;&gt;
+    <section class="myshop-del">
+        <section class="myshop-del-item">
+            &lt;!&ndash;标题&ndash;&gt;
+            <div class="item-text"><span>是否删除该商品</span></div>
+            &lt;!&ndash;删除商品详情&ndash;&gt;
+            <div class="item-detail">
+                <div class="item-detail-left"><img src="../images/22.jpg" alt=""></div>
+                <div class="item-detail-right"><p><span>红包20:00元</span>我爱北京天安我爱北京天安门我爱北京天安门我爱北京天安门我爱北京天安门门我爱北京天安门我爱北京天安门我爱北京天安门</p></div>
+            </div>
+            &lt;!&ndash;取消删除选项&ndash;&gt;
+            <div class="item-cal-del">
+                <div class="item-cancel">取消</div>
+                <div class="item-del">确认删除</div>
+
+            </div>
+        </section>
+    </section>-->
+    <!--店铺分享层-->
+    <section class="myshop-share">
+        <section class="myshop-share-item">
+            <!--标题部分-->
+            <div class="myshop-share-item-title">
+                <p><b>店铺: </b>小一的店铺</p>
+                <span class="zhang">共9张</span>
+                <span class="close">关闭</span>
+            </div>
+            <!--图片-->
+            <div class="myshop-share-item-img">
+                <img src="../images/banner1.png" alt="">
+            </div>
+            <!--二维码-->
+            <div class="myshop-share-item-code">
+                <div class="myshop-item-code">
                     <img src="../images/22.jpg" alt="">
                 </div>
-                <div class="dis-list-content">
-                    <div class="dis-shop-detail">
-                        <span>红包20.00元</span>
-                        <span>退货免运费</span>
-                        <span>我爱北京天安门我爱北京天安门</span>
-                    </div>
-                    <div class="dis-price">
-                        <span>优惠价:108:00</span>
-                        <span>销量：269</span>
-                    </div>
-                    <div class="dis-evaluate">
-                        <span>赚:30.61元</span>
-                        <span>佣金率：28.9%</span>
-                    </div>
-                    <div class="dis-sale">
-                        <span>立即推广</span>
-                    </div>
-
+                <div class="myshop-item-code-text">
+                    <div id="share-erweima"></div>
+                    <span>扫描或微信长按识别二维码</span>
                 </div>
             </div>
-        </a>
-
-
-    </div>
-</section>
-<section class="my-share">
-    <ul>
-        <li class="my-share-li">
-            <div class="my-share-li-img">
-                <img src="../images/pyq.png" alt="">
+            <!--保存到相册-->
+            <div class="myshop-share-item-deposit">
+                <img src="../images/deposit.png" alt="">
             </div>
-            <p>朋友</p>
-        </li>
-        <li class="my-share-li">
-            <div class="my-share-li-img">
-                <img src="../images/lj.png" alt="">
-            </div>
-            <p>复制链接</p>
-        </li>
-        <li class="my-share-li">
-            <div class="my-share-li-img">
-                <img src="../images/ewm.png" alt="">
-            </div>
-            <p>二维码</p>
-        </li>
-    </ul>
-    <div class="my-share-del1"><img src="../images/del1.png" alt=""></div>
+        </section>
+    </section>
 </section>
 <script src="../js/jquery-3.0.0.min.js"></script>
-<script src="../js/api.2.0.js"></script>
-<script>
-    $(document).ready(function () {
-        /*筛选按钮的切换*/
-        $('.dis-screen-btn').click(function () {
-            $('.dis-screen').toggle();
-        });
-        /*分享店铺*/
-        $('.clickshare').click(function () {
-            $('.my-share').toggle();
-        });
-        /*点击x按钮关闭店铺分享*/
-        $('.my-share-del1').click(function () {
-            $('.my-share').toggle();
-        });
+<!--<script src="../js/api.2.0.js"></script>-->
+<script src="../js/handlebars-v4.0.10.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/function.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/alert.js"></script>
+<script src="../js/qrcode.min.js"></script>
+<script src="../js/aui-lazyload.js"></script>
+<!--<script src="../js/myShop.js"></script>-->
+<script src="../js/other_shop.js"></script>
 
-    });
-</script>
 
 </body>
 </html>

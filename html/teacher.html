@@ -20,14 +20,12 @@
 </header>
 <nav>
     <div class="member-info-entry" id="member-info-entry">
-
-
             <script type="text/x-handlebars-template" id="teacher-template">
                 {{#this}}
                 {{#valueCompare this '!==' ''}}
                 <ul class="member-info-list teacher-info-list">
                     <li>
-                        <a href="javascript:;" class="display-box">
+                        <a href="othersshop.html?userId={{id}}" class="display-box">
                             <span>{{userNickName}}</span>
                             <span>他的店铺</span>
                         </a>
@@ -42,8 +40,6 @@
                 {{/valueCompare}}
                 {{/this}}
             </script>
-        </ul>
-
     </div>
 </nav>
 <script src="../js/jquery-3.0.0.min.js"></script>
@@ -64,6 +60,7 @@
             if(data.result=='success'){
                 //console.log(data);
                 var data=data.data;
+                console.log(data);
                 $('.member-info-entry').html(b(data));
             }else if(data.result=='login'){
                 alert(data.errorMsg);

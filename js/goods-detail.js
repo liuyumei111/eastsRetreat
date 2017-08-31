@@ -4,7 +4,7 @@
 
 $(document).ready(function () {
     var detailId=locationSearcher('productId');
-    console.log(detailId);
+    // console.log(detailId);
     // var detailId=location.search.replace('?productid=','');
     // console.log(detailId);
     //详情数据模板
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
                 //处理详情页面的图片尺寸按比例缩放问题
                 var imgWidth=$('.bg-dark').width();
-                console.log(imgWidth);
+                // console.log(imgWidth);
                 $('.aui-slide-wrap').css('height',imgWidth);
                 $('.bg-dark').find('img').css('height',imgWidth);
 
