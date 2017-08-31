@@ -25,13 +25,15 @@ $(document).ready(function () {
     var imgTempCmp=Handlebars.compile(imgTemp);
 
 
+    console.log(detailId)
     
     $.ajax({
         url:C.interface.detail,
         type:'POST',
         dataType:'json',
         data:{
-            productId:detailId
+            productId:detailId,
+
         },
         success:function (response) {
             if (response.result=='success'){

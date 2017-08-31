@@ -72,7 +72,7 @@
         <script type="text/x-handlebars-template" id="discount-list-template">
             {{#each products}}
             <a href="goodsdetail.html?productId={{id}}" class="display-box">
-                <div class="dis-list-box" data-productid="{{id}}">
+                <div class="dis-list-box" data-shopid="{{id}}" data-productid="{{productId}}">
                     <div class="dis-shop-img">
                         <img src="../images/lazy.gif" data-src="{{mainImageUrl}}" alt="">
                     </div>
@@ -541,7 +541,7 @@
             return false;
         }
 //最低价不能大于最高价
-        if (lowPrice < highPrice) {
+        if (lowPrice > highPrice) {
             alert('最低价不能大于最高价');
             return false;
         }
