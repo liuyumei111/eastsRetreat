@@ -3,8 +3,10 @@
  */
 
 (function (w) {
+    //商城
     var apiHost='http://192.168.199.107:8081';
     // var apiHost='http://www.rrfun.com.cn:8080';
+    //云店
     var marketHost='http://192.168.199.107:8083';
     //var marketHost='http://www.rrfun.com.cn:8081';
     //配置项
@@ -26,7 +28,7 @@
     //发送验证码时间
     C.putCodeTime=60;
 
-    C.token='201708031209898169cdb594d601fc4471a9c3bab8c7fe386b';
+    C.token='2017082718351860892b7312e7b74b40b0a9923fb14aeb6a14';
     //C.marketToken=localStorage.getItem('token');
     // C.marketToken='201708271127141342d9445d6a2d3c4b23b8d680f7ace49987';
     C.marketToken='2017083115112355218e2b82ee170c4ba6b4b648dc2101aa10';
@@ -52,7 +54,12 @@
         //删除收货地址
         deleteAddress:'uc/address/delete',
         //根据商品id获得所有评价信息
-        detailComment:'product/feedbacks'
+        detailComment:'product/feedbacks',
+        //秒杀首页
+        seckill:'seckill/list',
+        //秒杀详情
+        seckillDetail:'seckill/detail',
+        seckillBanner:'seckill/banners'
 
     };
     //market接口
@@ -97,7 +104,12 @@
         //微信群发当前波的商品
         weixinBatchSend:'product/weixinBatchSend',
         //发送到微信朋友圈
-        friendBatch:'product/friendBatch'
+        friendBatch:'product/friendBatch',
+        //秒杀首页
+        seckill:'seckill/list',
+        //秒杀详情
+        seckillDetail:'seckill/detail',
+        seckillBanner:'seckill/banners'
     };
 
     //组合mall接口地址
