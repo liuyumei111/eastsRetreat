@@ -173,13 +173,8 @@ function ajaxGetShopData() {
                 $('.dis-sale').unbind().bind('click', nowTuiGuang);
 
                 /*点击关闭*/
-                $('.close').click(function () {
-                    $('#share-erweima').html('');
-                    $('.myshop-share').hide();
-                });
-                /*点击x按钮关闭店铺分享*/
-                $('.my-share-del1').click(function () {
-                    $('.my-share').toggle();
+                $('.cancel').click(function () {
+                    $('.wxmass-sends').toggle()
                 });
 
             }
