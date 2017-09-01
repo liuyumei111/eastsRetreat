@@ -45,7 +45,7 @@ $.ajax({
             $(document).on('change', '.dis-shop-type', function () {
                 $('#dis-list-vessel').empty();
                 categoryId = $(this).val();
-                console.log(categoryId);
+                // console.log(categoryId);
                 num = 0;
                 start = num;
                 ajaxGetShopData();

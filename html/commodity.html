@@ -232,7 +232,7 @@
                     $('#dis-list-vessel').empty();
                     //
                     categoryId = $(this).val();
-                    console.log(categoryId);
+//                    console.log(categoryId);
                     num = 0;
                     start = num;
                     //加载商品数据
@@ -244,7 +244,7 @@
                 $(document).on('change', '.dis-shop-sort', function () {
                     $('#dis-list-vessel').empty();
                     orderType = $(this).val();
-                    console.log(orderType);
+//                    console.log(orderType);
                     num = 0;
                     start = num;
                     ajaxGetShopData();
@@ -527,8 +527,8 @@
         var minMaxSales = lowSales + '-' + highSales;
 //        定义一个变量
         var servenBack = null;
-        console.log(minMaxPrice);
-        console.log(minMaxSales);
+//        console.log(minMaxPrice);
+//        console.log(minMaxSales);
 //      退货免运费选项是否选中
         if ($('.servenBack').is(':checked')) {
             servenBack = 1;
@@ -562,7 +562,7 @@
                 minMaxSales: minMaxSales,
             },
             success: function (response) {
-                console.log(response);
+//                console.log(response);
                 if (response.result == 'success') {
                     //console.log(response.data);
                     var data = response.data;
