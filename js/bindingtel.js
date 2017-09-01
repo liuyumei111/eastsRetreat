@@ -106,7 +106,7 @@ function sendemail() {
         success: function (data) {
             if (data.result == 'success') {
                 console.log(data);
-                alert('验证码发送成功');
+                //alert('验证码发送成功');
             } else if (data.result == 'login') {
                 alert(data.errorMsg)
             } else {

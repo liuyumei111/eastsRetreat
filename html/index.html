@@ -13,7 +13,7 @@
 </head>
 <body>
 <!--搜索框-->
-<header>
+<!--<header>
     <div class="aui-searchbar" id="search">
         <div class="aui-searchbar-input aui-border-radius">
             <i class="aui-iconfont aui-icon-search"></i>
@@ -24,7 +24,7 @@
         </div>
         <div class="aui-searchbar-btn aui-text-info" tapmode>搜索</div>
     </div>
-</header>
+</header>-->
 <nav>
 
     <!--轮播图-->
@@ -123,7 +123,7 @@
     <div class="home-three">
         {{#each this}}
         {{#productdetail}}
-        <a href="javascript:;" class="display-box">
+        <a href="goodsdetail.html?productId={{spuId}}" class="display-box">
             <div class="home-three-box">
                 <img src="../images/lazy.gif" data-src="{{mainImageUrl}}" alt="">
                 <div class="home-three-price">
@@ -140,7 +140,7 @@
 
     {{#each this}}
     <!--新模板-->
-    <a href="seckill_detail.html?spuId={{spuId}}" class="display-box">
+    <a href="goodsdetail.html?productId={{spuId}}" class="display-box">
         {{#productdetail}}
         <div class="dis-list-box">
             <div class="dis-shop-img">
@@ -179,7 +179,7 @@
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script src="../js/config.js"></script>
 <script src="../js/api.2.0.js"></script>
-<script src="../js/search.js"></script>
+<!--<script src="../js/search.js"></script>-->
 <script src="../js/function.js"></script>
 <script src="../js/common.js"></script>
 <script src="../js/aui-lazyload.js"></script>

@@ -406,8 +406,8 @@
         var that = $(this);
         var thisPapa = that.parents('.dis-list-box');
         var thisImg = thisPapa.find('.dis-shop-img').find('img').attr('src');
-        var shareProductId = thisPapa.data('productid');
-        console.log(shareProductId)
+        var shareProductId = thisPapa.data('shopid');
+        console.log(shareProductId);
 
         //localStorage.setItem('shareId', shareProductId);
 
@@ -474,10 +474,7 @@
                 alert('服务器异常');
             }
         });
-
-
     }
-
 
     //拉取安卓分享
     function androidShare(param) {

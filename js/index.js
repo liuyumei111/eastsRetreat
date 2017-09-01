@@ -125,7 +125,6 @@ $(document).ready(function () {
             dataType:'json',
             data:{
                 hourRange:hourRange,
-                token:C.token,
                 start:start,
                 length:lengh
             },
@@ -174,7 +173,6 @@ $(document).ready(function () {
             dataType:'json',
             data:{
                 hourRange:hourRange,
-                token:C.token,
                 start:pageIndex,
                 length:pageLength
             },

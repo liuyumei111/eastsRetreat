@@ -49,7 +49,6 @@ header a {
     height: 100%;
 }
 
-
 .aui-searchbar{
     background-color: #f23030;
 }
@@ -66,6 +65,7 @@ footer{
 	width: 100%;
 	height: 2.45rem;
 	background-color: #ccc;
+	border-top: 0.05rem solid #cdcdcd;
 }
 
 a:link,a:visited,a:hover,a:active{
@@ -803,5 +803,8 @@ select{
 .seckill-count{
 	font-size: 0.7rem;
 }
-
-
+.my-aui-active {
+	color: #f23230;
+	z-index: 100;
+	font-weight: bold;
+}
