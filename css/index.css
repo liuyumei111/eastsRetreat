@@ -4,3 +4,48 @@
 .aui-searchbar .aui-searchbar-btn{
 	margin-right: 0;
 }
+.dis-price,.get-money{
+	display: flex;
+	display: -webkit-flex;
+	font-size: 0.6rem;
+	color: #5f5f5f;
+	width: 100%;
+	margin: 0.1rem 0;
+	align-items: center;
+}
+.dis-price>span:nth-child(1){
+	color: #5f5f5f;
+    font-size: 0.6rem;
+    margin: 0.25rem 0;
+    width: 50%;
+}
+.dis-price>span:nth-child(2) {
+    color: #5f5f5f;
+    font-size: 0.6rem;
+    margin: 0.25rem 0;
+    text-decoration: none;
+}
+.zhuan{
+	color: #f23030;
+    font-size: 0.6rem;
+    margin: 0.25rem 0;
+    width: 50%;
+}
+.yongjinlv{
+	font-size: 0.6rem;
+	color: #5f5f5f;
+	margin: 0.25rem 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

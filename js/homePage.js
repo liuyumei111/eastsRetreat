@@ -8,8 +8,7 @@ $(document).ready(function () {
     //轮播
     var bannerTpl=$('#swiper-template').html();
     var bannerCmp=Handlebars.compile(bannerTpl);
-
-
+    
     var range = 200, //距下边界长度/单位px
         maxnum = 0, //设置课程总数
         num = 0, //当前数量
@@ -264,7 +263,7 @@ $(document).ready(function () {
             }
         })
     }
-
+    
 });
 
 $(document).ready(function () {

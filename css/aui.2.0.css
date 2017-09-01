@@ -7,7 +7,7 @@
 /*初始化类*/
 @charset "UTF-8";
 html{
-    font-family: sans-serif;
+    font-family: "Microsoft YaHei",Helvetica,"Hiragino Sans GB",Arial,sans-serif;;
     font-size: 20px;
 }
 html,body {

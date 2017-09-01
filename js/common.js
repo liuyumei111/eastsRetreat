@@ -128,6 +128,7 @@ $(document).ready(function () {
         }
     });
 
+    //判断value的状态，渲染不能的数据
     Handlebars.registerHelper('valueCompare', function(left, operator, right, options) {
         if (arguments.length < 3) {
             throw new Error('Handlerbars Helper "compare" needs 2 parameters');
@@ -146,7 +147,7 @@ $(document).ready(function () {
         };
 
         if (!operators[operator]) {
-            throw new Error('Handlerbars Helper "valueCompare" doesn\'t know the operator ' + operator);
+            throw new Error('Handlerbars Helper "compare" doesn\'t know the operator ' + operator);
         }
 
         var result = operators[operator](left, right);
