@@ -760,17 +760,6 @@ select{
 .tabClick{
 
 }
-.none-seckill{
-	background-color: #c1c1c1 !important;
-	border-radius: 0.15rem;
-	display: inline-block;
-	width: 3.7rem;
-	height: 1.5rem;
-	line-height: 1.5rem;
-	text-align: center;
-	font-size: 0.7rem;
-	color: #fff;
-}
 .form-search{
 	width: 100%;
 	height: 100%;
@@ -782,7 +771,9 @@ select{
 	background-color: #00b94c !important;
 }
 
-.go-seckill{
+.seckill{
+	background-color: #c1c1c1 !important;
+	border-radius: 0.15rem;
 	display: inline-block;
 	width: 3.7rem;
 	height: 1.5rem;
@@ -790,8 +781,9 @@ select{
 	text-align: center;
 	font-size: 0.7rem;
 	color: #fff;
+}
+.go-seckill{
 	background-color: #f23030;
-	border-radius: 0.15rem;
 }
 .miaosha{
 	display: flex;

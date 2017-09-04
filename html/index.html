@@ -13,7 +13,7 @@
 </head>
 <body>
 <!--搜索框-->
-<!--<header>
+<header>
     <div class="aui-searchbar" id="search">
         <div class="aui-searchbar-input aui-border-radius">
             <i class="aui-iconfont aui-icon-search"></i>
@@ -24,7 +24,7 @@
         </div>
         <div class="aui-searchbar-btn aui-text-info" tapmode>搜索</div>
     </div>
-</header>-->
+</header>
 <nav>
 
     <!--轮播图-->
@@ -59,9 +59,6 @@
                 <div class="desc">即将开始</div>
             </li>
         </ul>
-        <!--<div class="lineBorder">
-            <div class="lineDiv">&lt;!&ndash;移动的div&ndash;&gt;</div>
-        </div>-->
         <div class="tabCon">
             <div class="tabBox">
                 <div id="tab1" class="tabList">
@@ -123,9 +120,9 @@
     <div class="home-three">
         {{#each this}}
         {{#productdetail}}
-        <a href="goodsdetail.html?productId={{spuId}}" class="display-box">
+        <a href="seckill_detail.html?spuId={{../spuId}}" class="display-box">
             <div class="home-three-box">
-                <img src="../images/lazy.gif" data-src="{{mainImageUrl}}" alt="">
+                <img src="../img/lazy.gif" data-src="{{mainImageUrl}}" alt="">
                 <div class="home-three-price">
                     <span>￥{{productPrice}}</span>
                     <span>￥{{productOrginPrice}}</span>
@@ -137,14 +134,13 @@
     </div>
 </script>
 <script type="text/x-handlebars-template" id="seckill-list-template">
-
     {{#each this}}
     <!--新模板-->
-    <a href="goodsdetail.html?productId={{spuId}}" class="display-box">
+    <a href="seckill_detail.html?spuId={{spuId}}" class="display-box">
         {{#productdetail}}
         <div class="dis-list-box">
             <div class="dis-shop-img">
-                <img src="../images/lazy.gif" data-src="{{mainImageUrl}}" alt="">
+                <img src="../img/lazy.gif" data-src="{{mainImageUrl}}" alt="">
             </div>
             <div class="dis-list-content">
                 <div class="dis-shop-detail">
@@ -152,22 +148,14 @@
                     <span  class="shop-list-name">{{name}}</span>
                 </div>
                 <div class="dis-price">
-                    <span>优惠价:{{productPrice}}</span>
-                    <span>销量:{{totalSales}}</span>
-                </div>
-                <div class="get-money">
-                    <span class="zhuan">赚:{{marketProfit}}</span>
-                    <span class="yongjinlv">佣金率：{{marketProfitPercent}}</span>
+                    <span>￥{{productPrice}}</span>
+                    <span>￥{{productOrginPrice}}</span>
                 </div>
                 <div class="miaosha">
                     {{#../skus}}
                     <span class="seckill-count">剩余{{stock}}件</span>
                     {{/../skus}}
-                    {{#if (compare ../autoRenew '==' '1')}}
-                    <span class="go-seckill">去推广</span>
-                    {{else}}
-                    <span class="none-seckill">去推广</span>
-                    {{/if}}
+                    <span class="seckill" {{#if (compare ../autoRenew '==' '1')}} data-auto-renew='1' {{/if}}>去推广</span>
                 </div>
             </div>
         </div>
