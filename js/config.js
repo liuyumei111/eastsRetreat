@@ -15,19 +15,6 @@
     C.host=apiHost+'/mall/mobile/';
     C.market=marketHost+'/market/mobile/';
 
-    //是否开启打印日志
-    C.debug=true;
-    //是否正在维护
-    C.isWeihu=false;
-    //手机验证正则
-    C.phoneReg = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
-    //邮箱验证正则
-    C.emailReg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-    //安全码验证正则
-    C.selfNumberReg = /^[0-9a-zA-Z]{8,16}$/;
-    //发送验证码时间
-    C.putCodeTime=60;
-
     C.token='2017082718351860892b7312e7b74b40b0a9923fb14aeb6a14';
     //C.marketToken=localStorage.getItem('token');
     // C.marketToken='201708271127141342d9445d6a2d3c4b23b8d680f7ace49987';
@@ -35,6 +22,7 @@
 
     //获取微信oppenId
     C.getWxUserInfo='http://www.rrfun.com.cn/Uc/getInfo';
+
     //mall接口
     C.interface={
         //折扣商城首页
@@ -112,12 +100,12 @@
         seckillBanner:'seckill/banners'
     };
 
-    //组合mall接口地址
+    //商城合mall接口地址
     for (k in C.interface){
         C.interface[k]=C.host + C.interface[k];
     }
 
-    //组合market接口地址
+    //云店组合market接口地址
     for (k in C.marketInterface){
         C.marketInterface[k]=C.market+C.marketInterface[k];
     }
@@ -126,10 +114,6 @@
     var localHostUrl = window.location.href.replace(/(\?.+?)$/g, '');
     localHostUrl = localHostUrl.replace(localHostUrl.split("/").pop(), '');
     C.localHostUrl = localHostUrl;
-
-
-
-
 })(window);
 
 
