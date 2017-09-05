@@ -81,12 +81,6 @@ $(document).ready(function () {
                     alert(response.errorMsg);
                 }
             }
-
         })
-
-
-
     }
-
-
 });

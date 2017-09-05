@@ -99,9 +99,7 @@ $(document).ready(function () {
     //分离以逗号隔开的Json数据
     Handlebars.registerHelper('splitDetailImg',function (value) {
         var splitvalue=value.split(',');
-
         var reValues=[];
-
         for ( var i=0; i<splitvalue.length; i++ ){
             var reValue={};
             reValue.name=splitvalue[i];
@@ -158,6 +156,7 @@ $(document).ready(function () {
             return options.inverse(this);
         }
     });
+
 
     /**
      * 微信接口

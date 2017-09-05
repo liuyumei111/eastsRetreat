@@ -114,6 +114,7 @@
     var localHostUrl = window.location.href.replace(/(\?.+?)$/g, '');
     localHostUrl = localHostUrl.replace(localHostUrl.split("/").pop(), '');
     C.localHostUrl = localHostUrl;
+
 })(window);
 
 
