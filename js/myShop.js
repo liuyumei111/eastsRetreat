@@ -246,7 +246,6 @@ function deleteShop(that, productId) {
     });
 }
 
-
 //立即推广
 function nowTuiGuang(event) {
     //默认行为
@@ -287,7 +286,6 @@ function shopShare(event) {
     $('.my-share-del1').click(function () {
         $('.mask').hide();
         $('.my-share').hide();
-
     });
 
     //点击分享朋友圈
@@ -382,44 +380,6 @@ function shareFrends(event, type) {
 //   发送给朋友222 / 分享到朋友圈222
 function shareFrendsTwo(event, type) {
     event.stopPropagation();
-   /* $.ajax({
-        url: C.marketInterface.share,
-        type: 'get',
-        dataType: 'json',
-        data: {
-            token: C.marketToken,
-        },
-        success: function (response) {
-            if (response.result == 'success') {
-                // 获取url
-                var storeUrl = response.data.storeUrl;
-                // 获取name
-                var name = response.data.name;
-                var headImgUrl = response.data.headImgUrl;
-                var data = {
-                    storeUrl: storeUrl,
-                    name: name,
-                    headImgUrl: headImgUrl,
-                };
-                console.log(data);
-                var ua = navigator.userAgent.toLowerCase();
-                if (/iphone|ipad|ipod/.test(ua)) {
-                    iosShareTwo(data);
-                    event.stopPropagation();
-                } else {
-                    //console.log(JSON.stringify(data));
-                    androidShareTwo(JSON.stringify(data));
-                    event.stopPropagation();
-                }
-            } else {
-                alert(response.errorMsg);
-            }
-        },
-        error: function () {
-            alert('服务器异常');
-        }
-    });*/
-
     var data='';
     var ua = navigator.userAgent.toLowerCase();
     if (/iphone|ipad|ipod/.test(ua)) {
@@ -457,7 +417,6 @@ function iosShare(param) {
     window.webkit.messageHandlers.shareProducts.postMessage(param);
 }
 
-
 //店铺分享拉取安卓分享
 function androidShareTwo(param) {
     //alert(param);
@@ -479,6 +438,10 @@ function androidCopyUrl() {
 function iosCopyUrl() {
     window.webkit.messageHandlers.copyUrlWay.postMessage(null);
 }
+
+
+
+
 
 //删除商品
 $('.cancel').click(function () {

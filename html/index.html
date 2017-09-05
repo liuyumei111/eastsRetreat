@@ -179,7 +179,7 @@
      *
      * */
 
-    var ua = navigator.userAgent.toLowerCase();
+    var ua = navigator.userAgent.toLowerCase();  //判断浏览器类型
     if (/iphone|ipad|ipod/.test(ua)) {
         //alert('iOS的弹窗');
         var data={
@@ -202,7 +202,6 @@
     function postAndroidToken() {
         window.huifa.getToken();
     }
-
 
 
     function getToken(token) {
