@@ -24,12 +24,21 @@ nav{
 	height: 100%;
 	border-radius: 50%;
 }
-/* .user-photo{
-	width: 3.0rem;
-	height: 3.0rem;
-	border-radius: 50%;
-} */
-
+/*.userName{
+	position: relative;
+}*/
+.userName1{
+	border-radius: 0.25rem;
+	background: #f99969;
+	margin-right: 0.4rem;
+	color: #fff;
+	padding-left: 1rem;
+}
+.determine{
+	background: #f99969;
+	border-radius: 0.25rem;
+	color: #fff;
+}
 .member-info{
 	margin-left: 0.5rem;
 }
@@ -37,6 +46,17 @@ nav{
 	text-align: center;
 	width: 100%;
 	font-size: 0.9rem;
+	position: relative;
+}
+.xg1{
+	width: 1rem;
+	height: 1rem;
+	display: inline-block;
+	background: url("../images/xg1.png")no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 0.1rem;
+	left: 60%;
 }
 .member-info>.userPhone{
 	margin: 0.3rem 0;
