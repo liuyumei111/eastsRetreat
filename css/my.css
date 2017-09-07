@@ -5,27 +5,51 @@ html,body{
 }
 header{
 	width: 100%;
-	height: 5.5rem;
+	height: 8.75rem;
 	background-color: rgb(253, 99, 21);
-	display: flex;
-	display: -webkit-flex;
-	flex-direction: row;
-	align-items: center;
-	padding: 0 1.0rem;
-	color: #1b1b1b;
-	font-size: 0.7rem;
 	margin-bottom: 0.25rem;
+	padding-top: 0.5rem;
 }
 nav{
 	font-size: 0.7rem;
 }
-.user-photo{
+.my-user-photo{
+	width: 4.125rem;
+	height: 4.125rem;
+	margin: 0 auto;
+
+}
+.my-user-photo>img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+/* .user-photo{
 	width: 3.0rem;
 	height: 3.0rem;
 	border-radius: 50%;
-}
+} */
+
 .member-info{
 	margin-left: 0.5rem;
+}
+.member-info>.userNameInput1{
+	text-align: center;
+	width: 100%;
+	font-size: 0.9rem;
+}
+.member-info>.userPhone{
+	margin: 0.3rem 0;
+	text-align: center;
+	width: 100%;
+}
+.member-info>.userPhone>i{
+	font-size: 0.9rem;
+	color: #fff;
+}
+.member-info>.userNameInput1>i{
+	font-size: 0.9rem;
+	color: #fff;
 }
 .member-withdraw{
 	display: flex;
@@ -109,6 +133,29 @@ nav{
 }
 
 
+.userNameInput2{
+	display: flex;
+	display: -webkit-flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	margin-left: 3rem;
+	margin-top: 0.3rem;
+}
+.userNameInput2>input:nth-child(1){
+	display: flex;
+	display: -webkit-flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 50%;
+}
+.userNameInput2>input:nth-child(2){
+	display: flex;
+	display: -webkit-flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 10%;
+}
 
 
 

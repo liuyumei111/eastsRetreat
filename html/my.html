@@ -12,14 +12,24 @@
     <link rel="stylesheet" href="../css/my.css">
 </head>
 <body>
-
 <div class="my-box1" id="my-box1">
     <script type="text/x-handlebars-template" id="my-template">
         <header>
-            <img class="user-photo" src="../images/user.jpg" alt="">
+            <div class="my-user-photo">
+                <img class="user-photo" src="../images/user.jpg" alt="">
+            </div>
             <div class="member-info">
-                <div>{{userNickName}}</div>
-                <div>{{userPhone}}</div>
+
+                <div class="userNameInput1">
+                    <i class="userName">{{userNickName}}</i>
+                </div>
+
+                <div class="userNameInput2">
+                    <input class="userName1" value={{userNickName}}>
+                    <input class="determine" type="button" value="确定">
+                </div>
+
+                <div class="userPhone"><i>{{userPhone}}</i></div>
             </div>
         </header>
         <div class="member-withdraw">
@@ -83,7 +93,8 @@
             </li>
             <li>
                 <a href="bindingtel.html" class="display-box">
-                    绑定手机号
+                    <i>绑定手机号</i>
+                    <span style="padding-left: 5rem;">13121485350</span>
                 </a>
             </li>
         </ul>
@@ -139,8 +150,37 @@
         success:function (data) {
             if(data.result=='success'){
                 var data=data.data;
-                //console.log(data);
+                console.log(data);
                 $('#my-box1').html(b(data));
+
+                $('.userNameInput2>input').css('display','none');
+
+                $('.userNameInput1').click(function () {
+                    $('.userNameInput1').css('display','none');
+                    $('.userNameInput2>input').css('display','inline-block');
+                    $('.determine').click(function () {
+                        var name=  $('.userName1').val();
+                        $.ajax({
+                            url:C.marketInterface.my,
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                token:C.marketToken,
+                                name:name
+                            },
+                            success:function (data) {
+                                alert('修改成功')
+                                $('.userNameInput2>input').css('display','none');
+                                $('.userNameInput1').css('display','block');
+                                $('.userName').html(name)
+                            },
+                        })
+
+                    })
+
+
+
+                })
             }else if(data.result=='login'){
                 var ua = navigator.userAgent.toLowerCase();
                 if (/iphone|ipad|ipod/.test(ua)) {
@@ -153,6 +193,11 @@
             }
         }
     })
+
+
+
+
+
 </script>
 </body>
 </html>
