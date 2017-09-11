@@ -12,94 +12,101 @@
     <link rel="stylesheet" href="../css/my.css">
 </head>
 <body>
-<div class="my-box1" id="my-box1">
+
+<div id="my-content">
     <script type="text/x-handlebars-template" id="my-template">
-        <header>
-            <div class="my-user-photo">
-                <img class="user-photo" src="../images/user.jpg" alt="">
-            </div>
-            <div class="member-info">
-
-                <div class="userNameInput1">
-                    <i class="userName">{{userNickName}}</i>
-                    <b class="xg1"></b>
+        <div class="my-box1" id="my-box1">
+            <header>
+                <div class="my-user-photo">
+                    <img class="user-photo" src="../images/user.jpg" alt="">
                 </div>
-
-                <div class="userNameInput2">
-                    <input class="userName1" value={{userNickName}}>
-                    <input class="determine" type="button" value="确定">
-                </div>
-
-                <div class="userPhone"><i>{{userPhone}}</i></div>
-            </div>
-        </header>
-        <div class="member-withdraw">
-            <div>可用余额 <span>{{money}}元</span></div>
-            <div>
-                <a href="tixian.html" class="display-box">
-                    提现
-                </a>
-            </div>
-        </div>
-        <div class="member-order">
-            <ul class="member-order-list">
-                <li class="li-bor">
-                    <div class="three"></div>
-                    <div>
-                        <span class="ab e9-color">待收益</span><br>
-                        <span>{{preProfit}}</span>
+                <div class="member-info">
+                    <div class="userNameInput1">
+                        <i class="userName">{{userNickName}}</i>
+                        <b class="xg1"></b>
                     </div>
+
+                    <div class="userNameInput2">
+                        <input class="userName1" value={{userNickName}}>
+                        <input class="determine" type="button" value="确定">
+                    </div>
+
+                    {{#valueCompare userPhone '===' ''}}
+                    <div class="userPhone"><a id="bind-phone" href="bindingtel.html">绑定手机号</a></div>
+                    {{/valueCompare}}
+                    {{#valueCompare userPhone '!==' ''}}
+                    <div class="userPhone"><a href="bindingtel.html">{{userPhone}}</a></div>
+                    {{/valueCompare}}
+                </div>
+            </header>
+            <div class="member-withdraw">
+                <div>可用余额 <span>{{money}}元</span></div>
+                <div>
+                    <a href="tixian.html" class="display-box">
+                        提现
+                    </a>
+                </div>
+            </div>
+            <div class="member-order">
+                <ul class="member-order-list">
+                    <li class="li-bor">
+                        <div class="three"></div>
+                        <div>
+                            <span class="ab e9-color">待收益</span><br>
+                            <span>{{preProfit}}</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="four"></div>
+                        <div>
+                            <span class="cd e9-color">累计收益</span><br>
+                            <span>{{totalProfit}}</span>
+                        </div>
+
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+        <!--列表-->
+        <div class="member-info-entry">
+            <ul class="member-info-list">
+                <li>
+                    <a href="myShop.html" class="display-box">
+                        我的店铺
+                    </a>
                 </li>
                 <li>
-                    <div class="four"></div>
-                    <div>
-                        <span class="cd e9-color">累计收益</span><br>
-                        <span>{{totalProfit}}</span>
-                    </div>
-
+                    <a href="transuccess.html" class="display-box">
+                        销售管理
+                    </a>
                 </li>
-
+                <li>
+                    <a href="teamadmin.html" class="display-box">
+                        团队管理
+                    </a>
+                </li>
+                <li>
+                    <a href="teacher.html" class="display-box">
+                        我的培训老师
+                    </a>
+                </li>
+                <li>
+                    <a href="set.html" class="display-box">
+                        设置
+                    </a>
+                </li>
+                <li class="bind-tel-box">
+                    <a href="bindingtel.html" class="display-box">
+                        <i>绑定手机号</i>
+                        <span style="padding-left: 5rem;">{{userPhone}}</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </script>
 </div>
-
-<!--列表-->
-<div class="member-info-entry">
-        <ul class="member-info-list">
-            <li>
-                <a href="myShop.html" class="display-box">
-                    我的店铺
-                </a>
-            </li>
-            <li>
-                <a href="transuccess.html" class="display-box">
-                    销售管理
-                </a>
-            </li>
-            <li>
-                <a href="teamadmin.html" class="display-box">
-                    团队管理
-                </a>
-            </li>
-            <li>
-                <a href="teacher.html" class="display-box">
-                    我的培训老师
-                </a>
-            </li>
-            <li>
-                <a href="set.html" class="display-box">
-                    设置
-                </a>
-            </li>
-            <li>
-                <a href="bindingtel.html" class="display-box">
-                    <i>绑定手机号</i>
-                    <span style="padding-left: 5rem;">13121485350</span>
-                </a>
-            </li>
-        </ul>
-    </div>
 
 <footer class="aui-bar aui-bar-tab" id="footer">
     <a href="index.html">
@@ -131,71 +138,73 @@
 <script src="../js/config.js"></script>
 <script src="../js/function.js"></script>
 <script src="../js/handlebars-v4.0.10.js"></script>
+<script src="../js/common.js"></script>
 <script>
-    if (C.marketToken=='null'||C.marketToken==undefined){
+    if (C.marketToken == 'null' || C.marketToken == undefined) {
         alert('请重新登录');
         //location.href='login.html';
     }
-    var a=$('#my-template').html();
-    var b=Handlebars.compile(a);
+    var a = $('#my-template').html();
+    var b = Handlebars.compile(a);
 
     //var token=localStorage.getItem('token');
 
     $.ajax({
-        url:C.marketInterface.my,
-        type:'post',
-        dataType:'json',
-        data:{
-            token:C.marketToken
+        url: C.marketInterface.my,
+        type: 'post',
+        dataType: 'json',
+        data: {
+            token: C.marketToken
         },
-        success:function (data) {
-            if(data.result=='success'){
-                var data=data.data;
+        success: function (data) {
+            if (data.result == 'success') {
+                var data = data.data;
                 console.log(data);
-                $('#my-box1').html(b(data));
+                $('#my-content').html(b(data));
 
-                $('.userNameInput2>input').css('display','none');
+//                var bindPhone=$('#bind-phone').length;
+//                if (bindPhone === 0){
+//                    $('.bind-tel-box').hide();
+//                }
+
+                $('.userNameInput2>input').css('display', 'none');
 
                 $('.userNameInput1').click(function () {
-                    $('.userNameInput1').css('display','none');
-                    $('.userNameInput2>input').css('display','inline-block');
+                    $('.userNameInput1').css('display', 'none');
+                    $('.userNameInput2>input').css('display', 'inline-block');
                     $('.determine').click(function () {
-                        var name=  $('.userName1').val();
+                        var name = $('.userName1').val();
                         $.ajax({
-                            url:C.marketInterface.my,
-                            type:'post',
-                            dataType:'json',
-                            data:{
-                                token:C.marketToken,
-                                name:name
+                            url: C.marketInterface.my,
+                            type: 'post',
+                            dataType: 'json',
+                            data: {
+                                token: C.marketToken,
+                                name: name
                             },
-                            success:function (data) {
-                                $('.userNameInput2>input').css('display','none');
-                                $('.userNameInput1').css('display','block');
-                                $('.userName').html(name)
+                            success: function (data) {
+                                $('.userNameInput2>input').css('display', 'none');
+                                $('.userNameInput1').css('display', 'block');
+                                $('.userName').html(name);
                             },
                         })
 
                     })
 
 
-
                 })
-            }else if(data.result=='login'){
+            } else if (data.result == 'login') {
                 var ua = navigator.userAgent.toLowerCase();
                 if (/iphone|ipad|ipod/.test(ua)) {
                     //iosIsLogin();
                 } else {
                     //androidIsToken();
                 }
-            }else {
+            } else {
                 alert(data.errorMsg);
             }
         }
     })
-
-
-
 
 
 </script>

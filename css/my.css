@@ -60,7 +60,7 @@ nav{
 	text-align: center;
 	width: 100%;
 }
-.member-info>.userPhone>i{
+.member-info>.userPhone>a{
 	font-size: 0.9rem;
 	color: #fff;
 }
@@ -173,7 +173,13 @@ nav{
 	align-items: center;
 	width: 10%;
 }
+.bind-phone{
+	padding: 0.1rem 0.5rem;
+	border: 1px solid #fff;
+	color: #fff;
+	font-size: 0.7rem !important;
 
+}
 
 
 

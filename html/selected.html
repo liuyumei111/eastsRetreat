@@ -120,15 +120,15 @@
                     <i class="aui-iconfont aui-icon-right"></i>
                 </div>
             </li>
-            <li class="no-border">
-                <div class="wxmass-item-list-img">
-                    <img src="../images/sends3.png" alt="">
-                </div>
-                <span>收藏</span>
-                <div class="aui-col-xs-3 wxmass-col-xs-3">
-                    <i class="aui-iconfont aui-icon-right"></i>
-                </div>
-            </li>
+            <!--<li class="no-border">-->
+                <!--<div class="wxmass-item-list-img">-->
+                    <!--<img src="../images/sends3.png" alt="">-->
+                <!--</div>-->
+                <!--<span>收藏</span>-->
+                <!--<div class="aui-col-xs-3 wxmass-col-xs-3">-->
+                    <!--<i class="aui-iconfont aui-icon-right"></i>-->
+                <!--</div>-->
+            <!--</li>-->
         </ul>
     </section>
 
@@ -207,7 +207,7 @@
                     flag=0;
 
                     //这里添加立即推广事件
-                    $('.now-tuiguang').unbind().bind('click',nowTuiGuang);
+                    $('.now-tuiguang').one('click',nowTuiGuang);
 
 
                 }else {
@@ -231,11 +231,11 @@
         $('.wxmass-item-img').find('img').attr('src',thisImg);
         $('.wxmass-sends').show();
 
-        $('.share-firends').unbind().bind('click',function (event) {
+        $('.share-firends').one('click',function (event) {
             shareFrends(event,'1');
         });
 
-        $('.share-firends-quan').unbind().bind('click',function (event) {
+        $('.share-firends-quan').one('click',function (event) {
             shareFrends(event,'2');
         });
     }

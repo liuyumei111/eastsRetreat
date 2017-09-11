@@ -40,8 +40,8 @@
             </select>
             <select class="dis-shop-sort">
                 <option value="">默认排序</option>
-                <option value="priceDesc">价格由低到高</option>
-                <option value="priceAsc">价格由高到低</option>
+                <option value="priceAsc">价格由低到高</option>
+                <option value="priceDesc">价格由高到低</option>
                 <option value="salesDesc">销量由高到低</option>
             </select>
             <div class="dis-screen-btn">筛选</div>
@@ -132,15 +132,15 @@
                         <i class="aui-iconfont aui-icon-right"></i>
                     </div>
                 </li>
-                <li class="no-border">
-                    <div class="wxmass-item-list-img">
-                        <img src="../images/sends3.png" alt="">
-                    </div>
-                    <span>收藏</span>
-                    <div class="aui-col-xs-3 wxmass-col-xs-3">
-                        <i class="aui-iconfont aui-icon-right"></i>
-                    </div>
-                </li>
+                <!--<li class="no-border">-->
+                    <!--<div class="wxmass-item-list-img">-->
+                        <!--<img src="../images/sends3.png" alt="">-->
+                    <!--</div>-->
+                    <!--<span>收藏</span>-->
+                    <!--<div class="aui-col-xs-3 wxmass-col-xs-3">-->
+                        <!--<i class="aui-iconfont aui-icon-right"></i>-->
+                    <!--</div>-->
+                <!--</li>-->
             </ul>
         </section>
     </section>
@@ -434,11 +434,11 @@
                     $('.wxmass-sends').show();
 
 
-                    $('.share-firends').unbind().bind('click', function (event) {
+                    $('.share-firends').one('click', function (event) {
                         getShareType(event, '1');
 
                     });
-                    $('.share-firends-quan').unbind().bind('click', function (event) {
+                    $('.share-firends-quan').one('click', function (event) {
                         getShareType(event, '2');
                     });
 
