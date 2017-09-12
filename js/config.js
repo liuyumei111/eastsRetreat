@@ -59,6 +59,8 @@
         myShop:'uc/store/index',
         //东东推个人中心
         my:'uc/index',
+        //修改昵称
+        name:'uc/name',
         // 绑定手机号
         bindingtel:'uc/phone/bind',
         // 设置

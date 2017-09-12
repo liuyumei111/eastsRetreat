@@ -159,23 +159,17 @@
         success: function (data) {
             if (data.result == 'success') {
                 var data = data.data;
-//                console.log(data);
                 $('#my-content').html(b(data));
 
-//                var bindPhone=$('#bind-phone').length;
-//                if (bindPhone === 0){
-//                    $('.bind-tel-box').hide();
-//                }
-
+                //修改昵称
                 $('.userNameInput2>input').css('display', 'none');
-
                 $('.userNameInput1').click(function () {
                     $('.userNameInput1').css('display', 'none');
                     $('.userNameInput2>input').css('display', 'inline-block');
                     $('.determine').click(function () {
                         var name = $('.userName1').val();
                         $.ajax({
-                            url: C.marketInterface.my,
+                            url: C.marketInterface.name,
                             type: 'post',
                             dataType: 'json',
                             data: {
@@ -183,6 +177,7 @@
                                 name: name
                             },
                             success: function (data) {
+                                console.log(data)
                                 $('.userNameInput2>input').css('display', 'none');
                                 $('.userNameInput1').css('display', 'block');
                                 $('.userName').html(name);
@@ -205,6 +200,7 @@
             }
         }
     })
+
 
 
 </script>
