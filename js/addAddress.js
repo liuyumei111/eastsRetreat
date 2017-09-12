@@ -77,6 +77,7 @@ $(document).ready(function () {
                     alert('添加成功');
                 }else if (response.result=='fail'){
                     alert('登录过期请重新登录');
+                    againLogin();
                 }else {
                     alert(response.errorMsg);
                 }

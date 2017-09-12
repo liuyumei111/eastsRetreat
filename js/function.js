@@ -73,3 +73,31 @@ dialog.tusiError = function (con , time) {
 dialog.tusi = function (con) {
     return $.dialog({content: con, width: '230px', type: "tusi", time: 1000});
 };
+
+
+function againLogin() {
+
+    var againData={
+        postType:'againLogin'
+
+    };
+
+    var ua = navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod/.test(ua)) {
+        iosAgainLogin(againData);
+    } else {
+        androidAgainLogin(JSON.stringify(againData));
+    }
+}
+
+
+function iosAgainLogin(param) {
+    window.webkit.messageHandlers.againLogin.postMessage(param);
+}
+
+function androidAgainLogin(param) {
+    window.huifa.againLogin(param);
+}
+
+
+

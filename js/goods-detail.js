@@ -28,14 +28,12 @@ $(document).ready(function () {
     var imgTempCmp=Handlebars.compile(imgTemp);
 
 
-
-    
     $.ajax({
         url:C.interface.detail,
         type:'POST',
         dataType:'json',
         data:{
-            productId:detailId,
+            productId:detailId
 
         },
         success:function (response) {
@@ -64,7 +62,7 @@ $(document).ready(function () {
                 });
 
                 //点击立即推广
-                $('.now-generalize').one('click',function (event) {
+                $('.now-generalize').bind('click',function (event) {
                     event.preventDefault();
                     event.stopPropagation();
                     $('.share-loading').show();
@@ -90,13 +88,10 @@ $(document).ready(function () {
                                 $('.share-loading').hide();
                                 $('.wxmass-sends').show();
                                 $('.share-firends').one('click', function (event) {
-                                    alert(1)
                                     getShareType(event, '1');
                                     return false
-
                                 });
                                 $('.share-firends-quan').one('click', function (event) {
-                                    alert(2)
                                     getShareType(event, '2');
                                     return false
                                 });
@@ -127,6 +122,11 @@ $(document).ready(function () {
                                     }
                                 }
 
+                            }else if (response.result === 'login'){
+                                alert('登入过期，请重新登入！');
+                                againLogin();
+                            }else {
+                                alert(response.errorMsg);
                             }
                         },
                         error: function () {
@@ -134,6 +134,7 @@ $(document).ready(function () {
                         }
                     });
                 });
+
                 //取消分享弹框
                 $('.cancel').click(function () {
                     $('.wxmass-sends').hide();

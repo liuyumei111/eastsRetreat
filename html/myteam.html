@@ -64,7 +64,8 @@
                 console.log(data);
                 $('#myteam-info-entry').html(b(data))
             }else if(data.result=='login'){
-                alert(data.errorMsg);
+                alert('登入过期，请重新登入！');
+                againLogin();
             }else {
                 alert(data.errorMsg);
             }

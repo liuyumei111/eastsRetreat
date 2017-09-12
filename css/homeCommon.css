@@ -772,7 +772,7 @@ select{
 }
 
 .seckill{
-	background-color: #c1c1c1 !important;
+	background-color: #c1c1c1;
 	border-radius: 0.15rem;
 	display: inline-block;
 	width: 3.7rem;

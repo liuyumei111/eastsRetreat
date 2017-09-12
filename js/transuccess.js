@@ -89,15 +89,8 @@ function getSellInfo(type) {
                 }
                 flag=0;
             }else if (response.result=='login'){
-                /**
-                 * 判断是iOS或是安卓，改变数据的获取方式
-                 * */
-                var ua = navigator.userAgent.toLowerCase();
-                if (/iphone|ipad|ipod/.test(ua)) {
-                    iosIsLogin();
-                } else {
-                    androidIsToken();
-                }
+                alert('登入过期，请重新登入！');
+                againLogin();
 
             }else {
                 alert(response.errorMsg);

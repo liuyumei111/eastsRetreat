@@ -223,6 +223,11 @@ function ajaxGetShopData() {
                     $('.my-share').toggle();
                 });
 
+            }else if(response.result === 'login'){
+                alert('登入过期，请重新登入！');
+                againLogin();
+            }else {
+                alert(response.errorMsg);
             }
         }
     })
@@ -241,6 +246,11 @@ function deleteShop(that, productId) {
         success: function (response) {
             if (response.result == 'success') {
                 that.remove();
+            }else if (response.result === 'login'){
+                alert('登入过期，请重新登入！');
+                againLogin();
+            }else {
+                alert(response.errorMsg);
             }
         }
     });
@@ -252,6 +262,9 @@ function nowTuiGuang(event) {
     event.preventDefault();
     //阻止冒泡
     event.stopPropagation();
+
+    $('.share-loading').show();
+
     var that = $(this);
     //找到(祖先)元素dis-list-box
     var thisPapa = that.parents('.dis-list-box');
@@ -263,19 +276,81 @@ function nowTuiGuang(event) {
     localStorage.setItem('shareId', shareProductId);
     //点开立即推广之后的商品图src
     $('.wxmass-item-img').find('img').attr('src', thisImg);
-    //点击立即推广就显示这个层
-    $('.wxmass-sends').show();
-    //点击分享--发送给朋友
-    $('.share-firends').unbind().bind('click', function (event) {
-        shareFrends(event, '1');
+
+    // 获取到localStorage
+    var productId = localStorage.getItem('shareId');
+
+    $.ajax({
+        url: C.marketInterface.shareFriend,
+        type: 'get',
+        dataType: 'json',
+        data: {
+            token: C.marketToken,
+            productId: productId
+        },
+        success: function (response) {
+            if (response.result == 'success') {
+                //获取到图片标识ulr
+                var imgUrl = response.data.imgUrl;
+                // 获取url
+                var url = response.data.url;
+                //获取标题
+                var title = response.data.title;
+                //获取主体内容
+                var content = response.data.content;
+                $('.share-loading').hide();
+                //点击立即推广就显示这个层
+                $('.wxmass-sends').show();
+
+                //点击分享--发送给朋友
+                $('.share-firends').unbind().bind('click', function (event) {
+                    getShareType(event, '1');
+                });
+                //点击分享--分享到朋友圈
+                $('.share-firends-quan').unbind().bind('click', function (event) {
+                    getShareType(event, '2');
+                });
+
+                function getShareType(event, type) {
+                    var data = {
+                        postType: 'shareProducts',
+                        productId: productId,
+                        type: type,
+                        url: url,
+                        imgUrl: String(imgUrl),
+                        title: title,
+                        content: content
+                    };
+                    console.log(data);
+                    var ua = navigator.userAgent.toLowerCase();
+                    if (/iphone|ipad|ipod/.test(ua)) {
+
+                        iosShare(data);
+                        event.stopPropagation();
+                    } else {
+                        //console.log(JSON.stringify(data));
+                        androidShare(JSON.stringify(data));
+                        event.stopPropagation();
+                    }
+
+                }
+            } else if (response.result === 'login'){
+                alert('登入过期，请重新登入！');
+                againLogin();
+            }else {
+                alert(response.errorMsg);
+            }
+        },
+        error: function () {
+            alert('服务器异常');
+        }
     });
-    //点击分享--分享到朋友圈
-    $('.share-firends-quan').unbind().bind('click', function (event) {
-        shareFrends(event, '2');
-    });
+
+
+
 }
 
-//店铺分享1111111111
+//店铺分享
 function shopShare(event) {
     event.preventDefault();
     $('.mask').show();
@@ -288,10 +363,6 @@ function shopShare(event) {
         $('.my-share').hide();
     });
 
-    //点击分享朋友圈
-    // $('.share-friends').unbind().click(function (event) {
-    //     event.stopPropagation();
-    // })
 
     //点击分享--分享到朋友圈
     $('.share-friends').unbind().bind('click', function (event) {
@@ -322,65 +393,11 @@ function shopShare(event) {
 }
 
 
-//   发送给朋友 / 分享到朋友圈
-function shareFrends(event, type) {
-    //阻止冒泡
-    event.stopPropagation();
-    // 获取到localStorage
-    var productId = localStorage.getItem('shareId');
-    $.ajax({
-        url: C.marketInterface.shareFriend,
-        type: 'get',
-        dataType: 'json',
-        data: {
-            token: C.marketToken,
-            productId: productId
-        },
-        success: function (response) {
-            if (response.result == 'success') {
-                //获取到图片标识ulr
-                var imgUrl = response.data.imgUrl;
-                // 获取url
-                var url = response.data.url;
-                //获取标题
-                var title = response.data.title;
-                //获取主体内容
-                var content = response.data.content;
-                var data = {
-                    postType: 'shareProducts',
-                    productId: productId,
-                    type: type,
-                    url: url,
-                    imgUrl: String(imgUrl),
-                    title: title,
-                    content: content
-                };
-                console.log(data);
-                var ua = navigator.userAgent.toLowerCase();
-                if (/iphone|ipad|ipod/.test(ua)) {
-
-                    iosShare(data);
-                    event.stopPropagation();
-                } else {
-                    //console.log(JSON.stringify(data));
-                    androidShare(JSON.stringify(data));
-                    event.stopPropagation();
-                }
-            } else {
-                alert(response.errorMsg);
-            }
-        },
-        error: function () {
-            alert('服务器异常');
-        }
-    });
-
-}
-
 //   发送给朋友222 / 分享到朋友圈222
 function shareFrendsTwo(event, type) {
     event.stopPropagation();
     var data='';
+
     var ua = navigator.userAgent.toLowerCase();
     if (/iphone|ipad|ipod/.test(ua)) {
         iosShareTwo(data);
@@ -438,8 +455,6 @@ function androidCopyUrl() {
 function iosCopyUrl() {
     window.webkit.messageHandlers.copyUrlWay.postMessage(null);
 }
-
-
 
 
 

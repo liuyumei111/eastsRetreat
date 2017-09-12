@@ -86,6 +86,9 @@ $(document).ready(function () {
                         num=maxnum+1;
                     }
                     flag=0;
+                }else  if (response.result === 'login'){
+                    alert('登入过期，请重新登入！');
+                    againLogin();
                 }
             }
         })

@@ -259,7 +259,8 @@
                 });
 
             } else if (response.result == 'login') {
-                alert('您还没有登录，请登录');
+                alert('登入过期，请重新登入！');
+                againLogin();
             } else {
                 alert(response.errorMsg);
             }
@@ -435,11 +436,12 @@
                     $('.wxmass-sends').show();
 
 
-                    $('.share-firends').one('click', function (event) {
+                    $('.share-firends').bind('click', function (event) {
                         getShareType(event, '1');
 
                     });
-                    $('.share-firends-quan').one('click', function (event) {
+
+                    $('.share-firends-quan').bind('click', function (event) {
                         getShareType(event, '2');
                     });
 
@@ -469,6 +471,9 @@
                         }
                     }
 
+                }else if (response.result === 'login'){
+                    alert('登入过期，请重新登入！');
+                    againLogin();
                 }
             },
             error: function () {

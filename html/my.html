@@ -18,7 +18,7 @@
         <div class="my-box1" id="my-box1">
             <header>
                 <div class="my-user-photo">
-                    <img class="user-photo" src="../images/user.jpg" alt="">
+                    <img class="user-photo" src="{{userHeadImg}}" alt="">
                 </div>
                 <div class="member-info">
                     <div class="userNameInput1">
@@ -40,7 +40,7 @@
                 </div>
             </header>
             <div class="member-withdraw">
-                <div>可用余额 <span>{{money}}元</span></div>
+                <div>可提现余额 <span>{{money}}元</span></div>
                 <div>
                     <a href="tixian.html" class="display-box">
                         提现
@@ -142,7 +142,7 @@
 <script>
     if (C.marketToken == 'null' || C.marketToken == undefined) {
         alert('请重新登录');
-        //location.href='login.html';
+        againLogin();
     }
     var a = $('#my-template').html();
     var b = Handlebars.compile(a);
@@ -177,24 +177,19 @@
                                 name: name
                             },
                             success: function (data) {
-                                console.log(data)
+                                console.log(data);
                                 $('.userNameInput2>input').css('display', 'none');
                                 $('.userNameInput1').css('display', 'block');
                                 $('.userName').html(name);
-                            },
+                            }
                         })
 
                     })
 
-
                 })
             } else if (data.result == 'login') {
-                var ua = navigator.userAgent.toLowerCase();
-                if (/iphone|ipad|ipod/.test(ua)) {
-                    //iosIsLogin();
-                } else {
-                    //androidIsToken();
-                }
+                alert('登录已过期，请重新登录');
+                againLogin();
             } else {
                 alert(data.errorMsg);
             }

@@ -124,7 +124,6 @@ $(document).ready(function () {
             dataType:'json',
             data:{
                 hourRange:hourRange,
-                token:C.token,
                 start:start,
                 length:lengh
             },

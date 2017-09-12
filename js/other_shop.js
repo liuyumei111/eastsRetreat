@@ -298,7 +298,11 @@ function shareFrends(event, type) {
                     androidShare(JSON.stringify(data));
                     event.stopPropagation();
                 }
-            } else {
+            } else if (response.result === 'login'){
+                alert('登入过期，请重新登入！');
+                againLogin();
+
+            }else {
                 alert(response.errorMsg);
             }
         },

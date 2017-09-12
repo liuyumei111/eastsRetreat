@@ -70,6 +70,7 @@ $.ajax({
 
         }else if (response.result=='login'){
             alert('您还没有登录，请登录');
+            againLogin();
         }else {
             alert(response.errorMsg);
         }
@@ -174,6 +175,9 @@ function ajaxGetShopData() {
                 $('.cancel').click(function () {
                     $('.wxmass-sends').hide();
                 });
+            }else if (response.result === 'login'){
+                alert('登入过期，请重新登入！');
+                againLogin();
             }
         },
         error:function () {

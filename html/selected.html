@@ -281,7 +281,8 @@
                         event.stopPropagation();
                     }
                 }else if (response.result=='login'){
-                    alert('请重新登录');
+                    alert('登入过期，请重新登入！');
+                    againLogin();
                 }else {
                     alert(response.errorMsg);
                 }

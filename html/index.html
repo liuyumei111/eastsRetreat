@@ -183,16 +183,16 @@
         var data = {
             postType: 'getToken'
         };
-        //postSuccessToken(data);
+        postSuccessToken(data);
 
     } else {
         //alert('android的弹窗。');
-        //postAndroidToken();
+        postAndroidToken();
     }
 
 
     //调用ios获取token方法。
-    function postSuccessToken() {
+    function postSuccessToken(data) {
         window.webkit.messageHandlers.postSuccessToken.postMessage(data);
     }
 
@@ -204,8 +204,6 @@
 
     function getToken(token) {
         localStorage.setItem('token', token);
-        var localToken = localStorage.getItem('token');
-        $('.get-token').html(localToken);
         //alert('获取到的token为'+token);
     }
 

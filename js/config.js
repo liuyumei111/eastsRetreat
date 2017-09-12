@@ -15,12 +15,9 @@
     C.host=apiHost+'/mall/mobile/';
     C.market=marketHost+'/market/mobile/';
 
-    // C.token='2017082718351860892b7312e7b74b40b0a9923fb14aeb6a14';
     // C.marketToken=localStorage.getItem('token');
-    //localStorage.setItem('token','20170911141766093198865417971247f28b0075eef90b3294');
-    //C.marketToken='20170911141766093198865417971247f28b0075eef90b3294';
-    C.marketToken='20170907160179823018dad0efd3b3492293d58b699223aa2f';
-    // C.marketToken=localStorage.getItem('token');
+    //localStorage.setItem('token','201709121718839219159a2b97567b440888f41aecc7bb3b0f');
+    C.marketToken=localStorage.getItem('token');
     //获取微信oppenId
     C.getWxUserInfo='http://www.rrfun.com.cn/Uc/getInfo';
 

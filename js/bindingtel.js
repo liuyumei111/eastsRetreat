@@ -8,7 +8,6 @@ var phone = '';
 //    短信验证码
 var code = '';
 
-
 //    ~~~~~点击确定绑定手机号
 $('#Determine').click(function () {
     //      手机号
@@ -53,16 +52,16 @@ $('#Determine').click(function () {
         datatype: 'json',
         success: function (data) {
             if (data.result == 'success') {
-                alert('绑定成功')
+                alert('绑定成功');
                 window.location.href = 'my.html'
             } else if (data.result == 'login') {
-                alert(data.errorMsg)
+                alert(data.errorMsg);
             } else {
-                alert(data.errorMsg)
+                alert(data.errorMsg);
             }
         },
         error: function () {
-            alert('服务器异常')
+            alert('服务器异常');
         }
     })
 });
@@ -108,9 +107,10 @@ function sendemail() {
                 console.log(data);
                 //alert('验证码发送成功');
             } else if (data.result == 'login') {
-                alert(data.errorMsg)
+                alert('登录过期，请重新登录');
+                againLogin();
             } else {
-                alert(data.errorMsg)
+                alert(data.errorMsg);
             }
         },
         error: function () {
