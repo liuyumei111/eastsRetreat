@@ -64,13 +64,11 @@
                 <div id="tab1" class="tabList">
 
 
-
-
                 </div>
             </div>
         </div>
     </div>
-    <div class="loading" >加载更多...</div>
+    <div class="loading">加载更多...</div>
     <div class="no-info">没有更多信息了...</div>
     <div class="clear"></div>
 </nav>
@@ -103,11 +101,11 @@
 </footer>
 <!--轮播模板-->
 <script type="text/x-handlebars-template" id="swiper-template">
-    <div class="aui-slide-wrap" >
+    <div class="aui-slide-wrap">
         {{#each (splitDetailImg this)}}
         <div class="aui-slide-node bg-dark">
             <a href="javascript:;" class="display-box">
-                <img src="{{name}}" />
+                <img src="{{name}}"/>
             </a>
         </div>
         {{/each}}
@@ -120,7 +118,7 @@
     <div class="home-three">
         {{#each this}}
         {{#productdetail}}
-        <a href="seckill_detail.html?spuId={{../spuId}}" class="display-box">
+        <a href="goodsdetail.html?productId={{../spuId}}" class="display-box">
             <div class="home-three-box">
                 <img src="../img/lazy.gif" data-src="{{mainImageUrl}}" alt="">
                 <div class="home-three-price">
@@ -136,7 +134,7 @@
 <script type="text/x-handlebars-template" id="seckill-list-template">
     {{#each this}}
     <!--新模板-->
-    <a href="seckill_detail.html?spuId={{spuId}}" class="display-box">
+    <a href="goodsdetail.html?productId={{spuId}}" class="display-box">
         {{#productdetail}}
         <div class="dis-list-box">
             <div class="dis-shop-img">
@@ -145,7 +143,7 @@
             <div class="dis-list-content">
                 <div class="dis-shop-detail">
                     <span class="hongbao">红包{{productHongbao}}元</span>
-                    <span  class="shop-list-name">{{name}}</span>
+                    <span class="shop-list-name">{{name}}</span>
                 </div>
                 <div class="dis-price">
                     <span>￥{{productPrice}}</span>
@@ -182,8 +180,8 @@
     var ua = navigator.userAgent.toLowerCase();  //判断浏览器类型
     if (/iphone|ipad|ipod/.test(ua)) {
         //alert('iOS的弹窗');
-        var data={
-            postType:'getToken'
+        var data = {
+            postType: 'getToken'
         };
         //postSuccessToken(data);
 
@@ -205,13 +203,14 @@
 
 
     function getToken(token) {
-        localStorage.setItem('token',token);
-        var localToken=localStorage.getItem('token');
+        localStorage.setItem('token', token);
+        var localToken = localStorage.getItem('token');
         $('.get-token').html(localToken);
         //alert('获取到的token为'+token);
     }
-    var token=locationSearcher('token');
-     localStorage.setItem('token',token);
+
+    var token = locationSearcher('token');
+    localStorage.setItem('token', token);
 
 
 </script>

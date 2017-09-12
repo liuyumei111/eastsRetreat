@@ -141,8 +141,6 @@ $(document).ready(function () {
 
     //判断value的状态，渲染不同的数据
     Handlebars.registerHelper('valueCompare', function(left, operator, right, options) {
-        console.log(this)
-        console.log(arguments)
         if (arguments.length < 3) {
             throw new Error('Handlerbars Helper "compare" needs 2 parameters');
         }
