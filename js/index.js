@@ -42,7 +42,7 @@ $(document).ready(function () {
                     var slide3 = new auiSlide({
                         container:document.getElementById("aui-slide3"),
                         // "width":300,
-                        "height":213,
+                        //"height":213,
                         "speed":500,
                         "autoPlay": 3000, //自动播放
                         "loop":true,
@@ -52,7 +52,9 @@ $(document).ready(function () {
                     });
 
                     var imgWidth=$('.bg-dark').width();
-                    $('.bg-dark').find('img').css('height',imgWidth);
+                    var bannerWidth=Math.ceil(imgWidth/2);
+                    $('.bg-dark').find('img').css('height',bannerWidth);
+                    $('.aui-slide-wrap').css('height',bannerWidth);
                 }
             }
         })

@@ -7,6 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="../css/aui.2.0.css">
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/alert.css">
     <link rel="stylesheet" href="../css/common1.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/my.css">
@@ -25,10 +26,9 @@
                         <i class="userName">{{userNickName}}</i>
                         <b class="xg1"></b>
                     </div>
-
                     <div class="userNameInput2">
-                        <input class="userName1" value={{userNickName}}>
-                        <input class="determine" type="button" value="确定">
+                        <input class="userName1" type="text" value={{userNickName}}>
+                        <div class="confirm-button">确定</div>
                     </div>
 
                     {{#valueCompare userPhone '===' ''}}
@@ -137,6 +137,7 @@
 <script src="../js/jquery-3.0.0.min.js"></script>
 <script src="../js/config.js"></script>
 <script src="../js/function.js"></script>
+<script src="../js/alert.js"></script>
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script src="../js/common.js"></script>
 <script>
@@ -162,29 +163,12 @@
                 $('#my-content').html(b(data));
 
                 //修改昵称
-                $('.userNameInput2>input').css('display', 'none');
+                $('.userNameInput2').hide();
                 $('.userNameInput1').click(function () {
                     $('.userNameInput1').css('display', 'none');
-                    $('.userNameInput2>input').css('display', 'inline-block');
-                    $('.determine').click(function () {
-                        var name = $('.userName1').val();
-                        $.ajax({
-                            url: C.marketInterface.name,
-                            type: 'post',
-                            dataType: 'json',
-                            data: {
-                                token: C.marketToken,
-                                name: name
-                            },
-                            success: function (data) {
-                                console.log(data);
-                                $('.userNameInput2>input').css('display', 'none');
-                                $('.userNameInput1').css('display', 'block');
-                                $('.userName').html(name);
-                            }
-                        })
+                    $('.userNameInput2').show();
 
-                    })
+                    $('.confirm-button').unbind().bind('click',insertName);
 
                 })
             } else if (data.result == 'login') {
@@ -194,7 +178,36 @@
                 alert(data.errorMsg);
             }
         }
-    })
+    });
+
+    function insertName(event) {
+        event.stopPropagation();
+        var name = $('.userName1').val();
+        if (name.length >= 16 ||name.length == 0){
+            alert('名字过长或过短，请重新输入');
+        }else {
+            var loading = dialog.loading();
+            $.ajax({
+                url: C.marketInterface.name,
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    token: C.marketToken,
+                    name: name
+                },
+                complete:function () {
+                    loading.close()
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('.userNameInput2').hide();
+                    $('.userNameInput1').show();
+                    $('.userName').html(name);
+                }
+            })
+        }
+
+    }
 
 
 

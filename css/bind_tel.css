@@ -1,0 +1,11 @@
+.code-button{
+    width: 5.0rem;
+    height: 2.5rem;
+    border-radius: 0.25rem;
+    display: inline-block;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"] {
+-webkit-appearance: none;
+}
+

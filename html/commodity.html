@@ -7,6 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="../css/aui.2.0.css">
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/alert.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/common1.css">
     <link rel="stylesheet" href="../css/commodity.css">
@@ -181,6 +182,7 @@
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script src="../js/config.js"></script>
 <script src="../js/function.js"></script>
+<script src="../js/alert.js"></script>
 <script src="../js/aui-lazyload.js"></script>
 <script src="../js/api.2.0.js"></script>
 <script src="../js/api.js"></script>
@@ -250,7 +252,6 @@
                     start = num;
                     ajaxGetShopData();
                 });
-
 
                 /*筛选按钮的切换*/
                 $('.dis-screen-btn').click(function () {
@@ -355,6 +356,10 @@
             },
             success: function (response) {
                 if (response.result == 'success') {
+
+                    minMaxPrice='';
+                    minMaxSales='';
+
                     //显示加载隐藏
                     $('.loading').hide();
                     //每次都加1
@@ -398,12 +403,11 @@
         })
     }
 
-
     //立即推广
     function nowTuiGuang(event) {
         event.preventDefault();
         event.stopPropagation();
-        $('.share-loading').show();
+        var loading=dialog.loading();
 
         var that = $(this);
         var thisPapa = that.parents('.dis-list-box');
@@ -423,6 +427,9 @@
             data: {
                 token: C.marketToken,
                 productId: shareProductId
+            },
+            complete:function () {
+                loading.close();
             },
             success: function (response) {
                 if (response.result == 'success') {
@@ -484,7 +491,6 @@
 
     //拉取安卓分享
     function androidShare(param) {
-        alert(param);
         window.huifa.shareProducts(param);
     }
 
@@ -510,7 +516,6 @@
     function getScreen() {
         //当前筛选菜单栏
 //        $('.all-mask').show();
-
 //        全部
         var shopType = $('.dis-shop-type').val();
 //        默认排序
@@ -525,9 +530,9 @@
         var highSales = $('.dis-high-sales').val();
 
 //        最低价-最高价
-        var minMaxPrice = lowPrice + '-' + highPrice;
+        minMaxPrice = lowPrice + '-' + highPrice;
 //        最低销量-最高销量
-        var minMaxSales = lowSales + '-' + highSales;
+        minMaxSales = lowSales + '-' + highSales;
 //        定义一个变量
         var servenBack = null;
 //        console.log(minMaxPrice);
@@ -539,54 +544,31 @@
             servenBack = 0;
         }
 //        如果 最低价-最高价  最低销量-最高销量  =空
-        if (lowPrice == '' && highPrice == '' && lowSales == '' && highSales == '') {
+        if (lowPrice == '' && highPrice == '' && lowSales == '' && highSales == ''&&servenBack==null) {
             alert('没有填写筛选数据');
-//            $('.dis-screen-btn').removeClass('dis-screen-active');
-//            $('.dis-screen').hide();
             return false;
         }
 //最低价不能大于最高价
-        if (lowPrice > highPrice) {
+        if (parseInt(lowPrice) > parseInt(highPrice)) {
             alert('最低价不能大于最高价');
             return false;
         }
         //最低销量不能大于最高销量
-        if (lowSales > highSales) {
+        if (parseInt(lowSales) > parseInt(highSales)) {
             alert('最低销量不能大于最高销量');
             return false;
         }
 
-        $.ajax({
-            url: uri,
-            dataType: 'json',
-            type: 'POST',
-            data: {
-                minMaxPrice: minMaxPrice,
-                minMaxSales: minMaxSales,
-            },
-            success: function (response) {
-//                console.log(response);
-                if (response.result == 'success') {
-                    //console.log(response.data);
-                    var data = response.data;
-                    $('#dis-list-vessel').empty();
-                    $('#dis-list-vessel').html(shopTemplate(data));
-                    $('.dis-low-price').val('');
-                    $('.dis-high-price').val('');
-                    $('.dis-low-sales').val('');
-                    $('.dis-high-sales').val('');
-                    $('.all-mask').hide();
-                    $('.dis-screen').hide();
-                    $('.dis-screen-btn').removeClass('dis-screen-active');
+        $('.dis-screen').toggle();
+        $('#dis-list-vessel').empty();
 
-                    new auiLazyload({
-                        errorImage: '../image/error-img.png'
-                    });
-                } else {
-                    alert(response.errorMsg);
-                }
-            }
-        });
+        //清空搜索数据
+        $('.dis-low-price').val('');
+        $('.dis-high-price').val('');
+        $('.dis-low-sales').val('');
+        $('.dis-high-sales').val('');
+
+       ajaxGetShopData();
     }
 
 

@@ -5,7 +5,7 @@
 (function (w) {
     //商城
     var apiHost='http://192.168.199.107:8081';
-    // var apiHost='http://www.rrfun.com.cn:8080';
+    //var apiHost='http://www.rrfun.com.cn:8080';
     //云店
     var marketHost='http://192.168.199.107:8083';
     //var marketHost='http://www.rrfun.com.cn:8081';
@@ -16,7 +16,7 @@
     C.market=marketHost+'/market/mobile/';
 
     // C.marketToken=localStorage.getItem('token');
-    //localStorage.setItem('token','201709121718839219159a2b97567b440888f41aecc7bb3b0f');
+    localStorage.setItem('token','2017091309212205066bc4aa3fda034b21abce358c08edb01f');
     C.marketToken=localStorage.getItem('token');
     //获取微信oppenId
     C.getWxUserInfo='http://www.rrfun.com.cn/Uc/getInfo';

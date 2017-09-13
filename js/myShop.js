@@ -263,7 +263,8 @@ function nowTuiGuang(event) {
     //阻止冒泡
     event.stopPropagation();
 
-    $('.share-loading').show();
+    var loading=dialog.loading();
+
 
     var that = $(this);
     //找到(祖先)元素dis-list-box
@@ -276,10 +277,8 @@ function nowTuiGuang(event) {
     localStorage.setItem('shareId', shareProductId);
     //点开立即推广之后的商品图src
     $('.wxmass-item-img').find('img').attr('src', thisImg);
-
     // 获取到localStorage
     var productId = localStorage.getItem('shareId');
-
     $.ajax({
         url: C.marketInterface.shareFriend,
         type: 'get',
@@ -287,6 +286,9 @@ function nowTuiGuang(event) {
         data: {
             token: C.marketToken,
             productId: productId
+        },
+        complete: function() {
+            loading.close();
         },
         success: function (response) {
             if (response.result == 'success') {
@@ -298,7 +300,8 @@ function nowTuiGuang(event) {
                 var title = response.data.title;
                 //获取主体内容
                 var content = response.data.content;
-                $('.share-loading').hide();
+
+
                 //点击立即推广就显示这个层
                 $('.wxmass-sends').show();
 

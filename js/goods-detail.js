@@ -39,11 +39,11 @@ $(document).ready(function () {
         success:function (response) {
             if (response.result=='success'){
                 var data=response.data;
-                console.log(data)
+                console.log(data);
 
-                var mainImageUrl=data.product.mainImageUrl
+                var mainImageUrl=data.product.mainImageUrl;
 
-                var shopId=data.product.id
+                var shopId=data.product.id;
 
                 //详情数据
                 $('#detail-content-box').html(detailCmp(data));
@@ -65,7 +65,8 @@ $(document).ready(function () {
                 $('.now-generalize').bind('click',function (event) {
                     event.preventDefault();
                     event.stopPropagation();
-                    $('.share-loading').show();
+                    var loading=dialog.loading();
+
                     var that = $(this);
                     var thisImg = data.product.mainImageUrl;
                     var shareProductId = data.product.id;
@@ -77,6 +78,9 @@ $(document).ready(function () {
                         data: {
                             token: C.marketToken,
                             productId: shareProductId
+                        },
+                        complete:function () {
+                            loading.close();
                         },
                         success: function (response) {
                             if (response.result == 'success') {
@@ -285,7 +289,6 @@ $(document).ready(function () {
 
     //拉取安卓分享
     function androidShare(param) {
-        alert(param);
         window.huifa.shareProducts(param);
     }
 

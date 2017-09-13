@@ -94,21 +94,6 @@ $(document).ready(function () {
         }
     });
 
-    //判断是否有数据
-    Handlebars.registerHelper('b-phone',function (data) {
-
-        if (data==null||data==''){
-            alert(00)
-           // $('.abcd').addClass('bind-phone')
-           //  $('.abcd').appendTo("body").html("这是P标签的内容");
-           // return
-        }else {
-            alert(222)
-        }
-    });
-
-
-
     //分离以逗号隔开的Json数据
     Handlebars.registerHelper('splitDetailImg',function (value) {
         var splitvalue=value.split(',');

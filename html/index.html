@@ -161,6 +161,37 @@
     </a>
     {{/each}}
 </script>
+
+<!--搜索模板-->
+<script type="text/x-handlebars-template" id="discount-list-template">
+    {{#each products}}
+    <a href="red_package.html?productId={{id}}" class="display-box">
+        <div class="dis-list-box">
+            <div class="dis-shop-img">
+                <img src="../img/lazy.gif" data-src={{mainImageUrl}} alt="">
+            </div>
+            <div class="dis-list-content">
+                <div class="dis-shop-detail">
+                    <span class="hongbao">红包 <span>{{productHongbao}}</span>元</span>
+                    <span class="shop-list-name">{{name}}</span>
+                </div>
+                <div class="dis-price">
+                    <span>￥{{productPrice}}</span>
+                    <span>￥{{productOrginPrice}}</span>
+                </div>
+                <div class="dis-evaluate">
+                    <span>{{totalFeedback}}评价</span>
+                    <span>好评<span>{{percentFeedback}}%</span></span>
+                </div>
+                <div class="dis-sale">
+                    销量：<span>{{totalSales}}</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    {{/each}}
+</script>
+
 <script src="../js/jquery-3.0.0.min.js"></script>
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script src="../js/config.js"></script>

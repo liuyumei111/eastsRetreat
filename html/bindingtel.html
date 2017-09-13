@@ -22,18 +22,20 @@
     <ul class="bindingtel-box-ul">
         <li>
             <p>手机号：</p>
-            <input type="text" id="nmdPhone" type="number" maxLength=11 placeholder="输入手机号">
+            <input type="text" id="nmdPhone" type="number" maxLength=11 placeholder="请输入">
+            <div style="width: 70px;height: 35px;"></div>
         </li>
         <li>
-            <p>图验证：</p>
-            <input type="text" id="code_input" value="" placeholder="输入验证">
-            <div id="v_container" style="width: 100px;height: 50px;"></div>
+            <p>图形验证码：</p>
+            <input type="text" id="code_input" value="" placeholder="请输入">
+            <div id="v_container" style="width: 70px;height: 35px;"></div>
         </li>
         <li>
             <p>验证码：</p>
-            <input type="text" placeholder="输入验证" id="information">
+            <input type="text" placeholder="请输入" id="information">
             <!--<div class="send-information" id="send-information"><span>发送验证码</span></div>-->
-            <input type="button" id="btn" style="width: 100px;height: 50px;" value="获取验证码" onclick="sendemail()"/>
+            <!--<div class="confirm-button" id="btn">获取验证码</div>-->
+            <input type="button" id="btn" style="width: 70px;height: 35px;" value="获取验证码" onclick="sendemail()"/>
         </li>
         <li class="bottom-border">
             <div id="Determine">

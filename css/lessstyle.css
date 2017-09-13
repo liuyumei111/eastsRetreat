@@ -23,11 +23,8 @@
 	/*width: 2.5rem;*/
 	color: #262626;
 	font-size: 0.65rem;
-	display: flex;
-	display: -webkit-flex;
-	justify-content: space-around;
-	align-items: center;
-	width: 28%;
+	text-align: left;
+	width: 40%;
 
 }
 
@@ -37,18 +34,15 @@
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 72%;
+	width: 30%;
 	font-size: 0.65rem;
 }
 .bindingtel-box-ul>li:nth-child(2)>p{
 	/*width: 4.5rem;*/
 	color: #262626;
 	font-size: 0.65rem;
-	display: flex;
-	display: -webkit-flex;
-	justify-content: space-around;
-	align-items: center;
-	width: 28%;
+	text-align: left;
+	width: 40%;
 
 }
 
@@ -59,7 +53,7 @@
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 27%;
+	width: 30%;
 	font-size: 0.65rem;
 }
 .bindingtel-box-ul>li:nth-child(2)>div{
@@ -75,11 +69,8 @@
 	/*width: 2.5rem;*/
 	color: #262626;
 	font-size: 0.65rem;
-	display: flex;
-	display: -webkit-flex;
-	justify-content: space-around;
-	align-items: center;
-	width: 28%;
+	text-align: left;
+	width: 40%;
 
 }
 /*!*style="width: 100px;height: 50px;"*!
@@ -95,7 +86,7 @@
 	display: -webkit-flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 27%;
+	width: 30%;
 	font-size: 0.65rem;
 }
 .bindingtel-box-ul>li:nth-child(3)>#btn{
@@ -109,6 +100,7 @@
 	font-size: 0.65rem;
 	background: #f23030;
 	color: #ebebeb;
+	/* border-radius: 5px; */
 }
 .bindingtel-box-ul>li:nth-child(3)>div{
 	height: 50%;
@@ -315,8 +307,6 @@ width: 25%;
 	font-size: 0.65rem;
 	color: #1b1b1b;
 }
-
-
 
 
 
