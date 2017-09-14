@@ -297,19 +297,12 @@
                 alert('服务器异常');
             }
         });
-
-
-
-
-
+        
     }
 
     //分享朋友圈
     function shareFrends(event,type) {
         event.stopPropagation();
-
-
-
 
         var productId=localStorage.getItem('shareId');
         $.ajax({
@@ -319,9 +312,6 @@
             data:{
                 token:C.marketToken,
                 productId:productId
-            },
-            complete:function () {
-                loading.close();
             },
             success:function (response) {
                 if (response.result=='success'){

@@ -406,9 +406,9 @@ select{
 	border-bottom: 0.05rem solid #cdcdcd;
 }
 .dis-shop-img{
-	height: 6.1rem;
+	width: 6.15rem;
+	height: 6.15rem;
 	position: relative;
-	width: 50%;
 	margin-right: 0.5rem;
 }
 .dis-shop-img>img{
@@ -417,7 +417,11 @@ select{
 	height:100%;
 }
 .dis-list-content{
-	width: 55%;
+	width: 60%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .hongbao,.is-baoyou{
 	color: #fff;
@@ -441,7 +445,6 @@ select{
 	font-size: 0.6rem;
 }
 .dis-price{
-	margin: 0.1rem 0;
 	color: #1b1b1b;
     font-size: 0.6rem;
     display: flex;
@@ -474,6 +477,7 @@ select{
 .dis-evaluate>span:nth-child(2){
 	/* float: right;
 	margin-right: 0.233rem; */
+	color: #1b1b1b;
 
 
 }
@@ -481,18 +485,19 @@ select{
 	width: 46%;
 	font-size: 0.65rem;
 	color: #ff0000;
+	font-weight: bold;
 }
 .dis-sale{
 	margin-top: 0.3rem;
 	color: #1b1b1b;
-	width: 3.2rem;
-	height: 1.5rem;
+	width: 3rem;
+	height: 1.2rem;
 	background-color: #f23030;
 	border-radius: 0.2rem;
 	float: right;
 	margin-right: 0.5rem;
 	text-align: center;
-	line-height: 1.5rem;
+	line-height: 1.2rem;
 }
 .dis-sale>span{
 	font-size: 0.6rem;
