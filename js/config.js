@@ -4,7 +4,7 @@
 
 (function (w) {
     //商城
-    var apiHost='http://192.168.199.107:8081';
+    var apiHost='http://192.168.199.107:8080';
     //var apiHost='http://www.rrfun.com.cn:8080';
     //云店
     var marketHost='http://192.168.199.107:8083';
