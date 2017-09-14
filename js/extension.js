@@ -32,7 +32,7 @@ $(document).ready(function () {
                 var slide3 = new auiSlide({
                     container:document.getElementById("aui-slide3"),
                     // "width":300,
-                    "height":184,
+                    //"height":184,
                     "speed":500,
                     "autoPlay": 5000, //自动播放
                     "loop":true,
@@ -40,6 +40,13 @@ $(document).ready(function () {
                     "pageStyle":'dot',
                     'dotPosition':'center'
                 });
+
+
+                var imgWidth=$('.bg-dark').width();
+                var bannerWidth=Math.ceil(imgWidth/2);
+                $('.bg-dark').find('img').css('height',bannerWidth);
+                $('.aui-slide-wrap').css('height',bannerWidth);
+
                 //点击平台公告
 
                 $(document).on('click','.my-notice-li',jumpDetail);

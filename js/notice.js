@@ -20,7 +20,10 @@ $(document).ready(function () {
         success:function (response) {
             if (response.result=='success'){
                 var data=response.data;
-                $('#notice-detail').html(data.content);
+
+                var content= html_decode(data.content);
+
+                $('#notice-detail').html(content);
             }
         }
     })
