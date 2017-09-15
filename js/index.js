@@ -6,6 +6,10 @@ $(document).ready(function () {
     var seckillTpl2=$('#seckill-list-template').html();
     var seckillCmp2=Handlebars.compile(seckillTpl2);
 
+    //获取搜索模板
+    var discountTpl=$('#discount-list-template').html();
+    var discountCmp=Handlebars.compile(discountTpl);
+
     var range = 200, //距下边界长度/单位px
         totalheight = 0,
 
@@ -182,22 +186,84 @@ $(document).ready(function () {
             }
         });
     }
-});
 
-function getHourRange(hour) {
-    var hourRange = 0;
-    if (hour >= 20) {
-        hourRange = 6;
-    } else if (hour >= 16) {
-        hourRange = 5;
-    } else if (hour >= 12) {
-        hourRange = 4;
-    } else if (hour >= 8) {
-        hourRange = 3;
-    } else if (hour >= 4) {
-        hourRange = 2;
-    } else {
-        hourRange = 1;
+
+    function getHourRange(hour) {
+        var hourRange = 0;
+        if (hour >= 20) {
+            hourRange = 6;
+        } else if (hour >= 16) {
+            hourRange = 5;
+        } else if (hour >= 12) {
+            hourRange = 4;
+        } else if (hour >= 8) {
+            hourRange = 3;
+        } else if (hour >= 4) {
+            hourRange = 2;
+        } else {
+            hourRange = 1;
+        }
+        return hourRange;
     }
-    return hourRange;
-}
+
+    //调用商品搜索
+    $('#search-product').bind('click',searchProduct);
+
+    //取消商品搜索
+    $('#clean-search').bind('click',cancelSearch);
+    $('#search-input').on('input propertychange',function (event) {
+        event.preventDefault();
+        var inputNull=$('#search-input').val().length;
+        if (inputNull == 0){
+            cancelSearch();
+        }
+    });
+    //取消搜索
+    function cancelSearch() {
+        event.preventDefault();
+        seckillOffset = 0;
+        $('#aui-slide3').show();
+        $('#wrap').show();
+        $('#tab1').empty();
+        getSeckillList(nowHourRange);
+    }
+
+    //搜索商品
+    function searchProduct(event) {
+        event.preventDefault();
+        searchName= $('#search-input').val();
+        if (searchName == null || searchName == undefined ||searchName == ''){
+
+        }else {
+            $('#aui-slide3').hide();
+            $('#wrap').hide();
+
+            $('.no-info').hide();
+            $('.loading').show();
+            $.ajax({
+                url:C.interface.discount,
+                type:'get',
+                dataType:'json',
+                data:{
+                    name:searchName
+                },
+                success:function (response) {
+                    if (response.result === 'success'){
+                        $('.loading').hide();
+                        var data=response.data;
+                        var maxnum=data['productCount'];
+                        if(maxnum == 0){
+                            $(".no-info").show();
+                        }else {
+
+                            $('#discount-search').html(discountCmp(data));
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+
+
+});

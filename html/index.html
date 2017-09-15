@@ -16,16 +16,18 @@
 <header>
     <div class="aui-searchbar" id="search">
         <div class="aui-searchbar-input aui-border-radius">
-            <i class="aui-iconfont aui-icon-search"></i>
-            <input type="search" placeholder="请输入搜索内容" id="search-input">
-            <div class="aui-searchbar-clear-btn" id="clean-search">
-                <i class="aui-iconfont aui-icon-close"></i>
-            </div>
+            <form class="search-form">
+                <i class="aui-iconfont aui-icon-search"></i>
+                <input type="search" placeholder="请输入搜索内容" id="search-input" autocomplete="off">
+                <div class="aui-searchbar-clear-btn" id="clean-search">
+                    <i class="aui-iconfont aui-icon-close"></i>
+                </div>
+            </form>
         </div>
-        <div class="aui-searchbar-btn aui-text-info" tapmode>搜索</div>
+        <div class="aui-searchbar-btn aui-text-info" id="search-product" tapmode>搜索</div>
     </div>
 </header>
-<nav>
+<nav id="discount-search">
 
     <!--轮播图-->
     <div id="aui-slide3"></div>
@@ -196,7 +198,7 @@
 <script src="../js/handlebars-v4.0.10.js"></script>
 <script src="../js/config.js"></script>
 <script src="../js/api.2.0.js"></script>
-<!--<script src="../js/search.js"></script>-->
+<script src="../js/search.js"></script>
 <script src="../js/function.js"></script>
 <script src="../js/common.js"></script>
 <script src="../js/aui-lazyload.js"></script>
