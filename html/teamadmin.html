@@ -25,8 +25,8 @@
                 <li>
                     <a href="javascript:;" class="display-box">
                         <span>团队邀请码</span>
-                        <span>复制</span>
-                        <span>{{groupCode}}</span>
+                        <span class="copy">复制</span>
+                        <span class="code">{{groupCode}}</span>
                     </a>
                 </li>
                 <li>
@@ -57,7 +57,19 @@
 //            console.log(data)
             if(data.result=='success'){
                 var data=data.data;
-                $('.member-info-entry').html(b(data))
+                $('.member-info-entry').html(b(data));
+//                点击复制
+                $('.copy').bind('click',copyinityCode);
+                function copyinityCode() {
+                    var copyCode =$('.code').text();
+                    var data=copyCode;
+                    var ua = navigator.userAgent.toLowerCase();
+                    if (/iphone|ipad|ipod/.test(ua)) {
+                        window.huifa.funCopyCode(data);
+                    } else {
+                        window.webkit.messageHandlers.funCopyCode.postMessage(JSON.stringify(data));
+                    }
+                }
             }else if(data.result=='login'){
                 alert('登入过期，请重新登入！');
                 againLogin();
