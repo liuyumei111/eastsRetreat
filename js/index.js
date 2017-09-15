@@ -236,7 +236,8 @@ $(document).ready(function () {
 
         }else {
             $('#aui-slide3').hide();
-            $('#wrap').hide();
+            $('.tabClick').hide();
+            $('#tab1').empty();
 
             $('.no-info').hide();
             $('.loading').show();
@@ -256,7 +257,8 @@ $(document).ready(function () {
                             $(".no-info").show();
                         }else {
 
-                            $('#discount-search').html(discountCmp(data));
+                            $('.tabClick').hide();
+                            $('#tab1').html(discountCmp(data));
                         }
                     }
                 }

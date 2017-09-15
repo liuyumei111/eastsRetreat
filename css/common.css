@@ -75,7 +75,8 @@ img {
 }
 .wxmass-sends-item{
     width: 90%;
-    height: 14.25rem;
+    /* height: 14.25rem; */
+    height: 7rem;
     /*background-color: #fff;*/
     position: fixed;
     top: 0;
@@ -140,8 +141,7 @@ img {
 .wxmass-item-list-img{
     width: 1.0rem;
     height: 1.0rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin: 0 1.0rem;
 }
 .wxmass-item-list-img>img{
     width: 100%;

@@ -60,27 +60,41 @@
                 $('.member-info-entry').html(b(data));
 //                点击复制
                 $('.copy').bind('click',copyinityCode);
-                function copyinityCode() {
-                    var copyCode =$('.code').text();
-                    var data=copyCode;
-                    var ua = navigator.userAgent.toLowerCase();
-                    if (/iphone|ipad|ipod/.test(ua)) {
-                        window.huifa.funCopyCode(data);
-                    } else {
-                        window.webkit.messageHandlers.funCopyCode.postMessage(JSON.stringify(data));
-                    }
-                }
+
             }else if(data.result=='login'){
                 alert('登入过期，请重新登入！');
                 againLogin();
             }else {
-                alert(data.errorMsg)
+                alert(data.errorMsg);
             }
         },
         error:function () {
-            alert('服务器异常')
+            alert('服务器异常');
         }
-    })
+    });
+
+    function copyinityCode() {
+        var copyCode =$('.code').text();
+        console.log(copyCode);
+        var copyData={
+            copyCode:copyCode
+        };
+        var ua = navigator.userAgent.toLowerCase();
+        if (/iphone|ipad|ipod/.test(ua)) {
+            iosCopyCode(copyData);
+        } else {
+            androidCopyCode(copyCode);
+        }
+    }
+
+
+    function androidCopyCode(data) {
+        window.huifa.funCopyCode(data);
+    }
+
+    function iosCopyCode(data) {
+        window.webkit.messageHandlers.funCopyCode.postMessage(data);
+    }
 </script>
 </body>
 </html>

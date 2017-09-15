@@ -201,11 +201,7 @@ function ajaxGetShopData() {
 
                      });*/
 
-
-                $('.clickshare').click(function () {
-
-
-                });
+                
                 //分享店铺
                 $('.clickshare').unbind().bind('click', shopShare);
 
