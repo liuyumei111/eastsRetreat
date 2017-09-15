@@ -16,7 +16,7 @@
     C.market=marketHost+'/market/mobile/';
 
     // C.marketToken=localStorage.getItem('token');
-    //localStorage.setItem('token','2017091309212205066bc4aa3fda034b21abce358c08edb01f');
+    localStorage.setItem('token','2017091309212205066bc4aa3fda034b21abce358c08edb01f');
     C.marketToken=localStorage.getItem('token');
     //获取微信oppenId
     C.getWxUserInfo='http://www.rrfun.com.cn/Uc/getInfo';
