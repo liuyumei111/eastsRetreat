@@ -47,6 +47,10 @@ $(document).ready(function () {
                 $('.bg-dark').find('img').css('height',bannerWidth);
                 $('.aui-slide-wrap').css('height',bannerWidth);
 
+                new auiLazyload({
+                    errorImage:'../images/errorimg.png'
+                });
+
                 //点击平台公告
 
                 $(document).on('click','.my-notice-li',jumpDetail);
