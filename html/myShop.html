@@ -13,8 +13,15 @@
     <link rel="stylesheet" href="../css/myshop.css">
 </head>
 <body>
+<!--头部-->
+<header class="aui-bar aui-bar-nav" id="aui-header">
+    <div class="aui-col-xs-3 my-col-xs-3 back-member">
+        <i class="aui-iconfont aui-icon-left"></i>
+    </div>
+    <div class="aui-title my-aui-title">我的店铺</div>
+</header>
 <section>
-    <header id="header-box">
+    <div id="header-box">
         <script type="text/x-handlebars-template" id="mine-info-template">
             {{#user}}
             <img class="user-photo" src="../images/user.jpg" alt="">
@@ -25,7 +32,7 @@
             </div>
             {{/user}}
         </script>
-    </header>
+    </div>
     <section class="comm-box">
         <div class="dis-select-box" id="my-shop-box">
             <script type="text/x-handlebars-template" id="my-select-template">
