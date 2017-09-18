@@ -155,10 +155,10 @@ $(document).ready(function () {
         }
     });
 
-    
 
-
-
-
+    //数字+1
+    Handlebars.registerHelper('plus',function (sender) {
+        return sender+1;
+    });
 
 });

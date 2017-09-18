@@ -45,10 +45,33 @@
 	background: #fff!important;
 }
 
-
-
-
-
+.home-three-sales {
+	color: #666;
+	font-size: 0.8rem;
+}
+.home-three-top {
+	position: absolute;
+	top: 0.1rem;
+	left: 0.1rem;
+	color: #d81e06;
+	width: 2.0rem;
+	font-size: 0.6rem;
+	height: 1.0rem;
+	line-height: 0.9rem;
+	font-weight: bold;
+}
+.top-img {
+	width: 0.65rem;
+	height: 0.75rem;
+	text-align: center;
+	vertical-align: middle;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+.home-three-box{
+	position: relative;
+}
 
 
 
