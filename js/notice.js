@@ -19,11 +19,9 @@ $(document).ready(function () {
         },
         success:function (response) {
             if (response.result=='success'){
-                var data=response.data;
+                var data=response.data;;
 
-                var content= html_decode(data.content);
-
-                $('#notice-detail').html(content);
+                $('#notice-detail').html(nDetailCmp(data));
             }
         }
     })

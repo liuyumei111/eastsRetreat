@@ -309,6 +309,12 @@ function nowTuiGuang(event) {
                 $('.share-firends-quan').unbind().bind('click', function (event) {
                     getShareType(event, '2');
                 });
+                $('.share-QQ').bind('click',function (event) {
+                    getShareType(event, '3');
+                });
+                $('.share-weibo').bind('click',function (event) {
+                    getShareType('event','4');
+                });
 
                 function getShareType(event, type) {
                     var data = {

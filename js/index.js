@@ -182,7 +182,20 @@ $(document).ready(function () {
                             errorImage:'../images/errorimg.png'
                         });
                     }
+                }else if (response.result === 'login'){
+                    alert('请重新登录');
+                    againLogin();
+                }else {
+                    alert(response.errorMsg);
                 }
+            },
+            error:function (jqXHR, textStatus, errorThrown) {
+                /*if(textStatus == 'timeout'){
+                    alert('请求超时，请重试');
+                }else {
+                    alert('服务器异常');
+            }*/
+                alert('服务器异常');
             }
         });
     }

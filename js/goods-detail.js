@@ -91,13 +91,19 @@ $(document).ready(function () {
                                 var content = response.data.content;
                                 $('.share-loading').hide();
                                 $('.wxmass-sends').show();
-                                $('.share-firends').one('click', function (event) {
+                                $('.share-firends').bind('click', function (event) {
                                     getShareType(event, '1');
-                                    return false
+                                    return false;
                                 });
-                                $('.share-firends-quan').one('click', function (event) {
+                                $('.share-firends-quan').bind('click', function (event) {
                                     getShareType(event, '2');
-                                    return false
+                                    return false;
+                                });
+                                $('.share-QQ').bind('click',function (event) {
+                                    getShareType(event, '3');
+                                });
+                                $('.share-weibo').bind('click',function (event) {
+                                    getShareType('event','4');
                                 });
 
                                 function getShareType(event, type) {
