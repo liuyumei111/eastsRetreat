@@ -56,12 +56,11 @@
                             <!--<span>{{preProfit}}</span>-->
                         </div>
                     </li>
-                    <li>
+                    <li class="li-center">
                         <div class="four"></div>
                         <div>
                             <span class="cd e9-color">入驻邀请</span><br>
                         </div>
-
                     </li>
 
                 </ul>
@@ -77,7 +76,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="transuccess.html" class="display-box">
+                    <a href="buyer_detail.html" class="display-box">
                         买家管理
                     </a>
                 </li>
@@ -174,7 +173,13 @@
 
                     $('.confirm-button').unbind().bind('click',insertName);
 
-                })
+                });
+
+                $('.li-bor').click(function () {
+                    location.href = 'generalize_detail.html';
+                });
+                $('.li-center').bind('click',goEenterInvite);
+
             } else if (data.result == 'login') {
                 alert('登录已过期，请重新登录');
                 againLogin();
@@ -184,6 +189,19 @@
         }
     });
 
+    function goEenterInvite() {
+        var ua = navigator.userAgent.toLowerCase();
+        var inviteData = {
+            postType:'inviteEnter'
+        };
+        if (/iphone|ipad|ipod/.test(ua)) {
+            iosJumpInvite(inviteData)
+        } else {
+            androidJumpInvite(JSON.stringify(inviteData));
+        }
+    }
+
+    //修改昵称
     function insertName(event) {
         event.stopPropagation();
         var name = $('.userName1').val();
@@ -211,6 +229,13 @@
             })
         }
 
+    }
+
+    function androidJumpInvite(param) {
+        window.huifa.inviteEnter(param)
+    }
+    function iosJumpInvite(param) {
+        window.webkit.messageHandlers.inviteEnter.postMessage(param);
     }
 
 

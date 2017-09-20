@@ -124,6 +124,15 @@ $(document).ready(function () {
         }
     });
 
+    //判断是佣金还是提成
+    Handlebars.registerHelper('isTiCheng',function (value) {
+        if (value == '001'){
+            return '佣金'
+        }else if (value == '002'){
+            return '提成'
+        }
+    })
+
     //判断value的状态，渲染不同的数据
     Handlebars.registerHelper('valueCompare', function(left, operator, right, options) {
         if (arguments.length < 3) {

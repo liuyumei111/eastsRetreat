@@ -1,0 +1,139 @@
+.aui-bar-nav .aui-iconfont{
+    color: #141414;
+}
+.aui-bar-nav{
+    background-color: #fff;
+    border-bottom: 0.05rem solid #d1d1d1;
+    border-top: 0.05rem solid #d1d1d1;
+}
+.my-aui-title{
+    color: #141414;
+}
+.total-sales-box{
+    width: 100%;
+    height: 10.0rem;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    background: url("../images/generalize_detail.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    font-size: 0.6rem;
+
+}
+.total-sales{
+    font-size: 1.5rem;
+}
+.total-select-box{
+    margin-top: 0.75rem;
+    width: 100%;
+    height: 2.2rem;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    padding: 0 0.75rem;
+    align-items: center;
+    font-size: 0.7rem;
+}
+.select-box{
+    width: 5.6rem;
+    height: 100%;
+    border: 0.05rem solid #b1b1b1;
+    border-radius: 0.25rem;
+    text-align: center;
+    padding: 0 0.5rem;
+}
+.select-box>select{
+    width: 100%;
+    height: 100%;
+    border: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: url("../images/arrow.png") no-repeat scroll right center transparent;
+    text-align: center;
+}
+.select-datetime{
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 0.05rem solid #b1b1b1 ;
+    border-radius: 0.25rem;
+    height: 100%;
+}
+input::-ms-input-placeholder{
+    text-align: center;
+    font-size: 0.7rem;
+}
+input::-webkit-input-placeholder{
+    text-align: center;
+    font-size: 0.7rem;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+    height: 99%;
+    text-align: center;
+}
+.total-search{
+    margin-top: 0.5rem;
+    padding: 0 0.75rem;
+    width: 100%;
+    height: 2.2rem;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+#search-input {
+    outline: none;
+    position: absolute;
+    top: 0;
+    left: 1.3rem;
+    background: #fff!important;
+    padding-left: 0.25rem;
+}
+.aui-searchbar{
+    background-color: #fff;
+    border: 0.05rem solid #b1b1b1;
+    border-radius: 0.25rem;
+    width: 70%;
+}
+.aui-searchbar-input {
+    margin: 0 0.3rem 0 0.5rem;
+}
+.aui-text-info{
+    color: rgb(242, 48, 48) !important;
+    width: 20%;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    text-align: center;
+    border: 0.05rem solid rgb(242, 48, 48);
+    border-radius: 0.25rem;
+}
+.have-search-data{
+    padding: 0 0.75rem;
+    font-size: 0.7rem;
+    color: rgb(20, 20, 20);
+}
+.search-data-info{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.total-ticheng{
+    color: rgb(242, 48, 48);
+    font-size: 0.6rem;
+}
+.none-data{
+    color: #d1d1d1;
+    font-size: 0.7rem;
+    text-align: center;
+    display:none;
+}
+

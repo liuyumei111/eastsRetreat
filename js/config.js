@@ -97,11 +97,14 @@
         seckill:'seckill/list',
         //秒杀详情
         seckillDetail:'seckill/detail',
+        //秒杀banner
         seckillBanner:'seckill/banners',
-
-    //    修改昵称
-        edit:'uc/edit'
-
+        //修改昵称
+        edit:'uc/edit',
+        //推广明细
+        tgmx:'uc/tgmx',
+        //买家管理
+        mjmx:'uc/mjgl'
     };
 
     //商城合mall接口地址
