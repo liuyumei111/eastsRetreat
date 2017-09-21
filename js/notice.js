@@ -24,6 +24,10 @@ $(document).ready(function () {
                 $('#notice-detail').html(nDetailCmp(data));
             }
         }
+    });
+    $('.go-back').click(function () {
+
+        window.location.href=document.referrer;
     })
 
 });

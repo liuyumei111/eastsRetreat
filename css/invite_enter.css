@@ -1,0 +1,54 @@
+html{
+	width: 100%;
+	height: 100%;
+	overflow:hidden;
+}
+body{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: url("../images/enter_bgm.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 2.0rem;
+}
+.enter-icon{
+	margin-top: 11.0rem;
+	text-align: center;
+	width: 100%;
+	height: 5.6rem;
+	margin-bottom: 3.0rem;
+}
+.enter-icon>img{
+	width: 20.5rem;
+	height: 5.6rem;
+	margin: 0 auto;
+}
+.enter-name{
+	margin-bottom: 1.0rem;
+	font-weight: bold;
+}
+.enter-tubiao{
+	margin-top: 14.1rem;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 5.0rem;
+}
+.enter-tubiao>img{
+	width: 8.0rem;
+	height: 8.0rem;
+}
+#now-inbite{
+	width: 21.0rem;
+	height: 5.0rem;
+	line-height: 5.0rem;
+	margin: 0 auto;
+	font-size: 1.8rem;
+	background-color: #f23030;
+}
+

@@ -36,6 +36,7 @@ $(document).ready(function () {
 
     getOrderInfo();
     $('.aui-searchbar-btn').click(function () {
+        start = num = 0;
         query()
     });
 
@@ -62,6 +63,7 @@ $(document).ready(function () {
         }
 
         $('.no-info').hide();
+        $('.none-data').hide();
         $('.loading').show();
         flag = 1;
         $.ajax({
@@ -78,6 +80,7 @@ $(document).ready(function () {
             },
             success:function (response) {
                 if (response.result === 'success'){
+
                     $('.loading').hide();
                     num++;
                     console.log(response.data);
@@ -90,6 +93,7 @@ $(document).ready(function () {
                         $('.none-data').show();
                     }
                     if (data.orders.length >0){
+
                         $('#total-data').append(totalCmp(data));
                     }else {
                         /*$('.no-info').show();*/

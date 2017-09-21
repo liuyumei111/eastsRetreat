@@ -37,6 +37,7 @@ $(document).ready(function () {
 
     getOrderInfo();
     $('.aui-searchbar-btn').click(function () {
+        start = num = 0;
         query()
     });
 
@@ -61,7 +62,9 @@ $(document).ready(function () {
         if (flag){
             return ;
         }
+        $('.none-data').hide();
         $('.no-info').hide();
+
         flag = 1;
         var loading =dialog.loading();
         $.ajax({
@@ -83,16 +86,18 @@ $(document).ready(function () {
             success:function (response) {
                 if (response.result === 'success'){
                     num++;
+
                     console.log(response.data);
                     var data = response.data;
                     var money = data.money;
                     $('.total-sales').html(money);
                     maxnum = data['count'];
-                    start = num *pageLength
+                    start = num *pageLength;
                     if (maxnum == 0){
                         $('.none-data').show();
                     }
                     if (data.orders.length >0){
+
                         $('#total-data').append(totalCmp(data));
                     }else {
                         /*$('.no-info').show();*/

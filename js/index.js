@@ -195,7 +195,7 @@ $(document).ready(function () {
                 }else {
                     alert('服务器异常');
             }*/
-                alert('服务器异常');
+                //alert('服务器异常');
             }
         });
     }
