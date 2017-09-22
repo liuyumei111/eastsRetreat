@@ -4,9 +4,7 @@
 
 $(document).ready(function () {
     var detailId=locationSearcher('productId');
-    // var detailId=locationSearcher('spuId');
-    // var detailId=location.search.replace('?productid=','');
-    // console.log(detailId);
+
     //详情数据模板
     var detailTpl=$('#detail-template').html();
     var detailCmp=Handlebars.compile(detailTpl);
