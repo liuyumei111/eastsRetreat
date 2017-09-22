@@ -18,8 +18,6 @@
     // C.marketToken=localStorage.getItem('token');
     //localStorage.setItem('token','201709181509405117a680d79b7f3f4bfc9c0b497395b511bb');
     C.marketToken=localStorage.getItem('token');
-    //获取微信oppenId
-    C.getWxUserInfo='http://www.rrfun.com.cn/Uc/getInfo';
 
     //mall接口
     C.interface={
