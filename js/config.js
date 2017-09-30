@@ -16,7 +16,7 @@
     C.market=marketHost+'/market/mobile/';
 
     // C.marketToken=localStorage.getItem('token');
-    //localStorage.setItem('token','201709181509405117a680d79b7f3f4bfc9c0b497395b511bb');
+    //localStorage.setItem('token','20170927175121585601b15ee861dd4607a2f2d59b8ce63ab4');
     C.marketToken=localStorage.getItem('token');
 
     //mall接口
@@ -43,7 +43,9 @@
         seckill:'seckill/list',
         //秒杀详情
         seckillDetail:'seckill/detail',
-        seckillBanner:'seckill/banners'
+        seckillBanner:'seckill/banners',
+        //京东数据接口
+        jdShop:'jd/index'
 
     };
     //market接口
@@ -102,7 +104,11 @@
         //推广明细
         tgmx:'uc/tgmx',
         //买家管理
-        mjmx:'uc/mjgl'
+        mjmx:'uc/mjgl',
+        //首页京东商品分享
+        homeJDShare:'jd/share',
+        //首页京东数据
+        jdShop:'jd/index'
     };
 
     //商城合mall接口地址

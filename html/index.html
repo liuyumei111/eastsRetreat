@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../css/aui.2.0.css">
     <link rel="stylesheet" href="../css/homeCommon.css">
     <link rel="stylesheet" href="../css/homePage.css">
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/aui-slide.css">
+    <link rel="stylesheet" href="../css/alert.css">
+    <link rel="stylesheet" href="../css/discountMall.css">
 </head>
 <body>
 <!--搜索框-->
@@ -24,61 +24,73 @@
                 </div>
             </form>
         </div>
-        <div class="aui-searchbar-btn aui-text-info" id="search-product" tapmode>搜索</div>
+        <div class="aui-searchbar-btn aui-text-info" tapmode>搜索</div>
     </div>
 </header>
-<nav id="discount-search">
-
-    <!--轮播图-->
-    <div id="aui-slide3"></div>
-
-
-    <!--时间卡-->
-    <div class="wrap" id="wrap">
-        <ul class="tabClick">
-            <li data-hour-range="1" class="data-tab">
-                <div>0:00</div>
-                <div class="desc">即将开始</div>
-            </li>
-            <li data-hour-range="2" class="data-tab">
-                <div>4:00</div>
-                <div class="desc">即将开始</div>
-            </li>
-            <li data-hour-range="3" class="data-tab">
-                <div>8:00</div>
-                <div class="desc">即将开始</div>
-            </li>
-            <li data-hour-range="4" class="data-tab">
-                <div>12:00</div>
-                <div class="desc">即将开始</div>
-            </li>
-            <li data-hour-range="5" class="data-tab">
-                <div>16:00</div>
-                <div class="desc">即将开始</div>
-            </li>
-            <li data-hour-range="6" class="data-tab">
-                <div>20:00</div>
-                <div class="desc">即将开始</div>
-            </li>
-        </ul>
-        <div class="tabCon">
-            <div class="tabBox">
-                <div id="tab1" class="tabList">
-
-
-                </div>
-            </div>
-        </div>
-    </div>
+<nav>
+    <div id="dis-list-vessel"></div>
     <div class="loading">加载更多...</div>
     <div class="no-info">没有更多信息了...</div>
-    <div class="clear"></div>
+    <div class="footer-height"></div>
+    <div class="all-mask"></div>
+
+    <!--立即推广-->
+    <section class="wxmass-sends">
+        <section class="wxmass-sends-item">
+            <div class="wxmass-item-title">
+                <span class="cancel">取消</span>
+                <span>分享</span>
+
+            </div>
+            <!--<div class="wxmass-item-img">
+                <img src="../images/banner1.png" alt="">
+            </div>-->
+            <ul class="wxmass-item-list">
+                <li class="share-firends">
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends1.png" alt="">
+                    </div>
+                    <span>发送给朋友</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+                <li class="share-firends-quan">
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends2.png" alt="">
+                    </div>
+                    <span>分享到朋友圈</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+                <!--<li class="share-QQ">
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends2.png" alt="">
+                    </div>
+                    <span>分享到QQ</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>
+                <li class="share-weibo">
+                    <div class="wxmass-item-list-img">
+                        <img src="../images/sends2.png" alt="">
+                    </div>
+                    <span>分享到微博</span>
+                    <div class="aui-col-xs-3 wxmass-col-xs-3">
+                        <i class="aui-iconfont aui-icon-right"></i>
+                    </div>
+                </li>-->
+            </ul>
+        </section>
+    </section>
 </nav>
 
 <footer class="aui-bar aui-bar-tab" id="footer">
     <a href="javascript:;">
         <div class="aui-bar-tab-item my-aui-active" tapmode>
-            <i class="aui-iconfont aui-icon-home"></i>
+            <img class="footer-icon-img" src="../images/JD_click.png" alt="">
             <div class="aui-bar-tab-label">首页</div>
         </div>
     </a>
@@ -100,102 +112,30 @@
             <div class="aui-bar-tab-label">我</div>
         </div>
     </a>
-</footer>
-<!--轮播模板-->
-<script type="text/x-handlebars-template" id="swiper-template">
-    <div class="aui-slide-wrap">
-        {{#each (splitDetailImg this)}}
-        <div class="aui-slide-node bg-dark">
-            <a href="javascript:;" class="display-box">
-                <img src="{{name}}"/>
-            </a>
-        </div>
-        {{/each}}
-    </div>
-    <!--分页容器-->
-    <div class="aui-slide-page-wrap"></div>
-</script>
-<!--秒杀数据模板-->
-<script type="text/x-handlebars-template" id="seckill-template">
-    <div class="home-three">
-        {{#each this}}
-        {{#productdetail}}
-        <a href="goodsdetail.html?productId={{../spuId}}" class="display-box">
-            <div class="home-three-box">
-                <img src="../images/lazy.gif" data-src="{{mainImageUrl}}" alt="">
-                <div class="home-three-price">
-                    <span>￥{{productPrice}}</span>
-                    <span>￥{{productOrginPrice}}</span>
-                </div>
-                <div class="home-three-sales">销量:{{totalSales}}</div>
-                <div class="home-three-top">
-                    <img class="top-img" src="../images/fire.png" alt="">
-                    <span>{{plus @index}}</span>
-                </div>
-            </div>
-        </a>
-        {{/productdetail}}
-        {{/each}}
-    </div>
-</script>
-<script type="text/x-handlebars-template" id="seckill-list-template">
-    {{#each this}}
-    <!--新模板-->
-    <a href="goodsdetail.html?productId={{spuId}}" class="display-box">
-        {{#productdetail}}
-        <div class="dis-list-box">
+</footer><script type="text/x-handlebars-template" id="discount-list-template">
+    {{#each list}}
+    <a href="javascript:;" class="display-box" >
+        <div class="dis-list-box" data-id="{{id}}" data-sku="{{sku}}" data-couponurl="{{conUrlB}}">
             <div class="dis-shop-img">
-                <img src="../images/lazy.gif" data-src="{{mainImageUrl}}" alt="">
+                <!--<img src="../img/grey.gif" data-src="{{mainImageUrl}}" alt="">-->
+                <img src="../images/lazy.gif" data-src="{{goodsUrl}}" alt="">
             </div>
             <div class="dis-list-content">
                 <div class="dis-shop-detail">
-                    <span class="hongbao">红包{{productHongbao}}元</span>
-                    <span class="shop-list-name">{{name}}</span>
+                    <span class="hongbao youhuiquan">红包 <span>{{conPrice}}</span>元</span>
+                    <span class="shop-list-name">{{goodsName}}</span>
                 </div>
                 <div class="dis-price">
-                    <span>￥{{productPrice}}</span>
-                    <span>￥{{productOrginPrice}}</span>
+                    <span>￥{{conTicketPrice}}</span>
+                    <span>￥{{oriPrice}}</span>
                 </div>
                 <div class="dis-evaluate">
-                    <span>赚:{{marketProfit}}元</span>
-                    <span>佣金率 <span>{{marketProfitPercent}}</span></span>
-                </div>
-                <div class="miaosha">
-                    {{#../skus}}
-                    <span class="seckill-count">剩余{{stock}}件</span>
-                    {{/../skus}}
-                    <span class="seckill" {{#if (compare ../autoRenew '==' '1')}} data-auto-renew='1' {{/if}}>去推广</span>
-                </div>
-            </div>
-        </div>
-        {{/productdetail}}
-    </a>
-    {{/each}}
-</script>
-
-<!--搜索模板-->
-<script type="text/x-handlebars-template" id="discount-list-template">
-    {{#each products}}
-    <a href="javascript:;" class="display-box">
-        <div class="dis-list-box">
-            <div class="dis-shop-img">
-                <img src="../images/lazy.gif" data-src={{mainImageUrl}} alt="">
-            </div>
-            <div class="dis-list-content">
-                <div class="dis-shop-detail">
-                    <span class="hongbao">红包 <span>{{productHongbao}}</span>元</span>
-                    <span class="shop-list-name">{{name}}</span>
-                </div>
-                <div class="dis-price">
-                    <span>￥{{productPrice}}</span>
-                    <span>￥{{productOrginPrice}}</span>
-                </div>
-                <div class="dis-evaluate">
-                    <span>{{totalFeedback}}评价</span>
-                    <span>好评<span>{{percentFeedback}}%</span></span>
+                    <span>赚:{{commissionProfit}}元</span>
+                    <span>佣金率 <span>{{splitNumber commission}}%</span></span>
                 </div>
                 <div class="dis-sale">
-                    销量：<span>{{totalSales}}</span>
+                    <span>库存：{{goodsInventory}}</span>
+                    <span class="dis-share" data-id="{{id}}">立即推广</span>
                 </div>
             </div>
         </div>
@@ -203,16 +143,6 @@
     {{/each}}
 </script>
 
-<script src="../js/jquery-3.0.0.min.js"></script>
-<script src="../js/handlebars-v4.0.10.js"></script>
-<script src="../js/config.js"></script>
-<script src="../js/api.2.0.js"></script>
-<script src="../js/search.js"></script>
-<script src="../js/function.js"></script>
-<script src="../js/common.js"></script>
-<script src="../js/aui-lazyload.js"></script>
-<script src="../js/aui-slide.js"></script>
-<script src="../js/index.js"></script>
 <script>
     /**
      * 判断是iOS或是安卓，改变数据的获取方式
@@ -249,10 +179,17 @@
         //alert('获取到的token为'+token);
     }
 
-    var token = locationSearcher('token');
-    localStorage.setItem('token', token);
-
-
 </script>
+<script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/handlebars-v4.0.10.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/api.2.0.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/function.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/alert.js"></script>
+<script src="../js/aui-lazyload.js"></script>
+<script src="../js/aui-slide.js"></script>
+<script src="../js/jd_index.js"></script>
 </body>
 </html>

@@ -131,7 +131,12 @@ $(document).ready(function () {
         }else if (value == '002'){
             return '提成'
         }
-    })
+    });
+
+    Handlebars.registerHelper('splitNumber',function (value) {
+        var result = parseInt(value);
+        return result;
+    });
 
     //判断value的状态，渲染不同的数据
     Handlebars.registerHelper('valueCompare', function(left, operator, right, options) {

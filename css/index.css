@@ -78,7 +78,12 @@
 	color: #ff0000;
 	font-weight: bold;
 }
-
+.dis-sale{
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-between;
+	align-items: center;
+}
 
 
 

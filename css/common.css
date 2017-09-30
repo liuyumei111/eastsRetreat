@@ -289,3 +289,18 @@ img {
     display: inline-block;
     background-size: cover;
 }
+
+/*底部icon设置大小*/
+
+.footer-icon-img{
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+.dis-list-content{
+    width: 60%;
+}
+
+
