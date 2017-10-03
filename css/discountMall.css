@@ -42,7 +42,13 @@
 	color: #fff;
 	border-radius: 0.2rem;
 }
-
+#search-input {
+	outline: none;
+	position: absolute;
+	top: 0;
+	left: 1.3rem;
+	background: #fff!important;
+}
 
 
 

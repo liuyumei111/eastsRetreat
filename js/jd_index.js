@@ -101,11 +101,12 @@ $(document).ready(function () {
 
     //搜索数据
     $('.aui-searchbar-btn').bind('click',jdSearch);
+    $('.search-form').submit(jdSearch);
     //取消搜索
     $('#clean-search').bind('click',cancelSearch);
 
     function jdSearch() {
-
+        event.preventDefault();
         keyword = $('#search-input').val();
         if (keyword == '' ){
             return false;
