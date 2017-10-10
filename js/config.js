@@ -7,7 +7,7 @@
     //var apiHost='http://192.168.199.107:8081';
     var apiHost='http://www.jhjvip.cn:8080';
     //云店
-    //var marketHost='http://192.168.199.107:8083';
+   // var marketHost='http://192.168.199.107:8083';
     var marketHost='http://www.jhjvip.cn:8081';
     //配置项
     w.C={};
@@ -16,7 +16,7 @@
     C.market=marketHost+'/market/mobile/';
 
     // C.marketToken=localStorage.getItem('token');
-    //localStorage.setItem('token','20170927175121585601b15ee861dd4607a2f2d59b8ce63ab4');
+    localStorage.setItem('token','201710091133173209b3a0c272ea794c45bf22af197f4fbd40');
     C.marketToken=localStorage.getItem('token');
 
     //mall接口
@@ -79,7 +79,7 @@
         discount:'product/index',
         //商品类别
         selectType:'index/categorys',
-        //推广中心
+        //分享中心
         promotionCenter:'index/index',
         //销售管理(成功，失败，交易中)
         orderList:'uc/order/list',
@@ -101,14 +101,16 @@
         seckillBanner:'seckill/banners',
         //修改昵称
         edit:'uc/edit',
-        //推广明细
+        //分享明细
         tgmx:'uc/tgmx',
         //买家管理
         mjmx:'uc/mjgl',
         //首页京东商品分享
         homeJDShare:'jd/share',
         //首页京东数据
-        jdShop:'jd/index'
+        jdShop:'jd/index',
+        //首页京东数据
+        tixian:'pay/tixian'
     };
 
     //商城合mall接口地址

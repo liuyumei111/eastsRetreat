@@ -59,7 +59,7 @@ $(document).ready(function () {
                     'dotPosition':'center'
                 });
 
-                //点击立即推广
+                //点击立即分享
                 $('.now-generalize').bind('click',function (event) {
                     event.preventDefault();
                     event.stopPropagation();
@@ -212,7 +212,7 @@ $(document).ready(function () {
 
 
 
-/*    //立即推广
+/*    //立即分享
     function nowTuiGuang(event) {
         event.preventDefault();
         event.stopPropagation();

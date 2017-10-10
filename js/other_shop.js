@@ -169,7 +169,7 @@ function ajaxGetShopData() {
                 }
                 flag = 0;
 
-                //立即推广
+                //立即分享
                 $('.dis-sale').unbind().bind('click', nowTuiGuang);
 
                 /*点击关闭*/
@@ -182,7 +182,7 @@ function ajaxGetShopData() {
     })
 }
 
-//立即推广
+//立即分享
 function nowTuiGuang(event) {
     //默认行为
     event.preventDefault();
@@ -197,9 +197,9 @@ function nowTuiGuang(event) {
     var shareProductId = thisPapa.data('productid');
     //设置localStorage   key:shareId   value:shareProductId
     localStorage.setItem('shareId', shareProductId);
-    //点开立即推广之后的商品图src
+    //点开立即分享之后的商品图src
     $('.wxmass-item-img').find('img').attr('src', thisImg);
-    //点击立即推广就显示这个层
+    //点击立即分享就显示这个层
     $('.wxmass-sends').show();
     //点击分享--发送给朋友
     $('.share-firends').unbind().bind('click', function (event) {
@@ -342,13 +342,13 @@ function copyurl() {
 
 }
 
-// 立即推广拉取安卓分享
+// 立即分享拉取安卓分享
 function androidShare(param) {
     //alert(param);
     window.huifa.shareProducts(param);
 }
 
-//立即推广拉取iOS分享
+//立即分享拉取iOS分享
 function iosShare(param) {
     window.webkit.messageHandlers.shareProducts.postMessage(param);
 }

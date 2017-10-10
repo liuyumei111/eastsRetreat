@@ -39,6 +39,7 @@
                 <option value="{{id}}">{{name}}({{count}})</option>
                 {{/each}}
             </select>
+
             <select class="dis-shop-sort">
                 <option value="">默认排序</option>
                 <option value="priceAsc">价格由低到高</option>
@@ -63,7 +64,7 @@
                     <div class="aui-list-item-inner">
                         <label><input class="aui-radio servenBack" type="checkbox" name="radio2"> 退货免运费</label>
                     </div>
-                    <div id="nmbConfirm">确定</div>
+                    <div id="nmbConfirm" onclick="sxbtn()">确定</div>
                 </div>
             </div>
         </script>
@@ -93,7 +94,7 @@
                         <div class="dis-del-sale">
                             <div class="dis-del"></div>
                             <div class="dis-sale ">
-                                <span class="now-tuiguang">立即推广</span>
+                                <span class="now-tuiguang">立即分享</span>
                             </div>
                         </div>
                     </div>
@@ -106,7 +107,7 @@
     <div class="no-info">没有更多信息了...</div>
     <div class="default-height"></div>
 
-    <!--立即推广-->
+    <!--立即分享-->
     <section class="wxmass-sends">
         <section class="wxmass-sends-item">
             <div class="wxmass-item-title">
@@ -173,7 +174,7 @@
     <a href="extension.html">
         <div class="aui-bar-tab-item" tapmode>
             <i class="aui-iconfont aui-icon-calendar"></i>
-            <div class="aui-bar-tab-label">推广中心</div>
+            <div class="aui-bar-tab-label">分享中心</div>
         </div>
     </a>
     <a href="javascript:;">
@@ -200,7 +201,12 @@
 <script src="../js/api.js"></script>
 <script src="../js/search.js"></script>
 <script>
+    var hei=$(window).height();
+    $("body").css("height",hei);
+    $(function () {
 
+
+    })
     //商品信息
     var shoptpl = $('#discount-list-template').html();
     var shopTemplate = Handlebars.compile(shoptpl);
@@ -266,9 +272,13 @@
                 });
 
                 /*筛选按钮的切换*/
-                $('.dis-screen-btn').click(function () {
+                $('.dis-screen-btn').on("click",function () {
                     $(this).toggleClass('dis-screen-active');
-                    $('.dis-screen').toggle();
+                    if($(this).hasClass('dis-screen-active')){
+                        $(".dis-screen").show();
+                    }else {
+                        $(".dis-screen").hide();
+                    }
                 });
 
             } else if (response.result == 'login') {
@@ -399,7 +409,7 @@
                     }
                     flag = 0;
 
-                    //这里添加立即推广事件
+                    //这里添加立即分享事件
                     $('.now-tuiguang').unbind().bind('click', nowTuiGuang);
                     //取消分享弹框
                     $('.cancel').click(function () {
@@ -415,7 +425,7 @@
         })
     }
 
-    //立即推广
+    //立即分享
     function nowTuiGuang(event) {
         event.preventDefault();
         event.stopPropagation();
@@ -519,10 +529,6 @@
     }
 
 
-    //点击确定筛选
-    $(document).on('click', '#nmbConfirm', function () {
-        getScreen()
-    });
 
     //关闭当前筛选菜单栏
     $('.all-mask').bind('click', function () {
@@ -535,9 +541,9 @@
         //当前筛选菜单栏
 //        $('.all-mask').show();
 //        全部
-        var shopType = $('.dis-shop-type').val();
+       // var shopType = $('.dis-shop-type').val();
 //        默认排序
-        var shopSales = $('.dis-shop-sort').val();
+      //  var shopSales = $('.dis-shop-sort').val();
 //          最低价
         var lowPrice = $('.dis-low-price').val();
 //          最高价
@@ -552,7 +558,7 @@
 //        最低销量-最高销量
         minMaxSales = lowSales + '-' + highSales;
 //        定义一个变量
-        var servenBack = null;
+        var servenBack ="";
 //        console.log(minMaxPrice);
 //        console.log(minMaxSales);
 //      退货免运费选项是否选中
@@ -562,7 +568,7 @@
             servenBack = 0;
         }
 //        如果 最低价-最高价  最低销量-最高销量  =空
-        if (lowPrice == '' && highPrice == '' && lowSales == '' && highSales == ''&&servenBack==null) {
+        if (lowPrice == " " && highPrice == " " && lowSales ==" " && highSales == " " && servenBack=="") {
             alert('没有填写筛选数据');
             return false;
         }
@@ -576,8 +582,8 @@
             alert('最低销量不能大于最高销量');
             return false;
         }
-
-        $('.dis-screen').toggle();
+        $('.dis-screen-btn').removeClass("dis-screen-active");
+        $(".dis-screen").hide();
         $('#dis-list-vessel').empty();
 
         //清空搜索数据
@@ -589,6 +595,9 @@
        ajaxGetShopData();
     }
 
+//    $(document).on("click","#nmbConfirm",function () {
+//
+//    });
 
     //红包
     Handlebars.registerHelper('hongbao', function (sales) {
@@ -612,6 +621,11 @@
             errorImage: '../images/error-img.png'
         });
     });
+    //点击确定筛选
+    function sxbtn() {
+        getScreen();
+    }
+
 </script>
 <!--<script src="../js/commodity.js"></script>-->
 </body>

@@ -169,7 +169,7 @@ function ajaxGetShopData() {
                 }
                 flag=0;
 
-                //这里添加立即推广事件
+                //这里添加立即分享事件
                 $('.now-tuiguang').unbind().bind('click',nowTuiGuang);
                 //取消分享弹框
                 $('.cancel').click(function () {
@@ -189,7 +189,7 @@ function ajaxGetShopData() {
 
 
 
-//立即推广
+//立即分享
 function nowTuiGuang(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -274,7 +274,10 @@ function iosShare(param) {
 
 
 //筛选
-$(document).on('click','#nmbConfirm',getScreen);
+$('#nmbConfirm').on('click',function () {
+    alert("1111111111")
+    getScreen();
+});
 $('.all-mask').bind('click',function () {
     $('.dis-screen-price').hide();
 });
@@ -285,6 +288,7 @@ $('.all-mask').bind('click',function () {
 
 //商品筛选
 function getScreen() {
+
     $('.all-mask').show();
     var shopType=$('.dis-shop-type').val();
     var shopSales=$('.dis-shop-sort').val();

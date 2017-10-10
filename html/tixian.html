@@ -17,21 +17,21 @@
     </header>
 
     <div class="con-pay-method">
-        <div class="con-pay-wechat">
-            <div class="con-pay-left">
-                <img src="../images/wx_pay.png" alt="">
-                <span>微信支付</span>
-                <span>微信安全支付</span>
-            </div>
-            <input class="aui-radio con-pay-select" checked type="radio" name="radio1" value="1">
-        </div>
+        <!--<div class="con-pay-wechat">-->
+            <!--<div class="con-pay-left">-->
+                <!--<img src="../images/wx_pay.png" alt="">-->
+                <!--<span>微信支付</span>-->
+                <!--<span>微信安全支付</span>-->
+            <!--</div>-->
+            <!--<input class="aui-radio con-pay-select" checked type="radio" name="radio1" value="1">-->
+        <!--</div>-->
         <div class="con-pay-wechat">
             <div class="con-pay-left">
                 <img src="../images/zfb.png" alt="">
                 <span>支付宝支付</span>
                 <span>支付宝安全支付</span>
             </div>
-            <input class="aui-radio con-pay-select" type="radio" name="radio1" value="2">
+            <input class="aui-radio con-pay-select" type="radio" name="radio1" value="2" checked>
         </div>
     </div>
 
@@ -47,19 +47,29 @@
             <p>提现金额</p>
             <div class="tixian-input">
                 <span>￥</span>
-                <input type="number" placeholder="在此输入金额">
+                <input type="number" placeholder="在此输入金额" id="txje">
+            </div>
+            <p style="margin-top: 10px;padding-left: .5rem;">支付宝账号</p>
+            <div class="tixian-input">
+                <input type="text" placeholder="输入支付宝账号" id="zfbzh">
+            </div>
+            <p style="margin-top: 10px;padding-left: .5rem;">支付宝用户名</p>
+            <div class="tixian-input">
+                <input type="text" placeholder="输入支付宝用户名" id="zfbname">
             </div>
             <div class="tixian-history">
                 <span class="tixian-jilu">
                     <a href="tixian_record.html" class="display-box">提现记录</a>
                 </span>
-                <span class="tixian-all">全部提现</span>
+                <span class="tixian-all" onclick="alltx()">全部提现</span>
             </div>
-            <div class="tixian-button">提现</div>
+            <div class="tixian-button" onclick="submit()">提现</div>
             <div class="tixian-time">2小时内到账</div>
         </div>
     </section>
     <script src="../js/jquery-3.0.0.min.js"></script>
-    <script src="../js/common.js"></script>
+    <script src="../js/layer.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/tixian.js"></script>
 </body>
 </html>

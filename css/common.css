@@ -72,12 +72,11 @@ img {
     top: 0;
     left: 0;
     display: none;
+    z-index: 11;
 }
 .wxmass-sends-item{
     width: 90%;
-     height: 8rem;
-    /*height: 12rem;*/
-    /*background-color: #fff;*/
+    height: 6.75rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -86,7 +85,7 @@ img {
     margin: auto;
     border-radius: 0.25rem;
     background: #fff;
-    z-index: 100004;
+    z-index: 9999;
 }
 .wxmass-item-title{
     width: 100%;
