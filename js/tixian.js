@@ -28,7 +28,7 @@ function submit() {
         return false
     }
     $.ajax({
-        url:C.marketInterface.tixian11111111111111111,
+        url:C.marketInterface.tixian111111111111122222222,
         type:'get',
         dataType:'json',
         data:{
