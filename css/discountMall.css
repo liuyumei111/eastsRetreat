@@ -49,7 +49,28 @@
 	left: 1.3rem;
 	background: #fff!important;
 }
+.dis-evaluate{
+	color: #1b1b1b;
+	font-size: 0.65rem;
+	display: flex;
+	display: -webkit-flex;
+	/* justify-content: space-around; */
+	align-items: center;
+	width: 100%;
+}
+.dis-evaluate>span:nth-child(2){
+	/* float: right;
+	margin-right: 0.233rem; */
+	color: #1b1b1b;
 
+
+}
+.dis-evaluate>span:nth-child(1){
+	width: 46%;
+	font-size: 0.65rem;
+	color: #ff0000;
+	font-weight: bold;
+}
 
 
 

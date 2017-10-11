@@ -8,10 +8,24 @@ html, body{
 /* 分享 */
 .my-share{
     width:100%;
-    height: 7.05rem;
     margin: 0.75rem 0;
     background-color: #fff;
-    padding-top: 0.7rem;
+    padding: 0.7rem 0;
+}
+.bifa-box{
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 0.5rem;
+}
+.bifa{
+	font-size: 0.8rem;
+	color: #323232;
+}
+.update{
+	font-size: 0.6rem;
 }
 .my-share>ul{
 	display: -webkit-flex;
@@ -23,6 +37,7 @@ html, body{
 	text-align: center;
 }
 .my-share-li>span{
+	font-weight: bold;
 	font-size: 0.8rem;
 	color: #333333;
 }

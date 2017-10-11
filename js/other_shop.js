@@ -307,7 +307,7 @@ function shareFrends(event, type) {
             }
         },
         error: function () {
-            alert('服务器异常');
+            //alert('服务器异常');
         }
     });
 

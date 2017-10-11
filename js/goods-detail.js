@@ -138,7 +138,7 @@ $(document).ready(function () {
                             }
                         },
                         error: function () {
-                            alert('服务器异常');
+                            //alert('服务器异常');
                         }
                     });
                 });
