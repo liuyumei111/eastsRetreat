@@ -110,7 +110,10 @@
         //首页京东数据
         jdShop:'jd/index',
         //首页京东数据
-        tixian:'pay/tixian'
+        //提现请求接口
+        tixian:'tixian/add',
+        //提现记录
+        tixianDetail:'tixian/list'
     };
 
     //商城合mall接口地址

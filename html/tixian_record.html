@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>提现记录</title>
     <link rel="stylesheet" href="../css/aui.2.0.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/alert.css">
     <link rel="stylesheet" href="../css/tixian_record.css">
 </head>
 <body>
@@ -17,31 +19,48 @@
 </header>
 <section class="tixian-record-box">
     <ul id="tixian-record">
-        <li class="tixian-list tixian-record-success">
-            <div class="tixian-sales-box">
-                <div class="tixian-success-sales tixian-sales">提现200元</div>
-                <div class="tixian-success-time">2017-07-01 13:07:08</div>
-            </div>
-            <div class="tixian-success">提现成功</div>
-        </li>
-        <li class="tixian-list tixian-record-fail">
-            <div class="tixian-sales-box">
-                <div class="tixian-fail tixian-sales">提现200元</div>
-                <div class="tixian-success-time">2017-07-01 13:07:08</div>
-            </div>
-            <div class="tixian-fail">提现失败</div>
-        </li>
-        <li class="tixian-list tixian-record-ing">
-            <div class="tixian-sales-box">
-                <div class=" tixian-sales">提现200元</div>
-                <div class="tixian-ing-time">2017-07-01 13:07:08</div>
-            </div>
-            <div class="tixian-ing">提现失败</div>
-        </li>
 
     </ul>
 </section>
+<div class="loading">加载更多...</div>
+<div class="no-info">没有更多数据了...</div>
+<script id="tixian-record-template" type="text/x-handlebars-template">
+    {{#each list}}
+    {{#valueCompare isGive '===' '2'}}
+        <li class="tixian-list tixian-record-ing">
+            <div class="tixian-sales-box">
+                <div class=" tixian-sales">提现{{money}}元</div>
+                <div class="tixian-ing-time">{{createTime}}</div>
+            </div>
+            <div class="tixian-ing">提现失败</div>
+        </li>
+    {{/valueCompare}}
+    {{#valueCompare isGive '===' '1'}}
+        <li class="tixian-list tixian-record-success">
+            <div class="tixian-sales-box">
+                <div class="tixian-success-sales tixian-sales">提现{{money}}元</div>
+                <div class="tixian-success-time">{{createTime}}</div>
+            </div>
+            <div class="tixian-success">提现成功</div>
+        </li>
+    {{/valueCompare}}
+    {{#valueCompare isGive '===' '0'}}
+        <li class="tixian-list tixian-record-fail">
+            <div class="tixian-sales-box">
+                <div class="tixian-fail tixian-sales">提现{{money}}元</div>
+                <div class="tixian-success-time">{{createTime}}</div>
+            </div>
+            <div class="tixian-fail">审核中</div>
+        </li>
+    {{/valueCompare}}
+    {{/each}}
+</script>
 <script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/handlebars-v4.0.10.js"></script>
+<script src="../js/alert.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/function.js"></script>
 <script src="../js/common.js"></script>
+<script src="../js/tixian_record.js"></script>
 </body>
 </html>

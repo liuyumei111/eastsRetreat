@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>提现</title>
     <link rel="stylesheet" href="../css/aui.2.0.css">
+    <link rel="stylesheet" href="../css/alert.css">
     <link rel="stylesheet" href="../css/tixian.css">
 </head>
 <body>
@@ -39,7 +40,7 @@
     <section class="can-tixian-sales">
         <div class="tixian-box">
             <span class="tixian-text">可提现金额:</span>
-            <span class="tixian-sales">0元</span>
+            <span class="tixian-sales"> <span class="sales"></span> 元</span>
         </div>
     </section>
     <section class="can-tixian-sales">
@@ -47,7 +48,7 @@
             <p>提现金额</p>
             <div class="tixian-input">
                 <span>￥</span>
-                <input type="number" placeholder="在此输入金额" id="txje">
+                <input type="number" placeholder="输入的提现金额必须大于1元" id="txje">
             </div>
             <p style="margin-top: 10px;padding-left: .5rem;">支付宝账号</p>
             <div class="tixian-input">
@@ -70,6 +71,8 @@
     <script src="../js/jquery-3.0.0.min.js"></script>
     <script src="../js/layer.js"></script>
     <script src="../js/config.js"></script>
+    <script src="../js/alert.js"></script>
+    <script src="../js/function.js"></script>
     <script src="../js/tixian.js"></script>
 </body>
 </html>
