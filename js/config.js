@@ -16,7 +16,7 @@
     C.market=marketHost+'/market/mobile/';
 
     // C.marketToken=localStorage.getItem('token');
-    localStorage.setItem('token','201710091133173209b3a0c272ea794c45bf22af197f4fbd40');
+    //localStorage.setItem('token','201710091133173209b3a0c272ea794c45bf22af197f4fbd40');
     C.marketToken=localStorage.getItem('token');
 
     //mall接口
